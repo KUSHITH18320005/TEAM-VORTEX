@@ -1,0 +1,2626 @@
+[
+  {
+    "exemplar_id": "EX-IDOR-debd0a",
+    "category": "IDOR",
+    "source_incident_id": "INC-2026-API-01",
+    "quality_score": 1.0,
+    "reconstruction_input_summary": "Incident INC-2026-API-01 [IDOR] - Mesh confidence: 0.91",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/user/1042/profile via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/user/1042/profile.",
+        "Step 2: Attacker delivered payload exploiting IDOR condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/user/1042/profile",
+        "source_ip: 198.51.100.42",
+        "category: IDOR"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-2026-API-01: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/user/1042/profile.",
+        "Deploy WAF rule intercepting IDOR signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/user/1042/profile.",
+        "Integrate automated contract regression tests for IDOR into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-2026-API-01. Entry vector on /api/v1/user/1042/profile matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed IDOR severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active IDOR exploitation targeting /api/v1/user/1042/profile originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/user/1042/profile: Deficient input validation or missing authorization boundary allowing IDOR exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975207+00:00"
+  },
+  {
+    "exemplar_id": "EX-IDOR-60172a",
+    "category": "IDOR",
+    "source_incident_id": "INC-VERIF-01-BOLA",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-01-BOLA [IDOR] - Mesh confidence: 0.94",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/user/1042/profile via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/user/1042/profile.",
+        "Step 2: Attacker delivered payload exploiting IDOR condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/user/1042/profile",
+        "source_ip: 198.51.100.42",
+        "category: IDOR"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-01-BOLA: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/user/1042/profile.",
+        "Deploy WAF rule intercepting IDOR signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/user/1042/profile.",
+        "Integrate automated contract regression tests for IDOR into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-01-BOLA. Entry vector on /api/v1/user/1042/profile matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed IDOR severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active IDOR exploitation targeting /api/v1/user/1042/profile originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/user/1042/profile: Deficient input validation or missing authorization boundary allowing IDOR exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975291+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-a7793a",
+    "category": "SQLI",
+    "source_incident_id": "INC-2026-9041-02",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-2026-9041-02 [SQLi] - Mesh confidence: 0.96",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 203.0.113.19",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.19 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 203.0.113.19",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-2026-9041-02: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 203.0.113.19."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.19 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-2026-9041-02. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 203.0.113.19. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975251+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4b147c",
+    "category": "SQLI",
+    "source_incident_id": "INC-TEST-E2E-SQLI",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-TEST-E2E-SQLI [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 203.0.113.88",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.88 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 203.0.113.88",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-TEST-E2E-SQLI: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 203.0.113.88."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.88 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-TEST-E2E-SQLI. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 203.0.113.88. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975273+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4d835f",
+    "category": "SQLI",
+    "source_incident_id": "INC-VERIF-02-SQLI",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-02-SQLI [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 203.0.113.88",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.88 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 203.0.113.88",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-02-SQLI: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 203.0.113.88."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.88 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-02-SQLI. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 203.0.113.88. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975310+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-cb6cbb",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-78C52B",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-78C52B [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-78C52B: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-78C52B. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975622+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4d0252",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-3E11A3",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-3E11A3 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-3E11A3: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-3E11A3. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975661+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4b4b5c",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-2B900F",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-2B900F [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-2B900F: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-2B900F. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975681+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-121726",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-55D657",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-55D657 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-55D657: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-55D657. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975742+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-67f22b",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-F76853",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-F76853 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-F76853: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-F76853. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975807+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-d15dbb",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-4E4A9C",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-4E4A9C [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-4E4A9C: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-4E4A9C. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975873+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-1c5407",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-58B6F5",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-58B6F5 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-58B6F5: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-58B6F5. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975936+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-1a6bd0",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-26E322",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-26E322 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-26E322: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-26E322. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975959+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-b1f937",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-E18189",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-E18189 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-E18189: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-E18189. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975980+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-0d8f03",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260905-D36764",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-D36764 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-D36764: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-D36764. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976002+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-be4ea0",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-22141A",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-22141A [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-22141A: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-22141A. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976022+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-416a77",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-721803",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-721803 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-721803: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-721803. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976062+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4831bc",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-F821BA",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-F821BA [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-F821BA: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-F821BA. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976102+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-54edf0",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-C53D0D",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-C53D0D [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-C53D0D: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-C53D0D. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976142+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-310212",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-E608CE",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-E608CE [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-E608CE: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-E608CE. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976164+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-0f44a6",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-A5C987",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-A5C987 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-A5C987: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-A5C987. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976186+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4154a1",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-CD21A2",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-CD21A2 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-CD21A2: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-CD21A2. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976242+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-692fbe",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-AA9D7C",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-AA9D7C [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-AA9D7C: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-AA9D7C. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976304+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-b0ae8e",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-DCD5FC",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-DCD5FC [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-DCD5FC: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-DCD5FC. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976350+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-45ca1f",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-FE77D1",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-FE77D1 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-FE77D1: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-FE77D1. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976373+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-47b21f",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-B43677",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-B43677 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-B43677: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-B43677. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976490+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-00f70c",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-2D7C49",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-2D7C49 [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-2D7C49: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-2D7C49. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976535+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-c5532b",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-E47A7E",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-E47A7E [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-E47A7E: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-E47A7E. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976581+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-517763",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-B6A18D",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-B6A18D [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-B6A18D: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-B6A18D. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976629+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-27ca0b",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-A5ECFB",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-A5ECFB [SQLi] - Mesh confidence: 0.98",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-A5ECFB: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-A5ECFB. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976655+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-eb9dd8",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-0AE43A",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-0AE43A [SQLi] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-0AE43A: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-0AE43A. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976722+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-2fedf8",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-4D6690",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-4D6690 [SQLi] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-4D6690: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-4D6690. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976769+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-4497e2",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-40D424",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-40D424 [SQLi] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-40D424: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-40D424. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976794+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-abddd0",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-52944C",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-52944C [SQLi] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-52944C: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-52944C. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976842+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQLi-79e3cc",
+    "category": "SQLI",
+    "source_incident_id": "INC-20260906-734F8F",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-734F8F [SQLi] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/orders/search via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/orders/search.",
+        "Step 2: Attacker delivered payload exploiting SQLi condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/orders/search",
+        "source_ip: 198.51.100.42",
+        "category: SQLi"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-734F8F: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/orders/search.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/orders/search.",
+        "Deploy WAF rule intercepting SQLi signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/orders/search.",
+        "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-734F8F. Entry vector on /api/v1/orders/search matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/orders/search originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/orders/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation."
+    },
+    "created_at": "2026-09-06T13:59:49.956058+00:00"
+  },
+  {
+    "exemplar_id": "EX-RCE-d95423",
+    "category": "RCE",
+    "source_incident_id": "INC-VERIF-03-RCE",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-03-RCE [RCE] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/export/pdf via 198.51.100.99",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.99 targeting /api/v1/export/pdf.",
+        "Step 2: Attacker delivered payload exploiting RCE condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/export/pdf.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/export/pdf",
+        "source_ip: 198.51.100.99",
+        "category: RCE"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-03-RCE: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/export/pdf.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/export/pdf.",
+        "Deploy WAF rule intercepting RCE signatures from 198.51.100.99."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/export/pdf.",
+        "Integrate automated contract regression tests for RCE into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.99 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-03-RCE. Entry vector on /api/v1/export/pdf matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed RCE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/export/pdf originating from 198.51.100.99. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/export/pdf: Deficient input validation or missing authorization boundary allowing RCE exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975328+00:00"
+  },
+  {
+    "exemplar_id": "EX-RCE-35040e",
+    "category": "RCE",
+    "source_incident_id": "INC-VERIF-09-SSTI",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-09-SSTI [RCE] - Mesh confidence: 0.96",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/render via 198.51.100.33",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.33 targeting /api/v1/render.",
+        "Step 2: Attacker delivered payload exploiting RCE condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/render.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/render",
+        "source_ip: 198.51.100.33",
+        "category: RCE"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-09-SSTI: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/render.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/render.",
+        "Deploy WAF rule intercepting RCE signatures from 198.51.100.33."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/render.",
+        "Integrate automated contract regression tests for RCE into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.33 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-09-SSTI. Entry vector on /api/v1/render matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed RCE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/render originating from 198.51.100.33. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/render: Deficient input validation or missing authorization boundary allowing RCE exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975401+00:00"
+  },
+  {
+    "exemplar_id": "EX-RCE-9ec9a6",
+    "category": "RCE",
+    "source_incident_id": "INC-VERIF-14-DESERIAL",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-14-DESERIAL [RCE] - Mesh confidence: 0.97",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/session/restore via 198.51.100.64",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.64 targeting /api/v1/session/restore.",
+        "Step 2: Attacker delivered payload exploiting RCE condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/session/restore.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/session/restore",
+        "source_ip: 198.51.100.64",
+        "category: RCE"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-14-DESERIAL: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/session/restore.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/session/restore.",
+        "Deploy WAF rule intercepting RCE signatures from 198.51.100.64."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/session/restore.",
+        "Integrate automated contract regression tests for RCE into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.64 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-14-DESERIAL. Entry vector on /api/v1/session/restore matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed RCE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/session/restore originating from 198.51.100.64. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/session/restore: Deficient input validation or missing authorization boundary allowing RCE exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975489+00:00"
+  },
+  {
+    "exemplar_id": "EX-SSRF-ef7a44",
+    "category": "SSRF",
+    "source_incident_id": "INC-VERIF-04-SSRF",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-04-SSRF [SSRF] - Mesh confidence: 0.95",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/webhooks/test via 198.51.100.55",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.55 targeting /api/v1/webhooks/test.",
+        "Step 2: Attacker delivered payload exploiting SSRF condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SSRF exploitation on /api/v1/webhooks/test.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/webhooks/test",
+        "source_ip: 198.51.100.55",
+        "category: SSRF"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-04-SSRF: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SSRF exploitation on /api/v1/webhooks/test.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/webhooks/test.",
+        "Deploy WAF rule intercepting SSRF signatures from 198.51.100.55."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/webhooks/test.",
+        "Integrate automated contract regression tests for SSRF into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.55 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-04-SSRF. Entry vector on /api/v1/webhooks/test matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SSRF severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SSRF exploitation targeting /api/v1/webhooks/test originating from 198.51.100.55. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/webhooks/test: Deficient input validation or missing authorization boundary allowing SSRF exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975347+00:00"
+  },
+  {
+    "exemplar_id": "EX-SSRF-39c7a8",
+    "category": "SSRF",
+    "source_incident_id": "INC-VERIF-11-XXE",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-11-XXE [SSRF] - Mesh confidence: 0.91",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/xml/import via 198.51.100.80",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.80 targeting /api/v1/xml/import.",
+        "Step 2: Attacker delivered payload exploiting SSRF condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SSRF exploitation on /api/v1/xml/import.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/xml/import",
+        "source_ip: 198.51.100.80",
+        "category: SSRF"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-11-XXE: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SSRF exploitation on /api/v1/xml/import.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/xml/import.",
+        "Deploy WAF rule intercepting SSRF signatures from 198.51.100.80."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/xml/import.",
+        "Integrate automated contract regression tests for SSRF into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.80 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-11-XXE. Entry vector on /api/v1/xml/import matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SSRF severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SSRF exploitation targeting /api/v1/xml/import originating from 198.51.100.80. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/xml/import: Deficient input validation or missing authorization boundary allowing SSRF exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975435+00:00"
+  },
+  {
+    "exemplar_id": "EX-BROKEN_AUTHENTICATION-020087",
+    "category": "BROKEN_AUTHENTICATION",
+    "source_incident_id": "INC-VERIF-05-AUTH",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-05-AUTH [BROKEN_AUTHENTICATION] - Mesh confidence: 0.92",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/admin/dashboard via 203.0.113.14",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.14 targeting /api/v1/admin/dashboard.",
+        "Step 2: Attacker delivered payload exploiting BROKEN_AUTHENTICATION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing BROKEN_AUTHENTICATION exploitation on /api/v1/admin/dashboard.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/admin/dashboard",
+        "source_ip: 203.0.113.14",
+        "category: BROKEN_AUTHENTICATION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-05-AUTH: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing BROKEN_AUTHENTICATION exploitation on /api/v1/admin/dashboard.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/admin/dashboard.",
+        "Deploy WAF rule intercepting BROKEN_AUTHENTICATION signatures from 203.0.113.14."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/admin/dashboard.",
+        "Integrate automated contract regression tests for BROKEN_AUTHENTICATION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.14 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-05-AUTH. Entry vector on /api/v1/admin/dashboard matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed BROKEN_AUTHENTICATION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active BROKEN_AUTHENTICATION exploitation targeting /api/v1/admin/dashboard originating from 203.0.113.14. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/admin/dashboard: Deficient input validation or missing authorization boundary allowing BROKEN_AUTHENTICATION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975365+00:00"
+  },
+  {
+    "exemplar_id": "EX-BFLA-8ad134",
+    "category": "BFLA",
+    "source_incident_id": "INC-VERIF-07-BFLA",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-07-BFLA [BFLA] - Mesh confidence: 0.93",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/admin/users/4412 via 198.51.100.77",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.77 targeting /api/v1/admin/users/4412.",
+        "Step 2: Attacker delivered payload exploiting BFLA condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing BFLA exploitation on /api/v1/admin/users/4412.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/admin/users/4412",
+        "source_ip: 198.51.100.77",
+        "category: BFLA"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-07-BFLA: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing BFLA exploitation on /api/v1/admin/users/4412.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/admin/users/4412.",
+        "Deploy WAF rule intercepting BFLA signatures from 198.51.100.77."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/admin/users/4412.",
+        "Integrate automated contract regression tests for BFLA into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.77 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-07-BFLA. Entry vector on /api/v1/admin/users/4412 matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed BFLA severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active BFLA exploitation targeting /api/v1/admin/users/4412 originating from 198.51.100.77. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/admin/users/4412: Deficient input validation or missing authorization boundary allowing BFLA exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975382+00:00"
+  },
+  {
+    "exemplar_id": "EX-INFORMATION_DISCLOSURE-1ec706",
+    "category": "INFORMATION_DISCLOSURE",
+    "source_incident_id": "INC-VERIF-10-TRAVERSAL",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-10-TRAVERSAL [INFORMATION_DISCLOSURE] - Mesh confidence: 0.94",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/files/download via 203.0.113.44",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.44 targeting /api/v1/files/download.",
+        "Step 2: Attacker delivered payload exploiting INFORMATION_DISCLOSURE condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing INFORMATION_DISCLOSURE exploitation on /api/v1/files/download.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/files/download",
+        "source_ip: 203.0.113.44",
+        "category: INFORMATION_DISCLOSURE"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-10-TRAVERSAL: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing INFORMATION_DISCLOSURE exploitation on /api/v1/files/download.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/files/download.",
+        "Deploy WAF rule intercepting INFORMATION_DISCLOSURE signatures from 203.0.113.44."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/files/download.",
+        "Integrate automated contract regression tests for INFORMATION_DISCLOSURE into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.44 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-10-TRAVERSAL. Entry vector on /api/v1/files/download matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed INFORMATION_DISCLOSURE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active INFORMATION_DISCLOSURE exploitation targeting /api/v1/files/download originating from 203.0.113.44. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/files/download: Deficient input validation or missing authorization boundary allowing INFORMATION_DISCLOSURE exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975418+00:00"
+  },
+  {
+    "exemplar_id": "EX-SECURITY_MISCONFIGURATION-4b57b2",
+    "category": "SECURITY_MISCONFIGURATION",
+    "source_incident_id": "INC-VERIF-12-XSS",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-12-XSS [SECURITY_MISCONFIGURATION] - Mesh confidence: 0.87",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/comments via 198.51.100.91",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.91 targeting /api/v1/comments.",
+        "Step 2: Attacker delivered payload exploiting SECURITY_MISCONFIGURATION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/comments.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/comments",
+        "source_ip: 198.51.100.91",
+        "category: SECURITY_MISCONFIGURATION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-12-XSS: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/comments.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/comments.",
+        "Deploy WAF rule intercepting SECURITY_MISCONFIGURATION signatures from 198.51.100.91."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/comments.",
+        "Integrate automated contract regression tests for SECURITY_MISCONFIGURATION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.91 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-12-XSS. Entry vector on /api/v1/comments matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SECURITY_MISCONFIGURATION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SECURITY_MISCONFIGURATION exploitation targeting /api/v1/comments originating from 198.51.100.91. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/comments: Deficient input validation or missing authorization boundary allowing SECURITY_MISCONFIGURATION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975453+00:00"
+  },
+  {
+    "exemplar_id": "EX-SECURITY_MISCONFIGURATION-aff72a",
+    "category": "SECURITY_MISCONFIGURATION",
+    "source_incident_id": "INC-VERIF-13-REDIRECT",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-13-REDIRECT [SECURITY_MISCONFIGURATION] - Mesh confidence: 0.82",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/auth/callback via 203.0.113.11",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.11 targeting /api/v1/auth/callback.",
+        "Step 2: Attacker delivered payload exploiting SECURITY_MISCONFIGURATION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/auth/callback.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/auth/callback",
+        "source_ip: 203.0.113.11",
+        "category: SECURITY_MISCONFIGURATION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-13-REDIRECT: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/auth/callback.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/auth/callback.",
+        "Deploy WAF rule intercepting SECURITY_MISCONFIGURATION signatures from 203.0.113.11."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/auth/callback.",
+        "Integrate automated contract regression tests for SECURITY_MISCONFIGURATION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.11 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-13-REDIRECT. Entry vector on /api/v1/auth/callback matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SECURITY_MISCONFIGURATION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SECURITY_MISCONFIGURATION exploitation targeting /api/v1/auth/callback originating from 203.0.113.11. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/auth/callback: Deficient input validation or missing authorization boundary allowing SECURITY_MISCONFIGURATION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975471+00:00"
+  },
+  {
+    "exemplar_id": "EX-SECURITY_MISCONFIGURATION-a4d163",
+    "category": "SECURITY_MISCONFIGURATION",
+    "source_incident_id": "INC-VERIF-15-CORS",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-15-CORS [SECURITY_MISCONFIGURATION] - Mesh confidence: 0.86",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/billing via 203.0.113.99",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.99 targeting /api/v1/billing.",
+        "Step 2: Attacker delivered payload exploiting SECURITY_MISCONFIGURATION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/billing.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/billing",
+        "source_ip: 203.0.113.99",
+        "category: SECURITY_MISCONFIGURATION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-15-CORS: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/billing.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/billing.",
+        "Deploy WAF rule intercepting SECURITY_MISCONFIGURATION signatures from 203.0.113.99."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/billing.",
+        "Integrate automated contract regression tests for SECURITY_MISCONFIGURATION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.99 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-15-CORS. Entry vector on /api/v1/billing matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SECURITY_MISCONFIGURATION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SECURITY_MISCONFIGURATION exploitation targeting /api/v1/billing originating from 203.0.113.99. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/billing: Deficient input validation or missing authorization boundary allowing SECURITY_MISCONFIGURATION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975507+00:00"
+  },
+  {
+    "exemplar_id": "EX-SECURITY_MISCONFIGURATION-636d31",
+    "category": "SECURITY_MISCONFIGURATION",
+    "source_incident_id": "INC-20260905-3D3882",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260905-3D3882 [SECURITY_MISCONFIGURATION] - Mesh confidence: 0.80",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/health via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/health.",
+        "Step 2: Attacker delivered payload exploiting SECURITY_MISCONFIGURATION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/health.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/health",
+        "source_ip: 198.51.100.42",
+        "category: SECURITY_MISCONFIGURATION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260905-3D3882: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/health.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/health.",
+        "Deploy WAF rule intercepting SECURITY_MISCONFIGURATION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/health.",
+        "Integrate automated contract regression tests for SECURITY_MISCONFIGURATION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260905-3D3882. Entry vector on /api/v1/health matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SECURITY_MISCONFIGURATION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SECURITY_MISCONFIGURATION exploitation targeting /api/v1/health originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/health: Deficient input validation or missing authorization boundary allowing SECURITY_MISCONFIGURATION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975641+00:00"
+  },
+  {
+    "exemplar_id": "EX-API_TOKEN_ABUSE-625635",
+    "category": "API_TOKEN_ABUSE",
+    "source_incident_id": "INC-VERIF-17-TOKEN",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-17-TOKEN [API_TOKEN_ABUSE] - Mesh confidence: 0.90",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/customers/export via 203.0.113.120",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 203.0.113.120 targeting /api/v1/customers/export.",
+        "Step 2: Attacker delivered payload exploiting API_TOKEN_ABUSE condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing API_TOKEN_ABUSE exploitation on /api/v1/customers/export.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/customers/export",
+        "source_ip: 203.0.113.120",
+        "category: API_TOKEN_ABUSE"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-17-TOKEN: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing API_TOKEN_ABUSE exploitation on /api/v1/customers/export.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/customers/export.",
+        "Deploy WAF rule intercepting API_TOKEN_ABUSE signatures from 203.0.113.120."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/customers/export.",
+        "Integrate automated contract regression tests for API_TOKEN_ABUSE into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 203.0.113.120 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-17-TOKEN. Entry vector on /api/v1/customers/export matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed API_TOKEN_ABUSE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active API_TOKEN_ABUSE exploitation targeting /api/v1/customers/export originating from 203.0.113.120. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/customers/export: Deficient input validation or missing authorization boundary allowing API_TOKEN_ABUSE exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975525+00:00"
+  },
+  {
+    "exemplar_id": "EX-API_ABUSE-125a47",
+    "category": "API_ABUSE",
+    "source_incident_id": "INC-VERIF-18-GRAPHQL",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-18-GRAPHQL [API_ABUSE] - Mesh confidence: 0.88",
+    "reconstruction_demonstration": {
+      "entry_point": "/graphql via 198.51.100.44",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.44 targeting /graphql.",
+        "Step 2: Attacker delivered payload exploiting API_ABUSE condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing API_ABUSE exploitation on /graphql.",
+      "grounded_evidence_fields": [
+        "endpoint: /graphql",
+        "source_ip: 198.51.100.44",
+        "category: API_ABUSE"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-18-GRAPHQL: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing API_ABUSE exploitation on /graphql.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /graphql.",
+        "Deploy WAF rule intercepting API_ABUSE signatures from 198.51.100.44."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /graphql.",
+        "Integrate automated contract regression tests for API_ABUSE into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.44 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-18-GRAPHQL. Entry vector on /graphql matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed API_ABUSE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active API_ABUSE exploitation targeting /graphql originating from 198.51.100.44. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /graphql: Deficient input validation or missing authorization boundary allowing API_ABUSE exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975542+00:00"
+  },
+  {
+    "exemplar_id": "EX-MASS_ASSIGNMENT-4f20a7",
+    "category": "MASS_ASSIGNMENT",
+    "source_incident_id": "INC-VERIF-19-LOGIC",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-VERIF-19-LOGIC [MASS_ASSIGNMENT] - Mesh confidence: 0.93",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/cart/checkout via 198.51.100.15",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.15 targeting /api/v1/cart/checkout.",
+        "Step 2: Attacker delivered payload exploiting MASS_ASSIGNMENT condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing MASS_ASSIGNMENT exploitation on /api/v1/cart/checkout.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/cart/checkout",
+        "source_ip: 198.51.100.15",
+        "category: MASS_ASSIGNMENT"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-VERIF-19-LOGIC: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing MASS_ASSIGNMENT exploitation on /api/v1/cart/checkout.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/cart/checkout.",
+        "Deploy WAF rule intercepting MASS_ASSIGNMENT signatures from 198.51.100.15."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/cart/checkout.",
+        "Integrate automated contract regression tests for MASS_ASSIGNMENT into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.15 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-VERIF-19-LOGIC. Entry vector on /api/v1/cart/checkout matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed MASS_ASSIGNMENT severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active MASS_ASSIGNMENT exploitation targeting /api/v1/cart/checkout originating from 198.51.100.15. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/cart/checkout: Deficient input validation or missing authorization boundary allowing MASS_ASSIGNMENT exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.975560+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-931970",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-GOLDEN-F24271",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-GOLDEN-F24271 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-GOLDEN-F24271: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-GOLDEN-F24271. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976041+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-fad03b",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-GOLDEN-B3C721",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-GOLDEN-B3C721 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-GOLDEN-B3C721: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-GOLDEN-B3C721. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976080+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-6d9c80",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-GOLDEN-9AC03B",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-GOLDEN-9AC03B [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-GOLDEN-9AC03B: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-GOLDEN-9AC03B. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976121+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-b250bd",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-GOLDEN-C0EDF3",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-GOLDEN-C0EDF3 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-GOLDEN-C0EDF3: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-GOLDEN-C0EDF3. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976207+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-c9aa54",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-F8D6B3",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-F8D6B3 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-F8D6B3: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-F8D6B3. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976323+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-1844f5",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-E27458",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-E27458 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-E27458: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-E27458. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976463+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-854572",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-BC7615",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-BC7615 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-BC7615: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-BC7615. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976511+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-715b8b",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-D938B1",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-D938B1 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-D938B1: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-D938B1. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976556+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-3f1a4f",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-DD2EE6",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-DD2EE6 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-DD2EE6: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-DD2EE6. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976602+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-6d635b",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-1B455F",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-1B455F [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-1B455F: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-1B455F. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976677+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-cb8db6",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-701FA7",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-701FA7 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-701FA7: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-701FA7. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976743+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-4dfc18",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-F23150",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-F23150 [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-F23150: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-F23150. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976817+00:00"
+  },
+  {
+    "exemplar_id": "EX-SQL_INJECTION-879116",
+    "category": "SQL_INJECTION",
+    "source_incident_id": "INC-SIMPLIFIED-60FF1F",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-SIMPLIFIED-60FF1F [SQL_INJECTION] - Mesh confidence: 0.99",
+    "reconstruction_demonstration": {
+      "entry_point": "/api/v1/resource via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/resource.",
+        "Step 2: Attacker delivered payload exploiting SQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+      "grounded_evidence_fields": [
+        "endpoint: /api/v1/resource",
+        "source_ip: 198.51.100.42",
+        "category: SQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-SIMPLIFIED-60FF1F: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing SQL_INJECTION exploitation on /api/v1/resource.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /api/v1/resource.",
+        "Deploy WAF rule intercepting SQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /api/v1/resource.",
+        "Integrate automated contract regression tests for SQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-SIMPLIFIED-60FF1F. Entry vector on /api/v1/resource matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQL_INJECTION exploitation targeting /api/v1/resource originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /api/v1/resource: Deficient input validation or missing authorization boundary allowing SQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:59:50.003326+00:00"
+  },
+  {
+    "exemplar_id": "EX-NOSQL_INJECTION-cc8667",
+    "category": "NOSQL_INJECTION",
+    "source_incident_id": "INC-20260906-B95762",
+    "quality_score": 0.95,
+    "reconstruction_input_summary": "Incident INC-20260906-B95762 [NOSQL_INJECTION] - Mesh confidence: 0.94",
+    "reconstruction_demonstration": {
+      "entry_point": "/allOrders?filter=1 via 198.51.100.42",
+      "attack_sequence": [
+        "Step 1: Attacker initiated connection from 198.51.100.42 targeting /allOrders?filter=1.",
+        "Step 2: Attacker delivered payload exploiting NOSQL_INJECTION condition.",
+        "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+      ],
+      "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing NOSQL_INJECTION exploitation on /allOrders?filter=1.",
+      "grounded_evidence_fields": [
+        "endpoint: /allOrders?filter=1",
+        "source_ip: 198.51.100.42",
+        "category: NOSQL_INJECTION"
+      ]
+    },
+    "response_input_summary": "Reconstruction for INC-20260906-B95762: Root flaw: Deficient input validation, missing authorization boundary, or misconfiguration allowing NOSQL_INJECTION exploitation on /allOrders?filter=1.",
+    "response_demonstration": {
+      "immediate_containment": [
+        "Revoke active caller token and apply edge rate limiting on /allOrders?filter=1.",
+        "Deploy WAF rule intercepting NOSQL_INJECTION signatures from 198.51.100.42."
+      ],
+      "architectural_prevention": [
+        "Implement strict schema validation and authorization boundaries on /allOrders?filter=1.",
+        "Integrate automated contract regression tests for NOSQL_INJECTION into CI/CD pipeline."
+      ],
+      "requires_human_approval": false,
+      "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic."
+    },
+    "judge_demonstration": {
+      "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260906-B95762. Entry vector on /allOrders?filter=1 matches observed logs. No unobserved details detected.",
+      "proportionality_audit": "Agent 2's response actions are proportionate to the observed NOSQL_INJECTION severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+      "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active NOSQL_INJECTION exploitation targeting /allOrders?filter=1 originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+      "root_cause_analysis": "Root vulnerability in /allOrders?filter=1: Deficient input validation or missing authorization boundary allowing NOSQL_INJECTION exploitation."
+    },
+    "created_at": "2026-09-06T13:58:13.976698+00:00"
+  }
+]

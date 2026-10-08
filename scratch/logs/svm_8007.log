@@ -1,0 +1,3 @@
+INFO:     Started server process [19632]
+INFO:     Waiting for application startup.
+2026-09-05 14:14:24,068 [INFO] mad_ps.svm_service: Initializing SVM Engine and running kernel competition...

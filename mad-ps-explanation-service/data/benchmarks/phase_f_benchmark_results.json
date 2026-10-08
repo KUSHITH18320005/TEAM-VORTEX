@@ -1,0 +1,373 @@
+{
+  "timestamp": "2026-09-04T18:16:43Z",
+  "total_categories": 19,
+  "matched_count": 19,
+  "accuracy_rate": 100.0,
+  "disagreement_count": 3,
+  "disagreement_rate": 15.789473684210526,
+  "full_consensus_count": 16,
+  "partial_consensus_count": 3,
+  "results": [
+    {
+      "category_id": "01_BOLA_IDOR",
+      "name": "Broken Object Level Authorization (BOLA / IDOR)",
+      "incident_id": "INC-VERIF-01-BOLA",
+      "risk_score": 7.52,
+      "risk_band": "HIGH",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/user/1042/profile via 198.51.100.42",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.",
+      "ground_truth_flaw": "Missing object-level tenancy authorization check on /api/v1/user/{id}/profile",
+      "ground_truth_entry": "GET /api/v1/user/1042/profile from authenticated session 8892",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "02_SQLI",
+      "name": "SQL Injection (SQLi)",
+      "incident_id": "INC-VERIF-02-SQLI",
+      "risk_score": 8.82,
+      "risk_band": "HIGH",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/search via 203.0.113.88",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+      "ground_truth_flaw": "Unescaped string concatenation in search query controller",
+      "ground_truth_entry": "POST /api/v1/search with UNION SELECT payload",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "03_RCE",
+      "name": "Remote Code Execution / OS Command Injection",
+      "incident_id": "INC-VERIF-03-RCE",
+      "risk_score": 9.9,
+      "risk_band": "CRITICAL",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/export/pdf via 198.51.100.99",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/export/pdf.",
+      "ground_truth_flaw": "Unsanitized system shell execution in document conversion utility",
+      "ground_truth_entry": "POST /api/v1/export/pdf with shell metacharacters in filename parameter",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "04_SSRF",
+      "name": "Server-Side Request Forgery (SSRF)",
+      "incident_id": "INC-VERIF-04-SSRF",
+      "risk_score": 8.07,
+      "risk_band": "HIGH",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/webhooks/test via 198.51.100.55",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SSRF exploitation on /api/v1/webhooks/test.",
+      "ground_truth_flaw": "Unvalidated webhook URL allowing internal network loopback queries",
+      "ground_truth_entry": "POST /api/v1/webhooks/test targeting AWS metadata endpoint 169.254.169.254",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "05_BROKEN_AUTH",
+      "name": "Broken Authentication (JWT Alg None / Missing Signature)",
+      "incident_id": "INC-VERIF-05-AUTH",
+      "risk_score": 7.36,
+      "risk_band": "HIGH",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/admin/dashboard via 203.0.113.14",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing BROKEN_AUTHENTICATION exploitation on /api/v1/admin/dashboard.",
+      "ground_truth_flaw": "API gateway accepts unsigned JWT tokens with 'alg': 'none'",
+      "ground_truth_entry": "GET /api/v1/admin/dashboard with forged alg:none bearer token",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "06_MASS_ASSIGNMENT",
+      "name": "Mass Assignment / Privilege Escalation",
+      "incident_id": "INC-VERIF-06-MASS",
+      "risk_score": 6.23,
+      "risk_band": "MEDIUM",
+      "consensus_status": "PARTIAL_CONSENSUS",
+      "consensus_score": 0.72,
+      "reconstruction_entry_point": "/api/v1/user/profile via 198.51.100.12",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing MASS_ASSIGNMENT exploitation on /api/v1/user/profile.",
+      "ground_truth_flaw": "DTO deserializer blindly binds 'is_admin': true to database user model",
+      "ground_truth_entry": "PUT /api/v1/user/profile including unauthorized is_admin field",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "REVISE",
+        "REVISE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "07_BFLA",
+      "name": "Broken Function Level Authorization (BFLA)",
+      "incident_id": "INC-VERIF-07-BFLA",
+      "risk_score": 6.51,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/admin/users/4412 via 198.51.100.77",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing BFLA exploitation on /api/v1/admin/users/4412.",
+      "ground_truth_flaw": "Missing administrative role enforcement on user deletion endpoint",
+      "ground_truth_entry": "DELETE /api/v1/admin/users/4412 executed by standard user",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "08_RATE_LIMIT",
+      "name": "Rate Limit Bypass / Resource Exhaustion",
+      "incident_id": "INC-VERIF-08-RATE",
+      "risk_score": 4.84,
+      "risk_band": "MEDIUM",
+      "consensus_status": "PARTIAL_CONSENSUS",
+      "consensus_score": 0.72,
+      "reconstruction_entry_point": "/api/v1/sms/send-otp via 203.0.113.200",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RATE_LIMIT_BYPASS exploitation on /api/v1/sms/send-otp.",
+      "ground_truth_flaw": "Rate limiter uses spoofable X-Forwarded-For header allowing burst DoS",
+      "ground_truth_entry": "POST /api/v1/sms/send-otp with rotating X-Forwarded-For headers",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "REVISE",
+        "REVISE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "09_SSTI",
+      "name": "Server-Side Template Injection (SSTI)",
+      "incident_id": "INC-VERIF-09-SSTI",
+      "risk_score": 9.6,
+      "risk_band": "CRITICAL",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/render via 198.51.100.33",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/render.",
+      "ground_truth_flaw": "Jinja2 template evaluates user input string directly without sandboxing",
+      "ground_truth_entry": "GET /api/v1/render?template={{7*7}} resulting in evaluated output 49",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "10_PATH_TRAVERSAL",
+      "name": "Path Traversal / Local File Inclusion",
+      "incident_id": "INC-VERIF-10-TRAVERSAL",
+      "risk_score": 3.76,
+      "risk_band": "LOW",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/files/download via 203.0.113.44",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing INFORMATION_DISCLOSURE exploitation on /api/v1/files/download.",
+      "ground_truth_flaw": "Unsanitized filepath parameter allowing ../ escape to /etc/passwd",
+      "ground_truth_entry": "GET /api/v1/files/download?path=../../../../etc/passwd",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "11_XXE",
+      "name": "XML External Entity (XXE)",
+      "incident_id": "INC-VERIF-11-XXE",
+      "risk_score": 7.74,
+      "risk_band": "HIGH",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/xml/import via 198.51.100.80",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SSRF exploitation on /api/v1/xml/import.",
+      "ground_truth_flaw": "XML parser has external entity resolution (DOCTYPE SYSTEM) enabled",
+      "ground_truth_entry": "POST /api/v1/xml/import with DOCTYPE external entity URI",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "12_STORED_XSS",
+      "name": "Stored Cross-Site Scripting (XSS)",
+      "incident_id": "INC-VERIF-12-XSS",
+      "risk_score": 4.35,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/comments via 198.51.100.91",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/comments.",
+      "ground_truth_flaw": "HTML output unescaped in customer comment component",
+      "ground_truth_entry": "POST /api/v1/comments with <script>alert(document.cookie)</script>",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "13_OPEN_REDIRECT",
+      "name": "Unvalidated Open Redirect",
+      "incident_id": "INC-VERIF-13-REDIRECT",
+      "risk_score": 4.1,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/auth/callback via 203.0.113.11",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/auth/callback.",
+      "ground_truth_flaw": "Login redirect URL does not restrict to trusted host domains",
+      "ground_truth_entry": "GET /api/v1/auth/callback?redirect_url=https://evil-phishing.com",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "14_DESERIALIZATION",
+      "name": "Insecure Object Deserialization",
+      "incident_id": "INC-VERIF-14-DESERIAL",
+      "risk_score": 9.7,
+      "risk_band": "CRITICAL",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/session/restore via 198.51.100.64",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/session/restore.",
+      "ground_truth_flaw": "Pickle / Java ObjectInputStream deserializes untrusted cookie payload",
+      "ground_truth_entry": "GET /api/v1/session/restore with base64 serialized exploit gadget",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "15_MISCONFIG",
+      "name": "Security Misconfiguration (CORS Wildcard + Credentials)",
+      "incident_id": "INC-VERIF-15-CORS",
+      "risk_score": 4.3,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/billing via 203.0.113.99",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SECURITY_MISCONFIGURATION exploitation on /api/v1/billing.",
+      "ground_truth_flaw": "Access-Control-Allow-Origin dynamically mirrors origin with Allow-Credentials: true",
+      "ground_truth_entry": "OPTIONS /api/v1/billing with Origin: https://evil.com",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "16_CRED_STUFFING",
+      "name": "Distributed Credential Stuffing",
+      "incident_id": "INC-VERIF-16-STUFF",
+      "risk_score": 7.37,
+      "risk_band": "HIGH",
+      "consensus_status": "PARTIAL_CONSENSUS",
+      "consensus_score": 0.72,
+      "reconstruction_entry_point": "/api/v1/auth/login via 198.51.100.100",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing CREDENTIAL_STUFFING exploitation on /api/v1/auth/login.",
+      "ground_truth_flaw": "Absence of IP-reputation intelligence and distributed anomaly rate limiter on login route",
+      "ground_truth_entry": "High-velocity POST /api/v1/auth/login across 200 proxy IPs",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "REVISE",
+        "REVISE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "17_TOKEN_ABUSE",
+      "name": "API Token Abuse & Bulk Exfiltration",
+      "incident_id": "INC-VERIF-17-TOKEN",
+      "risk_score": 5.85,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/customers/export via 203.0.113.120",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing API_TOKEN_ABUSE exploitation on /api/v1/customers/export.",
+      "ground_truth_flaw": "Exposed high-privilege read key lacking IP binding or per-minute burst quotas",
+      "ground_truth_entry": "GET /api/v1/customers/export with key sk_live_public_leak",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "18_GRAPHQL_ABUSE",
+      "name": "GraphQL Introspection & Query Complexity DoS",
+      "incident_id": "INC-VERIF-18-GRAPHQL",
+      "risk_score": 4.84,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/graphql via 198.51.100.44",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing API_ABUSE exploitation on /graphql.",
+      "ground_truth_flaw": "Production GraphQL endpoint enables schema introspection and infinite circular nesting",
+      "ground_truth_entry": "POST /graphql with __schema query and 100-deep nested author/posts probe",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "category_id": "19_BUSINESS_LOGIC",
+      "name": "Business Logic Parameter Tampering (Negative Quantity)",
+      "incident_id": "INC-VERIF-19-LOGIC",
+      "risk_score": 6.51,
+      "risk_band": "MEDIUM",
+      "consensus_status": "FULL_CONSENSUS",
+      "consensus_score": 1.0,
+      "reconstruction_entry_point": "/api/v1/cart/checkout via 198.51.100.15",
+      "reconstruction_flaw": "Deficient input validation, missing authorization boundary, or misconfiguration allowing MASS_ASSIGNMENT exploitation on /api/v1/cart/checkout.",
+      "ground_truth_flaw": "Checkout service fails to validate quantity > 0, resulting in negative order credit",
+      "ground_truth_entry": "POST /api/v1/cart/checkout with quantity: -5",
+      "ground_truth_matched": true,
+      "revision_stances": [
+        "AGREE",
+        "AGREE"
+      ],
+      "requires_human_approval": true
+    }
+  ]
+}

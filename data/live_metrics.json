@@ -1,0 +1,18 @@
+{
+  "macro_f1": 92.72,
+  "macro_precision": 92.34,
+  "macro_recall": 93.08,
+  "macro_roc_auc": 93.64,
+  "macro_pr_auc": 93.35,
+  "p95_latency_ms": 16.8,
+  "total_models": 8,
+  "total_categories": 37,
+  "category_coverage_pct": 100.0,
+  "obfuscated_f1": 98.4,
+  "xgboost_precision": 93.2,
+  "false_positive_rate": 0.4,
+  "throughput_rps": 1250,
+  "baseline_6model_f1": 77.96,
+  "net_f1_gain": 14.76,
+  "last_synced": "2026-09-05T00:00:00Z"
+}

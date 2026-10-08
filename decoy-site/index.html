@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Decoy Site (Demo Lab)</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .warning-banner {
+      background: #b91c1c;
+      color: #fee2e2;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #ef4444;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 480px;
+      width: 90%;
+      margin: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+    .decoy-logo {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 22px;
+      color: #f85149;
+      margin: 0 0 12px 0;
+    }
+    p {
+      font-size: 14px;
+      color: #8b949e;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+    }
+    .alert-box {
+      background: rgba(248, 81, 73, 0.15);
+      border: 1px solid rgba(248, 81, 73, 0.4);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #ff7b72;
+      margin-bottom: 20px;
+      word-break: break-all;
+    }
+    .badge {
+      display: inline-block;
+      background: #238636;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="warning-banner">
+    ⚠️ This is a demo phishing decoy — MAD-PS Attack Console
+  </div>
+
+  <div class="card">
+    <div class="decoy-logo">🎣</div>
+    <span class="badge">DECOY DESTINATION: PORT 3005</span>
+    <h1>Phishing Decoy Destination Landed</h1>
+    <p>
+      <strong>This is a demo phishing decoy — MAD-PS Attack Console</strong><br>
+      The victim was seamlessly redirected from the trusted trading application to this external attacker-controlled decoy host because the <code>?redirect=</code> parameter was not validated against an allowlist.
+    </p>
+
+    <div class="alert-box">
+      Landing Host: <strong>http://localhost:3005/</strong><br>
+      Referrer Origin: <strong>http://localhost:3000/</strong>
+    </div>
+
+    <p style="font-size: 12px; color: #6e7681;">
+      In a real attack, the user might be presented with a cloned login screen to harvest credentials.
+    </p>
+  </div>
+</body>
+</html>

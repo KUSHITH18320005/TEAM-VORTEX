@@ -1,0 +1,23 @@
+{
+  "name": "@madps/agent",
+  "version": "1.0.0",
+  "description": "MAD-PS Real-Time Autonomous Attack Detection Agent SDK for Express / Node.js",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "madps",
+    "security",
+    "soc",
+    "attack-detection",
+    "ai-agent",
+    "telemetry",
+    "waf",
+    "middleware"
+  ],
+  "author": "MAD-PS Security Team",
+  "license": "Apache-2.0",
+  "dependencies": {}
+}

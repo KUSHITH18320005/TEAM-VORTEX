@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser Council v2: 7-Model Panel Debate Chamber — MAD-PS SENTINEL™</title>
+  <meta name="description" content="7-Model Multi-Expert Panel Debate Chamber: Claude 3.5 Sonnet, GPT-4o, Gemini 2.0 Flash, Llama 3.3 70B, Mixtral 8x7B, DeepSeek-Chat, and Red Team Modeler with Chief Judicial Magistrate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/landing.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-theme cyber-theme console-page">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="cyber-grid-canvas"></div>
+
+  <!-- Left Quick-Launch Console Sidebar -->
+  <aside class="left-app-rail" aria-label="Console Navigation">
+    <a href="/" class="rail-item" title="Public Homepage">
+      <span class="rail-icon">🏠</span>
+      <span class="rail-label">Home Website</span>
+    </a>
+    <a href="/scan" class="rail-item" title="ML Model Detection & Live Scanner">
+      <span class="rail-icon">🔬</span>
+      <span class="rail-label">ML Detection</span>
+    </a>
+    <a href="/council" class="rail-item active" title="Browser Council & Debate Chamber">
+      <span class="rail-icon">🏛️</span>
+      <span class="rail-label">Browser Council</span>
+    </a>
+    <a href="/dashboard" class="rail-item" title="Live SOC Monitoring Cockpit">
+      <span class="rail-icon">⚡</span>
+      <span class="rail-label">Live Monitoring</span>
+    </a>
+    <a href="/scan#risk" class="rail-item" title="AI Risk Engine & Forensic Analysis">
+      <span class="rail-icon">🧠</span>
+      <span class="rail-label">AI Risk Engine</span>
+    </a>
+    <a href="/apps" class="rail-item" title="Developer SDK & Apps">
+      <span class="rail-icon">📱</span>
+      <span class="rail-label">Developer Apps</span>
+    </a>
+    <a href="/compliance" class="rail-item" title="Enterprise DBMS Compliance">
+      <span class="rail-icon">🗄️</span>
+      <span class="rail-label">DBMS Compliance</span>
+    </a>
+  </aside>
+
+  <!-- Top Enterprise Navigation Bar -->
+  <header class="enterprise-navbar navbar">
+    <div class="nav-container">
+      <div class="nav-brand-section">
+        <a href="/" class="brand-logo" style="text-decoration:none;">
+          <div class="shield-logo-pulse">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="brand-text" style="font-weight:800; font-size:17px; color:#fff; letter-spacing:-0.3px;">MAD<span class="brand-accent" style="color:var(--accent-cyan);">-PS SENTINEL</span></span>
+          <span class="enterprise-badge" style="font-size:9px; font-weight:800; padding:2px 6px; border-radius:4px; background:var(--accent-amber-bg); color:var(--accent-amber); border:1px solid var(--accent-amber-border); margin-left:6px;">COUNCIL v2 (7-MODEL PANEL)</span>
+        </a>
+      </div>
+
+      <!-- Live Operations Status Strip -->
+      <div class="nav-metrics-strip">
+        <div class="metric-pill" id="councilConsensusPill">
+          <span class="pulse-indicator online"></span>
+          <span class="pill-label">PANEL CONSENSUS:</span>
+          <span class="pill-val text-emerald" id="topNavConsensus">7/7 ALIGNED</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-actions">
+        <button id="btnThemeToggle" class="btn-theme-toggle" title="Toggle Light/Dark Theme" style="height:32px; width:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; background:var(--bg-surface); border:1px solid var(--border-subtle); color:var(--text-secondary); cursor:pointer;">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light" style="display:none;">☀️</span>
+        </button>
+
+        <button id="btnOpenLlmSettings" class="btn-llm-trigger" title="Configure 7 Real AI Panelist Models & Judge">
+          <span class="pulse-dot" id="llmStatusDot"></span>
+          <span class="llm-btn-text" id="llmStatusText">7-Model Engine</span>
+          <span class="llm-gear-icon">⚙️</span>
+        </button>
+
+        <button id="btnToggleMaddy" class="btn-maddy-trigger" title="Open MADDY AI Assistant">
+          <span class="sparkle-icon">✨</span>
+          <span class="maddy-btn-text">MADDY AI ASSISTANT</span>
+        </button>
+
+        <a href="/" class="btn btn-outline-nav">← Back to Overview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Console Layout Container -->
+  <main class="console-main-content">
+    <div class="console-header-bar">
+      <div>
+        <div class="section-tag">BROWSER COUNCIL v2 — 7-MODEL PANEL DEBATE &amp; JUDICIAL SYNTHESIS</div>
+        <h1 class="console-page-title">7-Model Expert Panel &amp; Judicial Chamber</h1>
+        <p class="console-page-subtitle">7 independent LLM specialists (Claude 3.5, GPT-4o, Gemini 2.0 Flash, Llama 3.3 70B, Mixtral 8x7B, DeepSeek-Chat, Red Team Modeler) debate incident causality, cross-examine hypotheses, and submit to Chief Magistrate synthesis.</p>
+      </div>
+      <div class="console-header-actions">
+        <a href="/scan" class="cyber-btn secondary">&larr; Live ML Target Scanner</a>
+        <a href="/dashboard" class="cyber-btn secondary">Live Monitoring Cockpit &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Active Incident Header Card -->
+    <div class="council-incident-header-card" id="councilIncidentHeaderCard" style="margin-bottom: 1.5rem;">
+      <div class="ci-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="ci-label" style="font-size: 11px; font-weight: 700; color: var(--text-muted);">ACTIVE INCIDENT:</span>
+          <span class="ci-val" id="councilIncidentId" style="font-family: var(--font-mono); font-weight: 700; color: #fff; margin-left: 6px;">INC-20260906-LIVE</span>
+        </div>
+        <div>
+          <span class="ci-label" style="font-size: 11px; font-weight: 700; color: var(--text-muted);">EXECUTION LANE:</span>
+          <span class="ci-val highlight" id="councilExecutionLaneBadge" style="color: #ffd700; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.35); padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 6px;">DEEP-LANE (7-MODEL PANEL)</span>
+        </div>
+        <div>
+          <span class="ci-label" style="font-size: 11px; font-weight: 700; color: var(--text-muted);">CATEGORY:</span>
+          <span class="ci-val highlight" id="councilCategoryTag" style="color: var(--accent-cyan); font-weight: 800; margin-left: 6px;">SQL Injection (SQLi)</span>
+        </div>
+        <div>
+          <span class="ci-label" style="font-size: 11px; font-weight: 700; color: var(--text-muted);">RISK SCORE:</span>
+          <span class="ci-val red" id="councilRiskScore" style="color: #ef4444; font-weight: 800; font-size: 16px; margin-left: 6px;">8.9 / 10.0</span>
+        </div>
+        <div>
+          <span class="ci-label" style="font-size: 11px; font-weight: 700; color: var(--text-muted);">CONSENSUS STATUS:</span>
+          <span class="ci-val green" id="councilConsensusStatus" style="color: #10b981; font-weight: 800; margin-left: 6px;">FULL CONSENSUS (98.0%)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chief Magistrate Judicial Synthesis Card -->
+    <div class="judge-chamber-card" id="judgeChamberCard">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 14px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="font-size: 32px; background: rgba(255,215,0,0.15); border: 1.5px solid rgba(255,215,0,0.4); width: 52px; height: 52px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">⚖️</div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <h2 style="margin: 0; font-size: 18px; color: #ffd700; font-weight: 800;">Chief Judicial Magistrate (The Arbiter)</h2>
+              <span style="font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; background: rgba(255,215,0,0.2); color: #ffd700; border: 1px solid rgba(255,215,0,0.4);">AUTHORITATIVE SYNTHESIS &amp; AUDIT</span>
+            </div>
+            <div id="judgeModelSignature" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan); margin-top: 2px;">Gemini-2.0-Flash / Judicial Synthesis Magistrate</div>
+          </div>
+        </div>
+        <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+          <span id="judgeHumanApprovalBadge" style="font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px; background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.4);">HUMAN APPROVAL REQUIRED</span>
+          <div id="judgeConsensusGaugeWrap" style="font-size: 11px; color: #10b981; font-weight: 700;">
+            CONSENSUS SCORE: <span id="judgeConsensusScoreVal" style="font-size: 14px; font-weight: 800; color: #ffd700;">95.0%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2col" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; color: #ffd700; margin-bottom: 6px;">EXECUTIVE SUMMARY &amp; ROOT CAUSE SYNTHESIS:</div>
+          <div id="judgeExecutiveSummary" style="font-size: 13px; color: #e2e8f0; line-height: 1.6; background: rgba(0,0,0,0.3); padding: 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+            Chief Magistrate audited 6 panelist hypotheses against ground-truth telemetry. Attack initiated via unescaped input parameter on trading endpoint resulting in unauthorized schema extraction.
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 12px;">
+            <div style="flex: 1; background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
+              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); display: block;">FACTUALITY AUDIT:</span>
+              <span id="judgeFactualityAudit" style="font-size: 11px; color: #10b981; font-weight: 600;">100% Grounded in Raw Telemetry</span>
+            </div>
+            <div style="flex: 1; background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
+              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); display: block;">PROPORTIONALITY AUDIT:</span>
+              <span id="judgeProportionalityAudit" style="font-size: 11px; color: #10b981; font-weight: 600;">Strictly Proportionate (0% Collateral)</span>
+            </div>
+          </div>
+
+          <!-- Explicit Fact-Checking Audit Findings (Task Y6.2) -->
+          <div style="margin-top: 14px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+              <span>🔍 TELEMETRY FACT-CHECK AUDIT (HALLUCINATION CATCHES):</span>
+              <span id="factCheckAuditSummary" style="font-size: 10px; color: #10b981;">ALL CLAIMS GROUNDED</span>
+            </div>
+            <div id="judgeFactCheckAuditBox" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(0,242,254,0.15); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 6px; max-height: 160px; overflow-y: auto; font-size: 11px;">
+              <div style="color: #94a3b8;">Awaiting live fact-check audit results...</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 11px; font-weight: 700; color: #ffd700; margin-bottom: 6px;">VERIFIED TECHNICAL TIMELINE:</div>
+          <div id="judgeTechnicalTimeline" style="font-size: 12px; color: var(--text-secondary); background: rgba(0,0,0,0.3); padding: 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); min-height: 140px; display: flex; flex-direction: column; gap: 6px;">
+            <div>• T-00:00:00 — Inbound HTTP request captured by @madps/agent SDK.</div>
+            <div>• T-00:00:02 — 8-Model Detection Mesh flagged payload with 98.4% anomaly score.</div>
+            <div>• T-00:00:05 — 7-Model Panel convened for root-cause debate and mitigation synthesis.</div>
+          </div>
+
+          <!-- Disagreements & Split Resolutions (Task Y6.1 & Y6.3) -->
+          <div style="margin-top: 14px;">
+            <div style="font-size: 11px; font-weight: 700; color: #ffd700; margin-bottom: 6px;">DISPUTE &amp; HUMAN APPROVAL RESOLUTION:</div>
+            <div id="judgeDisagreementsBox" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,215,0,0.15); border-radius: 8px; padding: 10px; font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+              Chief Magistrate resolved all panelist perspectives. Mandatory human authorization enforced for P1 edge blocking.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7-Model Panel Chamber Roster Grid -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <div style="font-size: 13px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px;">
+        <span>7-MODEL EXPERT DELIBERATION ROSTER</span>
+        <span style="font-size: 10px; color: var(--accent-cyan); background: rgba(0,242,254,0.1); border: 1px solid rgba(0,242,254,0.3); padding: 2px 8px; border-radius: 4px;">CONCURRENT INFERENCE</span>
+      </div>
+      <div id="panelVoteSummaryPill" style="font-size: 11px; font-weight: 700; color: #10b981;">
+        VOTES: 7 AGREE • 0 REVISE • 0 DISSENT
+      </div>
+    </div>
+
+    <div class="panel-roster-grid" id="councilPanelGrid">
+      <!-- Dynamically populated 7 Panelist Cards via app.js -->
+    </div>
+
+    <!-- Ranked Action Authorizations (Human-in-the-Loop) -->
+    <div class="panel glass-panel action-authorization-box">
+      <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="panel-title-group">
+          <span class="panel-icon">⚡</span>
+          <h2>Recommended Defense Actions (Human-in-the-Loop Authorization)</h2>
+        </div>
+        <span class="status-pill green" style="background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.4); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700;">EXECUTION READY</span>
+      </div>
+
+      <div id="councilRankedActionsList" class="ranked-actions-container" style="margin-top: 1.2rem; display: flex; flex-direction: column; gap: 12px;">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- MADDY Conversational Assistant Slide-Out Drawer -->
+  <aside id="maddyDrawer" class="maddy-drawer glass-panel closed">
+    <div class="maddy-header">
+      <div class="maddy-title-group">
+        <div class="maddy-avatar-wrap">
+          <span class="maddy-pulse-ring"></span>
+          <span class="maddy-avatar">✨</span>
+        </div>
+        <div>
+          <h3 class="maddy-name">MADDY AI ASSISTANT</h3>
+          <span class="maddy-status" id="maddyOnlineStatus">CONNECTED • JARVIS VOICE READY</span>
+        </div>
+      </div>
+      <div class="maddy-header-controls">
+        <button id="btnToggleVoiceMute" class="btn-icon-control" title="Toggle Voice Output (TTS)">🔊</button>
+        <button id="btnCloseMaddy" class="btn-icon-control" title="Close Assistant">✕</button>
+      </div>
+    </div>
+
+    <div class="maddy-messages-container" id="maddyMessagesList">
+      <div class="maddy-msg assistant-msg">
+        <div class="msg-avatar">✨</div>
+        <div class="msg-bubble">
+          <p>Greetings, Analyst. I am <strong>MADDY</strong>, your Autonomous SOC Copilot.</p>
+          <p>You can ask questions regarding active 7-Model Council deliberations, debate cross-examinations, or authorize containment decisions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="maddy-quick-chips" id="maddyQuickChips">
+      <button class="chip-btn" data-query="Explain the 7-model council consensus breakdown">🏛️ 7-Model Consensus</button>
+      <button class="chip-btn" data-query="What is the blast radius of the active incident?">💥 Blast Radius Analysis</button>
+      <button class="chip-btn" data-query="Summarize active high severity incidents">🚨 Active Incidents</button>
+    </div>
+
+    <div class="maddy-footer">
+      <form id="maddyChatForm" class="maddy-input-form" onsubmit="event.preventDefault();">
+        <button type="button" id="btnMaddyMic" class="btn-maddy-mic" title="Click to Speak (Speech Recognition)">
+          <svg class="mic-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <input type="text" id="maddyChatInput" class="cyber-input" placeholder="Ask MADDY or speak to JARVIS..." autocomplete="off" />
+        <button type="submit" id="btnSendMaddy" class="btn-send-maddy" title="Send Directive">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13"/>
+            <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Real AI Engine & 7-Model Panel Configuration Modal -->
+  <div id="llmSettingsModal" class="modal-backdrop hidden">
+    <div class="modal-dialog glass-panel llm-modal-card" style="max-width: 680px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" style="color:var(--accent-cyan); font-size:1.4rem;">⚡</span>
+          <div>
+            <h3 style="margin:0; font-size:1.1rem; color:#fff;">7-Model Council Panel &amp; Real AI Hub</h3>
+            <p style="margin:0; font-size:0.75rem; color:var(--text-muted);">Configure 7 Independent LLM Specialist Endpoints and Chief Magistrate Judge</p>
+          </div>
+        </div>
+        <button id="btnCloseLlmModal" class="btn-icon-close">✕</button>
+      </div>
+      <div class="modal-body" style="padding:1.2rem 1.4rem; max-height: 70vh; overflow-y: auto;">
+        <div class="llm-section-label" style="font-size:12px; font-weight:700; color:var(--text-muted); margin-bottom:8px;">Primary MADDY AI Provider:</div>
+        <div class="llm-provider-grid" id="llmProviderGrid"></div>
+        <div class="form-group" style="margin-top:1.1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <label for="llmApiKeyInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main);">PRIMARY API KEY:</label>
+            <span id="llmKeyStatusBadge" class="llm-badge-unconfigured">NO KEY SET</span>
+          </div>
+          <div class="input-with-action">
+            <input type="password" id="llmApiKeyInput" class="cyber-input" placeholder="Enter API Key" autocomplete="off" />
+            <button id="btnToggleKeyVisibility" type="button" class="btn-input-peek" title="Toggle visibility">👁️</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px;">
+          <div style="font-size:12px; font-weight:800; color:#ffd700; margin-bottom:10px;">7-Model Council Panelist Roster:</div>
+          <div id="modalPanelistList" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- Populated dynamically via app.js -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; border-top:1px solid rgba(255,255,255,0.08);">
+        <button id="btnTestLlmConnection" class="cyber-btn test-btn" type="button">
+          <span>⚡ Test Primary AI Connection</span>
+        </button>
+        <div style="display:flex; gap:8px;">
+          <button id="btnCancelLlmModal" class="cyber-btn text-btn" type="button">Cancel</button>
+          <button id="btnSaveLlmConfig" class="cyber-btn primary-btn" type="button">
+            <span>✓ Save &amp; Activate Engine</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

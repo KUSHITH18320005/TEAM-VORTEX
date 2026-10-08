@@ -1,0 +1,19 @@
+{
+  "name": "ingestion-service",
+  "version": "1.0.0",
+  "description": "Cloud Log Ingestion & Parallel Processing Gateway for MAD-PS Pipeline",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "loadtest": "node loadtest.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^6.10.0",
+    "zod": "^3.23.8"
+  }
+}

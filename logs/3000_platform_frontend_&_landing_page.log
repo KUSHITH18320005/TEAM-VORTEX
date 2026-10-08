@@ -1,0 +1,9 @@
+INFO:     Started server process [8424]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:3000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57782 - "GET /health HTTP/1.1" 200 OK
+2026-09-05 14:46:26,136 [WARNING] mad_ps_frontend.server: Could not fetch mesh status: All connection attempts failed
+INFO:     127.0.0.1:64433 - "GET /api/v1/mesh/status HTTP/1.1" 200 OK
+2026-09-05 14:47:22,750 [WARNING] mad_ps_frontend.server: Could not fetch mesh status: All connection attempts failed
+INFO:     127.0.0.1:63007 - "GET /api/v1/mesh/status HTTP/1.1" 200 OK

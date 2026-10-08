@@ -1,0 +1,3 @@
+INFO:     Started server process [21624]
+INFO:     Waiting for application startup.
+2026-09-05 14:15:31,950 [INFO] mad_ps.dnn_service: Initializing DNN Engine and training deep models...

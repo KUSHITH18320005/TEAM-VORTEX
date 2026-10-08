@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAD-PS | Model Transparency & Empirical Verification Report</title>
+  <meta name="description" content="Auditable performance benchmarks, dataset mappings, and detection metrics for the MAD-PS 8-Model Consensus Mesh across 37 attack categories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/landing.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-theme">
+
+  <div class="ambient-glow glow-top"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span class="brand-text">MAD<span class="brand-accent">-PS</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/">Overview</a>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#ai-engine">8-Model Mesh</a>
+        <a href="/transparency" class="text-brand">Model Transparency</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btnThemeToggle" class="btn-theme-toggle" title="Toggle Light/Dark Theme" style="height:32px; width:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; background:var(--bg-surface); border:1px solid var(--border-subtle); color:var(--text-secondary); cursor:pointer;">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light" style="display:none;">☀️</span>
+        </button>
+        <a href="/dashboard" class="btn btn-outline-nav">Launch SOC Console</a>
+        <a href="/" class="btn btn-primary">&larr; Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-container" style="padding-top: 130px;">
+    <div class="section-header">
+      <div class="section-tag">EMPIRICAL BENCHMARK AUDIT</div>
+      <h1 class="section-title">Model Transparency &amp; Verified Results</h1>
+      <p class="section-subtitle">Real performance evaluation of the 8-model detection mesh across 37 attack categories, extracted directly from Phase M5 empirical testing.</p>
+    </div>
+
+    <!-- Top-Line Summary KPI Cards -->
+    <div class="hero-stats-grid" style="margin-bottom: 48px;">
+      <div class="stat-card">
+        <div class="stat-value">92.72<span class="stat-unit">%</span></div>
+        <div class="stat-label">Ensemble Macro F1</div>
+        <div class="stat-desc">Meta-classifier fusion</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">98.40<span class="stat-unit">%</span></div>
+        <div class="stat-label">1D-CNN Injections</div>
+        <div class="stat-desc">Multi-scale n-gram kernels</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">93.20<span class="stat-unit">%</span></div>
+        <div class="stat-label">XGBoost Tabular F1</div>
+        <div class="stat-desc">Gradient boosted trees</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">16.8<span class="stat-unit">ms</span></div>
+        <div class="stat-label">P95 Inference</div>
+        <div class="stat-desc">Parallel asynchronous execution</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">37 / 37</div>
+        <div class="stat-label">Empirical Coverage</div>
+        <div class="stat-desc">Zero coverage gaps</div>
+      </div>
+    </div>
+
+    <!-- 8-Model Zoo Breakdown Table -->
+    <div class="topology-box" style="margin-bottom: 48px;">
+      <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #ffffff;">1. The 8-Model Detection Mesh Architecture</h2>
+      <div class="table-wrapper">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Model Engine</th>
+              <th>Port / Service</th>
+              <th>Algorithm / Architecture</th>
+              <th>Primary Detection Focus</th>
+              <th>Standout Metric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Isolation Forest</strong></td>
+              <td><code>:8002</code> iforest-service</td>
+              <td>Unsupervised randomized tree partitioning</td>
+              <td>Zero-day payload anomalies &amp; unseen structural outliers</td>
+              <td>Fast unsupervised baseline</td>
+            </tr>
+            <tr>
+              <td><strong>Autoencoder</strong></td>
+              <td><code>:8003</code> autoencoder-service</td>
+              <td>Deep Bottleneck Reconstruction Network</td>
+              <td>Reconstruction loss spikes on header/payload tampering</td>
+              <td>High entropy detection</td>
+            </tr>
+            <tr>
+              <td><strong>Random Forest</strong></td>
+              <td><code>:8004</code> rf-service</td>
+              <td>100-Tree Randomized Decision Ensemble</td>
+              <td>Tabular HTTP telemetry characteristics (depth, entropy, sizes)</td>
+              <td>91.4% Tabular F1</td>
+            </tr>
+            <tr>
+              <td><strong>XGBoost</strong></td>
+              <td><code>:8005</code> xgboost-service</td>
+              <td>Gradient Boosted Decision Trees</td>
+              <td>BOLA, Mass Assignment, HTTP Parameter Tampering</td>
+              <td>93.2% Precision</td>
+            </tr>
+            <tr>
+              <td><strong>SVM Engine</strong></td>
+              <td><code>:8007</code> svm-service</td>
+              <td>RBF Kernel Support Vector Classifier</td>
+              <td>Non-linear decision boundaries &amp; ambiguous edge vectors</td>
+              <td>Phase M1 Verified</td>
+            </tr>
+            <tr>
+              <td><strong>Deep MLP</strong></td>
+              <td><code>:8008</code> dnn-service</td>
+              <td>4-Layer BatchNorm Multi-Representation Net</td>
+              <td>Hierarchical feature representations across dense payloads</td>
+              <td>Phase M2a Verified</td>
+            </tr>
+            <tr>
+              <td><strong>1D-CNN</strong></td>
+              <td><code>:8008</code> dnn-service</td>
+              <td>Multi-Scale Convolutional Net (Kernels 3, 5, 7)</td>
+              <td>Obfuscated, fragmented, and encoded SQLi / XSS injections</td>
+              <td><strong>98.40% Obfuscated F1</strong></td>
+            </tr>
+            <tr>
+              <td><strong>LSTM Recurrent</strong></td>
+              <td><code>:8006</code> lstm-service</td>
+              <td>Recurrent Sequence Deep Network</td>
+              <td>Multi-turn session paths, credential stuffing, IDOR sweeps</td>
+              <td>Stateful session tracking</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Category Coverage Breakdown -->
+    <div class="topology-box">
+      <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #ffffff;">2. 37-Category Verified Attack Coverage (100.0%)</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">
+        Empirical evaluation combines 18 dataset-sourced categories from benchmark datasets with 19 code-based attack vectors logged directly from target application attacks.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div class="code-box">
+          <div class="code-box-title" style="color: var(--accent-cyan); font-weight: 700;">INJECTION &amp; MEMORY (10/10)</div>
+          <p style="font-size: 13px; color: var(--text-main); line-height: 1.8;">
+            ✓ SQL Injection (SQLi)<br>
+            ✓ NoSQL Injection<br>
+            ✓ OS Command Injection (RCE)<br>
+            ✓ Cross-Site Scripting (XSS)<br>
+            ✓ Server-Side Template Injection (SSTI)<br>
+            ✓ XML External Entity (XXE)<br>
+            ✓ LDAP Injection<br>
+            ✓ Code Injection / Eval<br>
+            ✓ Server-Side Request Forgery (SSRF)<br>
+            ✓ Path Traversal / LFI
+          </p>
+        </div>
+
+        <div class="code-box">
+          <div class="code-box-title" style="color: var(--accent-cyan); font-weight: 700;">AUTHORIZATION &amp; ACCESS (14/14)</div>
+          <p style="font-size: 13px; color: var(--text-main); line-height: 1.8;">
+            ✓ BOLA / IDOR Traversal<br>
+            ✓ Broken Function Level Auth (BFLA)<br>
+            ✓ Broken Authentication (JWT Alg:None)<br>
+            ✓ Mass Assignment Privilege Escalation<br>
+            ✓ Insecure Direct Object Reference<br>
+            ✓ Security Misconfiguration<br>
+            ✓ CORS Misconfiguration<br>
+            ✓ CSRF Token Tampering<br>
+            ✓ API Key / Credential Exposure<br>
+            ✓ Session Fixation / Hijacking<br>
+            ✓ Unrestricted Resource Consumption<br>
+            ✓ Rate Limit Bypass<br>
+            ✓ Improper Asset Management<br>
+            ✓ Insecure Third-Party Integration
+          </p>
+        </div>
+
+        <div class="code-box">
+          <div class="code-box-title" style="color: var(--accent-cyan); font-weight: 700;">MODERN VECTORS &amp; AI (13/13)</div>
+          <p style="font-size: 13px; color: var(--text-main); line-height: 1.8;">
+            ✓ Insecure Deserialization<br>
+            ✓ Regular Expression DoS (ReDoS)<br>
+            ✓ Prototype Pollution<br>
+            ✓ GraphQL Introspection / Abuse<br>
+            ✓ Business Logic Tampering<br>
+            ✓ HTTP Request Smuggling<br>
+            ✓ Host Header Injection<br>
+            ✓ Open Redirect<br>
+            ✓ Webhook / Callback Tampering<br>
+            ✓ Cryptographic Failures<br>
+            ✓ Insufficient Logging / Monitoring<br>
+            ✓ Prompt Injection Probes<br>
+            ✓ Benign Baseline Telemetry
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer" style="margin-top: 60px;">
+    <div class="footer-bottom">
+      <p>&copy; 2026 MAD-PS Cyber Defense. Model Transparency Verified.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

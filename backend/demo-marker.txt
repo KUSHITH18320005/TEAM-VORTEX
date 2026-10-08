@@ -1,0 +1,6 @@
+DEMO_MARKER_FLAG{XXE_LOCAL_ENTITY_RESOLVED_SUCCESSFULLY_MADPS_2026}
+[DEMO_HARLESS_PLACEHOLDER_FILE]
+This file exists solely for verifying safe local XML entity resolution in the Zerodha cybersecurity lab.
+Sensitive Server Environment: MERN Trading Lab Architecture
+Internal Hostname: internal-core-banking-01
+Access Status: READ_CONFIRMED

@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Vulnerable Zerodha-Clone Backend for SOC Detection Model Training",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "seed": "node seed.js",
+    "replay:bulk": "python dataset-replay/import.py --mode bulk",
+    "replay:live": "python dataset-replay/import.py --mode live"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "deep-diff": "^1.0.2",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.1.1",
+    "mongoose": "^9.3.3",
+    "passport": "^0.7.0",
+    "passport-local-mongoose": "^9.0.1",
+    "playwright": "^1.62.1",
+    "socket.io": "^4.8.3"
+  }
+}

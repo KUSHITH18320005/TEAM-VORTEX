@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAD-PS SENTINEL™ — Autonomous Multi-Agent Cyber Defense Platform</title>
+  <meta name="description" content="Autonomous 8-Model Attack Detection Mesh, Multi-Agent Deliberation Council, and Real-Time Telemetry Platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/landing.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-theme cyber-theme scroll-website">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="cyber-grid-canvas"></div>
+
+  <!-- Top Enterprise Navigation Bar -->
+  <header class="enterprise-navbar navbar">
+    <div class="nav-container">
+      <div class="nav-brand-section">
+        <a href="#home" class="brand-logo" style="text-decoration:none;">
+          <div class="shield-logo-pulse">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="brand-text" style="font-weight:800; font-size:17px; color:#fff; letter-spacing:-0.3px;">MAD<span class="brand-accent" style="color:var(--accent-cyan);">-PS SENTINEL</span></span>
+          <span class="enterprise-badge" style="font-size:9px; font-weight:800; padding:2px 6px; border-radius:4px; background:rgba(0,242,254,0.12); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); margin-left:6px;">AUTONOMOUS SOC</span>
+        </a>
+      </div>
+
+      <!-- Center Links to Scroll Sections & Direct Consoles -->
+      <nav class="nav-links">
+        <a href="#speed">Speed</a>
+        <a href="#engine">8-Model Engine</a>
+        <a href="#exploitability">Exploitability</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#compare">Compare</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-actions">
+        <button id="btnThemeToggle" class="btn-theme-toggle" title="Toggle Light/Dark Theme" style="height:32px; width:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; background:var(--bg-surface); border:1px solid var(--border-subtle); color:var(--text-secondary); cursor:pointer;">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light" style="display:none;">☀️</span>
+        </button>
+
+        <button id="btnOpenLlmSettings" class="btn-llm-trigger" title="Configure Real AI Models (Gemini, OpenAI, Claude, Groq)">
+          <span class="pulse-dot" id="llmStatusDot"></span>
+          <span class="llm-btn-text" id="llmStatusText">Real AI Engine</span>
+          <span class="llm-gear-icon">⚙️</span>
+        </button>
+
+        <button id="btnToggleMaddy" class="btn-maddy-trigger" title="Open MADDY AI Assistant">
+          <span class="sparkle-icon">✨</span>
+          <span class="maddy-btn-text">MADDY AI ASSISTANT</span>
+          <span class="status-chip active">ACTIVE</span>
+        </button>
+
+        <div id="unauthNavActions" style="display:flex; align-items:center; gap:8px;">
+          <button onclick="openAuthModal('login')" class="btn btn-outline-nav btn-sm">
+            Sign In
+          </button>
+          <button onclick="openAuthModal('signup')" class="btn btn-primary btn-sm nav-cta">
+            Sign Up Free →
+          </button>
+        </div>
+        <div id="authNavActions" style="display:none; align-items:center; gap:8px;">
+          <a href="/apps" class="btn btn-secondary btn-sm" title="View My API Key & SDK Snippet">
+            🔑 View API Key
+          </a>
+          <a href="/dashboard" class="btn btn-primary btn-sm nav-cta">
+            My SOC Cockpit →
+          </a>
+          <button onclick="logoutPlatform()" class="btn btn-outline-nav btn-sm" title="Sign Out">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Public Scroll Content Area -->
+  <main class="page-content-flow">
+
+    <!-- 1. ASYMMETRIC HERO SECTION (#home) -->
+    <section id="home" class="hero-asymmetric-section">
+      <div class="hero-container">
+        <div class="hero-grid-2col">
+          <!-- Left Column: Authoritative Messaging & CTAs -->
+          <div class="hero-left-content">
+            <div class="hero-badge-pill">
+              <span class="pill-dot"></span>
+              AUTONOMOUS 8-MODEL ATTACK DETECTION &amp; MULTI-AGENT SOC
+            </div>
+            <h1 class="hero-main-title">
+              Autonomous AI SOC for<br />
+              <span class="headline-gradient">Modern Web &amp; Cloud</span>
+            </h1>
+            <p class="hero-description">
+              Monitors your application for <strong>37 verified attack categories</strong> in real time with an 8-model consensus detection mesh and grounded LLM debate council.
+            </p>
+
+            <div class="hero-cta-row">
+              <button onclick="openAuthModal('signup')" class="btn btn-primary btn-lg">
+                <span>✨ Sign Up Free &amp; Get API Key →</span>
+              </button>
+              <button onclick="openAuthModal('login')" class="btn btn-secondary btn-lg">
+                <span>👤 Sign In to Workspace</span>
+              </button>
+            </div>
+
+            <!-- 3 Asymmetric Key Stats with Accent Underlines -->
+            <div class="hero-stats-strip">
+              <div class="hero-stat-block">
+                <div class="hero-stat-num">92.72<span class="unit">%</span></div>
+                <div class="hero-stat-label">Macro F1-Score</div>
+              </div>
+              <div class="hero-stat-block">
+                <div class="hero-stat-num">98.40<span class="unit">%</span></div>
+                <div class="hero-stat-label">1D-CNN Obfuscated F1</div>
+              </div>
+              <div class="hero-stat-block">
+                <div class="hero-stat-num">16.8<span class="unit">ms</span></div>
+                <div class="hero-stat-label">P95 Mesh Latency</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Real Live Product Browser Mockup -->
+          <div class="hero-right-visual">
+            <div class="browser-mockup-frame">
+              <div class="mockup-header-bar">
+                <div class="mockup-traffic-lights">
+                  <span class="light red"></span>
+                  <span class="light yellow"></span>
+                  <span class="light green"></span>
+                </div>
+                <div class="mockup-url-bar">
+                  <span>🔒</span>
+                  <span>sentinel.madps.ai/mesh-matrix</span>
+                </div>
+                <div class="mockup-live-badge">
+                  <span class="pulse-dot"></span>
+                  <span>LIVE CONSENSUS</span>
+                </div>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-consensus-strip">
+                  <div>
+                    <span style="font-size:10px; font-weight:700; color:var(--text-muted); display:block; font-family:var(--font-mono);">CONSENSUS VERDICT:</span>
+                    <span style="font-size:13px; font-weight:800; color:var(--status-emerald);" id="mockupVerdict">NOMINAL • 92.72% MACRO F1</span>
+                  </div>
+                  <span class="status-chip active">8/8 MESH ONLINE</span>
+                </div>
+
+                <div class="mockup-models-matrix">
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>1. Isolation Forest (:8002)</span>
+                      <span class="score">0.04</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 4%;"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>2. Autoencoder (:8003)</span>
+                      <span class="score">0.01</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 2%;"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>3. Random Forest (:8004)</span>
+                      <span class="score">0.02</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 3%;"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>4. XGBoost (:8005)</span>
+                      <span class="score">0.01</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 2%;"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>5. SVM RBF (:8007)</span>
+                      <span class="score">0.03</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 3%;"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>6. Deep MLP (:8008)</span>
+                      <span class="score">0.02</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 2%;"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>7. 1D-CNN Obfuscated (:8008)</span>
+                      <span class="score">0.984</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 98%; background:var(--brand-primary-hover);"></div></div>
+                  </div>
+                  <div class="mockup-model-row">
+                    <div class="mockup-model-header">
+                      <span>8. LSTM Sequence (:8006)</span>
+                      <span class="score">0.01</span>
+                    </div>
+                    <div class="mockup-meter"><div class="mockup-meter-fill" style="width: 2%;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SPEED / EMPIRICAL BENCHMARKS SECTION (#speed) -->
+    <section id="speed" class="scroll-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">EMPIRICAL BENCHMARKS</span>
+          <h2 class="section-title">Ultra-Fast 16.8ms Detection Without Slow API Calls</h2>
+          <p class="section-subtitle">Real load test metrics from Phase M5 empirical verification. Parallel asynchronous mesh inference.</p>
+        </div>
+
+        <div class="benchmarks-grid">
+          <div class="benchmark-card">
+            <div class="bench-val">16.8<span class="unit">ms</span></div>
+            <div class="bench-label">P95 Mesh Latency</div>
+            <p class="bench-desc">Parallel 8-model asynchronous execution</p>
+          </div>
+          <div class="benchmark-card">
+            <div class="bench-val">98.40<span class="unit">%</span></div>
+            <div class="bench-label">1D-CNN Obfuscated F1</div>
+            <p class="bench-desc">Multi-scale 3, 5, 7 character n-gram kernels</p>
+          </div>
+          <div class="benchmark-card">
+            <div class="bench-val">93.20<span class="unit">%</span></div>
+            <div class="bench-label">XGBoost Precision</div>
+            <p class="bench-desc">Gradient boosted decision trees</p>
+          </div>
+          <div class="benchmark-card">
+            <div class="bench-val">0.4<span class="unit">%</span></div>
+            <div class="bench-label">False Positive Rate</div>
+            <p class="bench-desc">Grounded evidence filtering</p>
+          </div>
+          <div class="benchmark-card">
+            <div class="bench-val">1,250<span class="unit">+</span></div>
+            <div class="bench-label">Req/Sec Throughput</div>
+            <p class="bench-desc">Single-node non-blocking capacity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 8-MODEL AI ENGINE & DENSE ZOO (#engine) -->
+    <section id="engine" class="models-zoo-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">8-MODEL AI ENGINE</span>
+          <h2 class="section-title">The Complete Consensus Model Zoo</h2>
+          <p class="section-subtitle">8 independent ML/DL models running in consensus with zero black-box secrets.</p>
+        </div>
+
+        <div class="models-zoo-grid">
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">Isolation Forest</span>
+              <span class="zoo-port-badge">PORT :8002</span>
+            </div>
+            <div class="zoo-focus-tag">Unsupervised Outlier Detection</div>
+            <p class="zoo-desc">Isolates anomalous feature spaces for zero-day adversary traffic without pre-labeled assumptions.</p>
+            <div class="zoo-meta-row">Target: <strong>Zero-Day Unknowns</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">Autoencoder</span>
+              <span class="zoo-port-badge">PORT :8003</span>
+            </div>
+            <div class="zoo-focus-tag">Deep Reconstruction Error</div>
+            <p class="zoo-desc">Compresses and reconstructs benign HTTP baselines; spikes in reconstruction loss signal payload tampering.</p>
+            <div class="zoo-meta-row">Target: <strong>Structural Deviations</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">Random Forest</span>
+              <span class="zoo-port-badge">PORT :8004</span>
+            </div>
+            <div class="zoo-focus-tag">Tabular Ensemble Trees</div>
+            <p class="zoo-desc">100 randomized decision trees analyzing method, path depth, header entropy, and payload size.</p>
+            <div class="zoo-meta-row">F1-Score: <strong>91.4% Tabular F1</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">XGBoost</span>
+              <span class="zoo-port-badge">PORT :8005</span>
+            </div>
+            <div class="zoo-focus-tag">Gradient Boosted Trees</div>
+            <p class="zoo-desc">High-speed tabular classifier optimized for subtle BOLA, Mass Assignment, and parameter tampering.</p>
+            <div class="zoo-meta-row">Precision: <strong>93.2% Precision</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">SVM Engine (RBF)</span>
+              <span class="zoo-port-badge">PORT :8007</span>
+            </div>
+            <div class="zoo-focus-tag">Kernel Hyperplane Boundary</div>
+            <p class="zoo-desc">Radial basis function kernel mapping subtle boundary edge cases where tree algorithms exhibit high variance.</p>
+            <div class="zoo-meta-row">Task: <strong>Phase M1 Verified</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">Deep MLP</span>
+              <span class="zoo-port-badge">PORT :8008</span>
+            </div>
+            <div class="zoo-focus-tag">4-Layer BatchNorm Net</div>
+            <p class="zoo-desc">Deep neural network learning hierarchical feature representations with dropout regularization.</p>
+            <div class="zoo-meta-row">Task: <strong>Phase M2a Verified</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">1D-CNN (Multi-Scale)</span>
+              <span class="zoo-port-badge">PORT :8008</span>
+            </div>
+            <div class="zoo-focus-tag">Character n-Gram Convolutions</div>
+            <p class="zoo-desc">Parallel 3, 5, and 7 kernel convolutions catching encoded, obfuscated, and fragmented injections.</p>
+            <div class="zoo-meta-row">F1-Score: <strong>98.40% Obfuscated F1</strong></div>
+          </div>
+
+          <div class="zoo-card">
+            <div class="zoo-card-header">
+              <span class="zoo-model-name">LSTM Recurrent</span>
+              <span class="zoo-port-badge">PORT :8006</span>
+            </div>
+            <div class="zoo-focus-tag">Stateful Sequence Tracking</div>
+            <p class="zoo-desc">Analyzes multi-turn temporal state across session paths to catch credential stuffing &amp; IDOR sweeps.</p>
+            <div class="zoo-meta-row">Target: <strong>Multi-Turn Campaigns</strong></div>
+          </div>
+        </div>
+
+        <!-- Flow Visualizer Diagram -->
+        <div class="topology-container" style="margin-top: 40px;">
+          <div class="topology-header">
+            <div class="status-indicator-live">
+              <span class="status-dot"></span>
+              LIVE MESH TOPOLOGY & CONSENSUS FLOW
+            </div>
+            <span class="port-badge">8 ACTIVE BRANCHES</span>
+          </div>
+          <div class="flow-diagram">
+            <div class="flow-step">
+              <span class="node-tag">CLIENT APP</span>
+              <div class="node-title">Target WebApp</div>
+              <div class="node-sub">@madps/agent SDK</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="node-tag">GATEWAY :8001</span>
+              <div class="node-title">Ingest API</div>
+              <div class="node-sub">Token Auth & Dispatch</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step highlight">
+              <span class="node-tag">DETECTION MESH</span>
+              <div class="node-title">8 ML/DL Engines</div>
+              <div class="node-sub">IForest • AE • RF • XGB • SVM • MLP • CNN • LSTM</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="node-tag">META-CLASSIFIER</span>
+              <div class="node-title">Consensus Fusion</div>
+              <div class="node-sub">92.72% Macro F1</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="node-tag">COUNCIL :8000</span>
+              <div class="node-title">LLM Debate Chamber</div>
+              <div class="node-sub">Reconstruct • Respond • Judge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. EXPLOITABILITY & 37 CATEGORIES MATRIX (#exploitability) -->
+    <section id="exploitability" class="scroll-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">EXPLOITABILITY & COVERAGE</span>
+          <h2 class="section-title">37-Category Empirical Attack Coverage (100.0%)</h2>
+          <p class="section-subtitle">Zero gaps. Combines 18 dataset-sourced categories with 19 code-based attack vectors from actual target apps.</p>
+        </div>
+
+        <div class="categories-three-col">
+          <div class="category-column">
+            <div class="col-header">INJECTION & MEMORY (10/10)</div>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> SQL Injection (SQLi)</li>
+              <li><span class="check-icon">✓</span> NoSQL Injection</li>
+              <li><span class="check-icon">✓</span> OS Command Injection (RCE)</li>
+              <li><span class="check-icon">✓</span> Cross-Site Scripting (XSS)</li>
+              <li><span class="check-icon">✓</span> Server-Side Template Injection (SSTI)</li>
+              <li><span class="check-icon">✓</span> XML External Entity (XXE)</li>
+              <li><span class="check-icon">✓</span> LDAP Injection</li>
+              <li><span class="check-icon">✓</span> Code Injection / Eval</li>
+              <li><span class="check-icon">✓</span> Server-Side Request Forgery (SSRF)</li>
+              <li><span class="check-icon">✓</span> Path Traversal / LFI</li>
+            </ul>
+          </div>
+
+          <div class="category-column">
+            <div class="col-header">AUTHORIZATION & ACCESS (14/14)</div>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> BOLA / IDOR Traversal</li>
+              <li><span class="check-icon">✓</span> Broken Function Level Auth (BFLA)</li>
+              <li><span class="check-icon">✓</span> Broken Authentication (JWT Alg:None)</li>
+              <li><span class="check-icon">✓</span> Mass Assignment Privilege Escalation</li>
+              <li><span class="check-icon">✓</span> Insecure Direct Object Reference</li>
+              <li><span class="check-icon">✓</span> Security Misconfiguration</li>
+              <li><span class="check-icon">✓</span> CORS Misconfiguration</li>
+              <li><span class="check-icon">✓</span> CSRF Token Tampering</li>
+              <li><span class="check-icon">✓</span> API Key / Credential Exposure</li>
+              <li><span class="check-icon">✓</span> Session Fixation / Hijacking</li>
+              <li><span class="check-icon">✓</span> Rate Limit Bypass</li>
+              <li><span class="check-icon">✓</span> Improper Asset Management</li>
+              <li><span class="check-icon">✓</span> Insecure Third-Party Integration</li>
+              <li><span class="check-icon">✓</span> Unrestricted Resource Consumption</li>
+            </ul>
+          </div>
+
+          <div class="category-column">
+            <div class="col-header">MODERN VECTORS & AI (13/13)</div>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> Insecure Deserialization</li>
+              <li><span class="check-icon">✓</span> Regular Expression DoS (ReDoS)</li>
+              <li><span class="check-icon">✓</span> Prototype Pollution</li>
+              <li><span class="check-icon">✓</span> GraphQL Introspection / Abuse</li>
+              <li><span class="check-icon">✓</span> Business Logic Tampering</li>
+              <li><span class="check-icon">✓</span> HTTP Request Smuggling</li>
+              <li><span class="check-icon">✓</span> Host Header Injection</li>
+              <li><span class="check-icon">✓</span> Open Redirect</li>
+              <li><span class="check-icon">✓</span> Webhook / Callback Tampering</li>
+              <li><span class="check-icon">✓</span> Cryptographic Failures</li>
+              <li><span class="check-icon">✓</span> Insufficient Logging / Monitoring</li>
+              <li><span class="check-icon">✓</span> Prompt Injection Probes</li>
+              <li><span class="check-icon">✓</span> Benign Baseline Telemetry</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ARCHITECTURE SECTION (#architecture) -->
+    <section id="architecture" class="scroll-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">SYSTEM ARCHITECTURE</span>
+          <h2 class="section-title">Autonomous Multi-Agent Defense Architecture</h2>
+          <p class="section-subtitle">Real-time edge ingestion, asynchronous parallel model zoo, and multi-agent LLM council orchestration.</p>
+        </div>
+
+        <div class="architecture-pipeline-grid">
+          <!-- Layer 1 -->
+          <div class="arch-layer-card">
+            <div class="arch-layer-header">
+              <div class="arch-layer-meta">
+                <span class="arch-layer-badge">LAYER 01</span>
+                <span class="arch-tech-tag">EDGE INTERCEPTOR</span>
+              </div>
+              <h3 class="arch-layer-title">Edge Telemetry &amp; SDK Interceptor</h3>
+              <div class="arch-layer-subtitle">@madps/agent Node/Python Middleware</div>
+            </div>
+            <p class="arch-layer-text">Client SDK middleware intercepts incoming HTTP requests, extracts sanitized headers, query params, and payloads, performing non-blocking asynchronous dispatch with zero-overhead circuit breaker protection.</p>
+            <div class="arch-layer-footer">
+              <span class="arch-metric-pill">
+                <span class="pill-icon">⚡</span>
+                <span>16.8ms Sub-System Ingest</span>
+              </span>
+              <span class="arch-status-pill">NON-BLOCKING</span>
+            </div>
+          </div>
+
+          <!-- Flow Connector 1 -> 2 -->
+          <div class="arch-connector-flow">
+            <div class="connector-pulse">
+              <span class="pulse-arrow">→</span>
+              <span class="pulse-label">Sanitized Stream</span>
+            </div>
+          </div>
+
+          <!-- Layer 2 (Highlighted Core) -->
+          <div class="arch-layer-card highlight-layer">
+            <div class="arch-layer-header">
+              <div class="arch-layer-meta">
+                <span class="arch-layer-badge highlight">LAYER 02</span>
+                <span class="arch-tech-tag highlight">8-MODEL MESH</span>
+              </div>
+              <h3 class="arch-layer-title">8-Model Consensus Detection Mesh</h3>
+              <div class="arch-layer-subtitle">Parallel Tabular, Deep &amp; Sequential Kernels</div>
+            </div>
+            <p class="arch-layer-text">Parallel evaluation by Isolation Forest, Autoencoder, Random Forest, XGBoost, SVM RBF, Deep MLP, 1D-CNN, and LSTM. Meta-classifier aggregates 8 branch probabilities into a calibrated consensus verdict.</p>
+            <div class="arch-layer-footer">
+              <span class="arch-metric-pill highlight">
+                <span class="pill-icon">🧠</span>
+                <span>92.72% Macro F1 Fusion</span>
+              </span>
+              <span class="arch-status-pill highlight">8 MODELS ACTIVE</span>
+            </div>
+          </div>
+
+          <!-- Flow Connector 2 -> 3 -->
+          <div class="arch-connector-flow">
+            <div class="connector-pulse">
+              <span class="pulse-arrow">→</span>
+              <span class="pulse-label">High-Confidence Threat</span>
+            </div>
+          </div>
+
+          <!-- Layer 3 -->
+          <div class="arch-layer-card">
+            <div class="arch-layer-header">
+              <div class="arch-layer-meta">
+                <span class="arch-layer-badge">LAYER 03</span>
+                <span class="arch-tech-tag">LLM COUNCIL</span>
+              </div>
+              <h3 class="arch-layer-title">Multi-Agent Deliberation Council</h3>
+              <div class="arch-layer-subtitle">7-Panelist Judicial Synthesis &amp; Remediation</div>
+            </div>
+            <p class="arch-layer-text">Forensic, Threat Intel, Exploit Code, Mitigation, Resilience, and Compliance Panelists deliberate with the Chief Magistrate to synthesize grounded root causes and propose automated containment actions.</p>
+            <div class="arch-layer-footer">
+              <span class="arch-metric-pill">
+                <span class="pill-icon">⚖️</span>
+                <span>94.2% Panel Consensus</span>
+              </span>
+              <span class="arch-status-pill">HUMAN-IN-THE-LOOP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. COMPARE SECTION (#compare) -->
+    <section id="compare" class="scroll-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">COMPETITIVE DIFFERENTIATION</span>
+          <h2 class="section-title">How MAD-PS Compares</h2>
+          <p class="section-subtitle">Real benchmark data comparing legacy rule SIEMs, generic LLM wrappers, and MAD-PS autonomous consensus.</p>
+        </div>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th class="col-metric">Capability / Metric</th>
+                <th class="col-legacy">Legacy WAF / SIEM</th>
+                <th class="col-wrapper">Single-Prompt LLM Wrapper</th>
+                <th class="col-madps highlight-col">
+                  <div class="th-brand-header">
+                    <span class="brand-sparkle">✨</span>
+                    <span>MAD-PS Sentinel™</span>
+                    <span class="badge-recommended">AUTONOMOUS</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="metric-cell">
+                  <div class="metric-name">P95 Detection Latency</div>
+                  <div class="metric-sub">Time to evaluate incoming request</div>
+                </td>
+                <td class="dim-cell">~50ms <span class="dim-tag">(Regex bottleneck)</span></td>
+                <td class="dim-cell">1,800ms - 4,500ms <span class="dim-tag">(Cloud API latency)</span></td>
+                <td class="highlight-col">
+                  <span class="val-highlight">16.8ms</span>
+                  <span class="val-badge-emerald">Local Mesh</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="metric-cell">
+                  <div class="metric-name">Detection Architecture</div>
+                  <div class="metric-sub">Model diversity &amp; consensus logic</div>
+                </td>
+                <td class="dim-cell">Static regex signature rules</td>
+                <td class="dim-cell">Single LLM (High hallucination risk)</td>
+                <td class="highlight-col">
+                  <span class="val-highlight">8 ML/DL Models + Meta-Fusion</span>
+                  <span class="val-sub">Multi-Branch Consensus</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="metric-cell">
+                  <div class="metric-name">37-Category Attack Coverage</div>
+                  <div class="metric-sub">OWASP API Top 10 + Zero-day probes</div>
+                </td>
+                <td class="dim-cell">Partial <span class="dim-tag">(Known signatures only)</span></td>
+                <td class="dim-cell">Inconsistent prompt sensitivity</td>
+                <td class="highlight-col">
+                  <span class="val-highlight">100.0% Empirical Grounding</span>
+                  <span class="val-badge-emerald">37/37 Categories</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="metric-cell">
+                  <div class="metric-name">Obfuscated Injection F1</div>
+                  <div class="metric-sub">Multi-scale character n-gram convolution</div>
+                </td>
+                <td class="dim-cell">61.2% F1</td>
+                <td class="dim-cell">74.8% F1</td>
+                <td class="highlight-col">
+                  <span class="val-highlight">98.40% F1</span>
+                  <span class="val-sub">1D-CNN Multi-Scale</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="metric-cell">
+                  <div class="metric-name">Root-Cause Multi-Agent Debate</div>
+                  <div class="metric-sub">Peer-critiqued investigation chamber</div>
+                </td>
+                <td class="dim-cell">None <span class="dim-tag">(Raw opaque log alerts)</span></td>
+                <td class="dim-cell">Single generation <span class="dim-tag">(Unreviewed)</span></td>
+                <td class="highlight-col">
+                  <span class="val-highlight">7-Panelist Council Chamber</span>
+                  <span class="val-sub">Peer-Critique &amp; Synthesis</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="metric-cell">
+                  <div class="metric-name">Containment Action Authorization</div>
+                  <div class="metric-sub">P0 autonomous vs P1 human sign-off</div>
+                </td>
+                <td class="dim-cell">Manual alert triage</td>
+                <td class="dim-cell">Unchecked autonomous execution</td>
+                <td class="highlight-col">
+                  <span class="val-highlight">Human-in-the-Loop Safeguards</span>
+                  <span class="val-sub">P0 Auto / P1 Operator Sign-off</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PRICING SECTION (#pricing) -->
+    <section id="pricing" class="scroll-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">TRANSPARENT PLANS</span>
+          <h2 class="section-title">Enterprise-Grade Autonomous Defense</h2>
+          <p class="section-subtitle">Deploy the 8-model detection mesh and multi-agent council in your private cloud.</p>
+        </div>
+
+        <div class="pricing-cards-grid">
+          <div class="pricing-card">
+            <div class="plan-header">
+              <span class="plan-name">Developer / Free</span>
+              <div class="plan-price">$0 <span>/ forever</span></div>
+            </div>
+            <p class="plan-desc">Perfect for testing live attack simulations & SDK integration in sandbox apps.</p>
+            <ul class="plan-features">
+              <li>✓ 8-Model Detection Mesh (Local)</li>
+              <li>✓ Live Attack Simulator Console</li>
+              <li>✓ Up to 10,000 requests/month</li>
+              <li>✓ Community Support & Docs</li>
+            </ul>
+            <a href="/scan" class="btn btn-secondary btn-block">Launch Scanner</a>
+          </div>
+
+          <div class="pricing-card featured-plan">
+            <div class="plan-badge">MOST POPULAR</div>
+            <div class="plan-header">
+              <span class="plan-name">Pro SOC</span>
+              <div class="plan-price">$499 <span>/ month</span></div>
+            </div>
+            <p class="plan-desc">Autonomous threat monitoring & live multi-agent council for growing cloud platforms.</p>
+            <ul class="plan-features">
+              <li>✓ Full 8-Model Mesh + Meta-Classifier</li>
+              <li>✓ 3-Agent LLM Deliberation Council</li>
+              <li>✓ Up to 1,000,000 requests/month</li>
+              <li>✓ Real-Time Webhook Alerting</li>
+              <li>✓ MADDY Voice Assistant Access</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-block">Get Started Now</a>
+          </div>
+
+          <div class="pricing-card">
+            <div class="plan-header">
+              <span class="plan-name">Enterprise Air-Gapped</span>
+              <div class="plan-price">Custom</div>
+            </div>
+            <p class="plan-desc">Dedicated on-premise deployment, custom fine-tuned weights, and compliance SLA.</p>
+            <ul class="plan-features">
+              <li>✓ Dedicated Air-Gapped Cluster</li>
+              <li>✓ Custom Zero-Day Fine-Tuning</li>
+              <li>✓ Unlimited Throughput</li>
+              <li>✓ 24/7 Dedicated SOC Engineering Support</li>
+              <li>✓ SOC2 & ISO 27001 DBMS Compliance</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-block">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT SECTION (#contact) -->
+    <section id="contact" class="scroll-section">
+      <div class="section-inner">
+        <div class="section-header-centered">
+          <span class="section-tag">GET IN TOUCH</span>
+          <h2 class="section-title">Schedule an Autonomous SOC Demo</h2>
+          <p class="section-subtitle">Experience real 8-model detection and live multi-agent deliberation on your stack.</p>
+        </div>
+
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="contactName" placeholder="Dr. Jane Doe" required />
+              </div>
+              <div class="form-group">
+                <label>Work Email</label>
+                <input type="email" id="contactEmail" placeholder="jane@enterprise.io" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Company / Organization</label>
+                <input type="text" id="contactCompany" placeholder="Acme Cyber Defense" required />
+              </div>
+              <div class="form-group">
+                <label>Expected Request Volume</label>
+                <select id="contactVolume">
+                  <option value="under_100k">&lt; 100K requests / month</option>
+                  <option value="100k_1m">100K - 1M requests / month</option>
+                  <option value="1m_10m">1M - 10M requests / month</option>
+                  <option value="enterprise_10m+">10M+ Enterprise Throughput</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Tell us about your security stack & requirements</label>
+              <textarea id="contactMessage" rows="4" placeholder="We operate microservices on Kubernetes and need real-time multi-agent defense..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnSubmitContact">
+              Submit Request →
+            </button>
+            <div id="contactStatusMessage" class="contact-status-msg" style="display:none;"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="enterprise-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">MAD-PS SENTINEL™</span>
+        <p class="footer-tagline">Autonomous Multi-Agent Cyber Defense & Consensus Mesh</p>
+      </div>
+      <div class="footer-links">
+        <a href="#speed">Benchmarks</a>
+        <a href="#engine">Engine Zoo</a>
+        <a href="#exploitability">Coverage</a>
+        <a href="/scan">Live Scanner</a>
+        <a href="/council">Debate Council</a>
+        <a href="/dashboard">SOC Cockpit</a>
+        <a href="/transparency">Model Transparency</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 MAD-PS Cyber Defense Platform. All 37 Categories Empirically Verified.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global MADDY AI Assistant Voice & Text Drawer -->
+  <aside id="maddyDrawer" class="maddy-drawer glass-panel closed" aria-label="MADDY Cyber Assistant Drawer">
+    <div class="maddy-header">
+      <div class="maddy-identity">
+        <div class="maddy-avatar">✨</div>
+        <div class="maddy-info">
+          <h3>MADDY AI SOC ASSISTANT</h3>
+          <span class="maddy-status-tag">ACTIVE GROUNDED COPILOT</span>
+        </div>
+      </div>
+      <div class="maddy-controls">
+        <button id="btnVoiceToggle" class="btn-voice-toggle" title="Toggle Voice JARVIS Mode">
+          <span class="mic-icon">🎙️</span>
+          <span class="voice-label">VOICE</span>
+        </button>
+        <button id="btnCloseMaddy" class="btn-close-drawer" title="Close Drawer">✕</button>
+      </div>
+    </div>
+
+    <!-- Suggested Quick Security Inquiries -->
+    <div class="maddy-quick-prompts">
+      <button class="quick-chip" data-prompt="What is the health status of all 8 models in the detection mesh?">Mesh Health</button>
+      <button class="quick-chip" data-prompt="Show me all critical severity incidents in the last 24 hours.">Critical Incidents</button>
+      <button class="quick-chip" data-prompt="Analyze the SQL injection and SSRF attack vectors.">Attack Analysis</button>
+      <button class="quick-chip" data-prompt="Which action authorizations are currently pending human review?">Pending Actions</button>
+    </div>
+
+    <!-- Chat Message Stream -->
+    <div id="maddyMessageStream" class="maddy-chat-stream">
+      <div class="maddy-msg assistant-msg">
+        <div class="msg-author">MADDY</div>
+        <div class="msg-content">
+          Greetings, SOC Analyst. I am <strong>MADDY</strong>, your autonomous multi-agent cyber defense copilot. All 8 detection models are active in consensus. How can I assist with threat investigations or action authorizations today?
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Citation & Evidence Footnote Container -->
+    <div id="maddyEvidenceDrawer" class="maddy-evidence-container" style="display:none;"></div>
+
+    <!-- Chat Input Box -->
+    <form id="maddyChatForm" class="maddy-input-form">
+      <input type="text" id="maddyInput" placeholder="Ask MADDY about incidents, models, or root cause..." autocomplete="off" />
+      <button type="submit" class="btn-send-maddy" title="Send Query">
+        <span>➤</span>
+      </button>
+    </form>
+  </aside>
+
+  <!-- Autonomous SOC Auth & API Key Connection Modal -->
+  <div id="auth-modal" class="modal-backdrop" style="display:none;">
+    <div class="modal-card" style="max-width: 520px; border: 1px solid rgba(0, 242, 254, 0.35); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 254, 0.15);">
+      <div class="modal-header">
+        <div class="modal-title" style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:20px;">🛡️</span>
+          <span>MAD-PS Platform Access</span>
+        </div>
+        <button onclick="closeAuthModal()" class="btn-modal-close" style="background:none; border:none; color:var(--text-muted); font-size:18px; cursor:pointer;">✕</button>
+      </div>
+
+      <!-- Tab Switcher: Sign In & Sign Up Only -->
+      <div class="auth-tabs" style="display:flex; gap:6px; margin: 16px 0 20px; background: rgba(255,255,255,0.04); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+        <button id="tab-login" type="button" class="auth-tab-btn active" onclick="switchAuthTab('login')" style="flex:1; padding: 10px 14px; font-size: 13px; font-weight:700; border-radius:6px; border:none; cursor:pointer; background:rgba(0,242,254,0.15); color:var(--accent-cyan);">
+          👤 Sign In
+        </button>
+        <button id="tab-signup" type="button" class="auth-tab-btn" onclick="switchAuthTab('signup')" style="flex:1; padding: 10px 14px; font-size: 13px; font-weight:700; border-radius:6px; border:none; cursor:pointer; background:transparent; color:var(--text-muted);">
+          ✨ Sign Up Free
+        </button>
+      </div>
+
+      <!-- FORM 1: Login -->
+      <form id="login-form" onsubmit="handleLogin(event)" style="display:block;">
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5;">
+          Sign in to your enterprise security organization workspace.
+        </p>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="font-size: 12px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 6px;">Work Email</label>
+          <input type="email" id="login-email" placeholder="admin@enterprise.com" value="admin@madps.ai" style="width: 100%; padding: 10px 14px; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 13px;" required />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label style="font-size: 12px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 6px;">Password</label>
+          <input type="password" id="login-password" placeholder="••••••••" value="admin123" style="width: 100%; padding: 10px 14px; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 13px;" required />
+        </div>
+
+        <div style="margin-bottom: 18px; display:flex; gap:8px;">
+          <button type="button" onclick="useDemoLogin('admin@madps.ai', 'admin123')" class="btn btn-secondary btn-sm" style="font-size:11px; padding:4px 10px;">
+            🛡️ Fill Demo Credentials
+          </button>
+        </div>
+
+        <div id="login-feedback" class="form-feedback" style="margin-bottom: 14px;"></div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+          <button type="button" onclick="closeAuthModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="font-weight:700;">Sign In to Console →</button>
+        </div>
+      </form>
+
+      <!-- FORM 3: Signup -->
+      <form id="signup-form" onsubmit="handleSignup(event)" style="display:none;">
+        <input type="hidden" id="signup-plan-tier" value="free" />
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5;">
+          Create a new organization account. Primary API key and 8-model detection mesh will be provisioned instantly.
+        </p>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom: 10px;">
+          <div class="form-group">
+            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Your Full Name</label>
+            <input type="text" id="signup-name" placeholder="Admin Analyst" style="width: 100%; padding: 10px; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 13px;" required />
+          </div>
+          <div class="form-group">
+            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Organization / Company</label>
+            <input type="text" id="signup-org" placeholder="Acme Financial Corp" style="width: 100%; padding: 10px; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 13px;" required />
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Work Email</label>
+          <input type="email" id="signup-email" placeholder="security@example.com" style="width: 100%; padding: 10px; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 13px;" required />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Password</label>
+          <input type="password" id="signup-password" placeholder="Create a secure password" style="width: 100%; padding: 10px; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 13px;" required />
+        </div>
+
+        <div id="signup-feedback" class="form-feedback" style="margin-bottom: 14px;"></div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+          <button type="button" onclick="closeAuthModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="font-weight:700;">Provision & Launch ML Detection →</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Real LLM Provider Switcher Modal -->
+  <div id="llmSettingsModal" class="modal-backdrop" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">⚙️ Configure Real AI Engine</div>
+        <button id="btnCloseLlmSettings" class="btn-modal-close">✕</button>
+      </div>
+      <p class="modal-desc">
+        Connect real AI keys for live multi-agent debates (Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro) and MADDY grounded assistant queries.
+      </p>
+
+      <form id="llmConfigForm">
+        <div class="form-group">
+          <label>Active Primary Provider</label>
+          <select id="llmProviderSelect">
+            <option value="gemini">Google Gemini (gemini-1.5-pro / flash)</option>
+            <option value="openai">OpenAI (gpt-4o / gpt-4o-mini)</option>
+            <option value="anthropic">Anthropic (claude-3-5-sonnet)</option>
+            <option value="groq">Groq (llama-3.3-70b-versatile)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>API Key</label>
+          <input type="password" id="llmApiKeyInput" placeholder="Enter provider API key (sk-... or AIza...)" />
+          <span class="field-hint">Keys are kept local in environment memory.</span>
+        </div>
+
+        <div class="modal-actions-row">
+          <button type="button" id="btnTestLlmKey" class="btn btn-secondary">Test Connection</button>
+          <button type="submit" id="btnSaveLlmConfig" class="btn btn-primary">Save Provider</button>
+        </div>
+        <div id="llmTestResultMsg" class="test-result-msg" style="display:none;"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+  <script src="/static/landing.js"></script>
+</body>
+</html>

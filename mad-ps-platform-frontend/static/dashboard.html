@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live SOC Monitoring Cockpit — MAD-PS SENTINEL™</title>
+  <meta name="description" content="Dedicated Live Security Incident Stream, Real-Time Threat Telemetry, and Autonomous SOC Analytics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/landing.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-theme cyber-theme console-page">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="cyber-grid-canvas"></div>
+
+  <!-- Left Quick-Launch Console Sidebar -->
+  <aside class="left-app-rail" aria-label="Console Navigation">
+    <a href="/" class="rail-item" title="Public Homepage">
+      <span class="rail-icon">🏠</span>
+      <span class="rail-label">Home Website</span>
+    </a>
+    <a href="/scan" class="rail-item" title="ML Model Detection & Live Scanner">
+      <span class="rail-icon">🔬</span>
+      <span class="rail-label">ML Detection</span>
+    </a>
+    <a href="/council" class="rail-item" title="Browser Council & Debate Chamber">
+      <span class="rail-icon">🏛️</span>
+      <span class="rail-label">Browser Council</span>
+    </a>
+    <a href="/dashboard" class="rail-item active" title="Live SOC Monitoring Cockpit">
+      <span class="rail-icon">⚡</span>
+      <span class="rail-label">Live Monitoring</span>
+    </a>
+    <a href="/scan#risk" class="rail-item" title="AI Risk Engine & Forensic Analysis">
+      <span class="rail-icon">🧠</span>
+      <span class="rail-label">AI Risk Engine</span>
+    </a>
+    <a href="/apps" class="rail-item" title="Developer SDK & Apps">
+      <span class="rail-icon">📱</span>
+      <span class="rail-label">Developer Apps</span>
+    </a>
+    <a href="/compliance" class="rail-item" title="Enterprise DBMS Compliance">
+      <span class="rail-icon">🗄️</span>
+      <span class="rail-label">DBMS Compliance</span>
+    </a>
+  </aside>
+
+  <!-- Top Enterprise Navigation Bar -->
+  <header class="enterprise-navbar navbar">
+    <div class="nav-container">
+      <div class="nav-brand-section">
+        <a href="/" class="brand-logo" style="text-decoration:none;">
+          <div class="shield-logo-pulse">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="brand-text" style="font-weight:800; font-size:17px; color:#fff; letter-spacing:-0.3px;">MAD<span class="brand-accent" style="color:var(--accent-cyan);">-PS SENTINEL</span></span>
+          <span class="enterprise-badge" style="font-size:9px; font-weight:800; padding:2px 6px; border-radius:4px; background:rgba(0,242,254,0.12); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); margin-left:6px;">LIVE MONITORING</span>
+        </a>
+      </div>
+
+      <!-- Live Operations Status Strip -->
+      <div class="nav-metrics-strip">
+        <div class="metric-pill" id="threatRadarPill">
+          <span class="radar-dot active"></span>
+          <span class="pill-label">THREAT RADAR:</span>
+          <span class="pill-val" id="globalThreatLevel">NOMINAL</span>
+        </div>
+        <div class="metric-pill" id="meshStatusPill">
+          <span class="pulse-indicator online"></span>
+          <span class="pill-label">8-MODEL MESH:</span>
+          <span class="pill-val" id="globalMeshStatus">ONLINE</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-actions">
+        <button id="btnThemeToggle" class="btn-theme-toggle" title="Toggle Light/Dark Theme" style="height:32px; width:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; background:var(--bg-surface); border:1px solid var(--border-subtle); color:var(--text-secondary); cursor:pointer;">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light" style="display:none;">☀️</span>
+        </button>
+
+        <button id="btnOpenLlmSettings" class="btn-llm-trigger" title="Configure Real AI Models (Gemini, OpenAI, Claude, Groq)">
+          <span class="pulse-dot" id="llmStatusDot"></span>
+          <span class="llm-btn-text" id="llmStatusText">Real AI Engine</span>
+          <span class="llm-gear-icon">⚙️</span>
+        </button>
+
+        <button id="btnToggleMaddy" class="btn-maddy-trigger" title="Open MADDY AI Assistant">
+          <span class="sparkle-icon">✨</span>
+          <span class="maddy-btn-text">MADDY AI ASSISTANT</span>
+        </button>
+
+        <a href="/" class="btn btn-outline-nav">← Back to Overview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Console Layout Container -->
+  <main class="console-main-content">
+    <div class="console-header-bar">
+      <div>
+        <div class="section-tag">REIMAGINED SOC OPERATIONS</div>
+        <h1 class="console-page-title">Autonomous Security Operations Cockpit</h1>
+        <p class="console-page-subtitle">Real-time telemetry stream, database incident archives, and 8-model consensus attack classifications.</p>
+      </div>
+      <div class="console-header-actions">
+        <a href="/scan" class="cyber-btn primary"><span>🔬 Live 8-Model Detection Mesh</span></a>
+        <a href="/council" class="cyber-btn secondary"><span>🏛️ Council Deliberations</span></a>
+      </div>
+    </div>
+
+    <!-- KPI Grid -->
+    <div class="stats-overview-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-label">TOTAL SECURITY INCIDENTS</span>
+          <span class="stat-icon">📊</span>
+        </div>
+        <div class="stat-value" id="statTotalIncidents">--</div>
+        <div class="stat-subtext">Verified in Shared DBMS &amp; Archives</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-label">AVERAGE RISK SCORE</span>
+          <span class="stat-icon red">⚡</span>
+        </div>
+        <div class="stat-value text-rose" id="statAvgRiskScore">--</div>
+        <div class="stat-subtext">Deterministic 0.0 - 10.0 severity scale</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-label">LIVE INGESTED EVENTS</span>
+          <span class="stat-icon">🌐</span>
+        </div>
+        <div class="stat-value text-brand" id="statTotalInspections">--</div>
+        <div class="stat-subtext">Ingested client telemetry evaluated</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-label">ENSEMBLE META-CONFIDENCE</span>
+          <span class="stat-icon green">🎯</span>
+        </div>
+        <div class="stat-value text-emerald" id="statAvgMeshConf">92.7%</div>
+        <div class="stat-subtext">8-Model Parallel Consensus</div>
+      </div>
+    </div>
+
+    <!-- Live Incident Stream & Radar -->
+    <div class="inspector-layout-grid" style="grid-template-columns: 2fr 1fr; gap: 24px;">
+      <div class="panel glass-panel">
+        <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="panel-title-group">
+            <span class="panel-icon">⚡</span>
+            <h2>Real-Time Security Incident Stream</h2>
+          </div>
+          <span class="pulse-dot-green" title="Live stream polling active"></span>
+        </div>
+
+        <div class="incident-feed-container" id="operationsFeedList" style="max-height: 480px; overflow-y: auto; margin-top: 1rem;">
+          <div style="padding: 24px; text-align: center; color: var(--text-dim);">Loading live incident telemetry...</div>
+        </div>
+      </div>
+
+      <div class="panel glass-panel">
+        <div class="panel-header">
+          <div class="panel-title-group">
+            <span class="panel-icon">📡</span>
+            <h2>Threat Vector Distribution</h2>
+          </div>
+        </div>
+        <div class="category-distribution-box" id="categoryDistributionContainer" style="margin-top: 1rem;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MADDY Conversational Assistant Slide-Out Drawer -->
+  <aside id="maddyDrawer" class="maddy-drawer glass-panel closed">
+    <div class="maddy-header">
+      <div class="maddy-title-group">
+        <div class="maddy-avatar-wrap">
+          <span class="maddy-pulse-ring"></span>
+          <span class="maddy-avatar">✨</span>
+        </div>
+        <div>
+          <h3 class="maddy-name">MADDY AI ASSISTANT</h3>
+          <span class="maddy-status" id="maddyOnlineStatus">CONNECTED • JARVIS VOICE READY</span>
+        </div>
+      </div>
+      <div class="maddy-header-controls">
+        <button id="btnToggleVoiceMute" class="btn-icon-control" title="Toggle Voice Output (TTS)">🔊</button>
+        <button id="btnCloseMaddy" class="btn-icon-control" title="Close Assistant">✕</button>
+      </div>
+    </div>
+
+    <!-- Message History Stream -->
+    <div class="maddy-messages-container" id="maddyMessagesList">
+      <div class="maddy-msg assistant-msg">
+        <div class="msg-avatar">✨</div>
+        <div class="msg-bubble">
+          <p>Greetings, Analyst. I am <strong>MADDY</strong>, your Autonomous SOC Copilot.</p>
+          <p>Ask questions regarding active incident telemetry, query threat severity, or speak via microphone.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suggested Quick Chips -->
+    <div class="maddy-quick-chips" id="maddyQuickChips">
+      <button class="chip-btn" data-query="Summarize active high severity incidents">🚨 High Severity Incidents</button>
+      <button class="chip-btn" data-query="What is the 8-model detection mesh status?">🕸️ Mesh Health Status</button>
+      <button class="chip-btn" data-query="Explain the last SQL injection incident root cause">🔍 SQLi Root Cause</button>
+    </div>
+
+    <!-- MADDY Input Bar -->
+    <div class="maddy-footer">
+      <form id="maddyChatForm" class="maddy-input-form" onsubmit="event.preventDefault();">
+        <button type="button" id="btnMaddyMic" class="btn-maddy-mic" title="Click to Speak (Speech Recognition)">
+          <svg class="mic-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <input type="text" id="maddyChatInput" class="cyber-input" placeholder="Ask MADDY or speak to JARVIS..." autocomplete="off" />
+        <button type="submit" id="btnSendMaddy" class="btn-send-maddy" title="Send Directive">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13"/>
+            <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Real AI Engine Modal -->
+  <div id="llmSettingsModal" class="modal-backdrop hidden">
+    <div class="modal-dialog glass-panel llm-modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" style="color:var(--accent-cyan); font-size:1.4rem;">⚡</span>
+          <div>
+            <h3 style="margin:0; font-size:1.1rem; color:#fff;">Real AI Engine &amp; Provider Hub</h3>
+            <p style="margin:0; font-size:0.75rem; color:var(--text-muted);">Configure Live LLMs for MADDY Assistant &amp; Council Debaters</p>
+          </div>
+        </div>
+        <button id="btnCloseLlmModal" class="btn-icon-close">✕</button>
+      </div>
+      <div class="modal-body" style="padding:1.2rem 1.4rem;">
+        <div class="llm-section-label" style="font-size:12px; font-weight:700; color:var(--text-muted); margin-bottom:8px;">Select Real LLM Provider:</div>
+        <div class="llm-provider-grid" id="llmProviderGrid"></div>
+        <div class="form-group" style="margin-top:1.1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <label for="llmApiKeyInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main);">API KEY:</label>
+            <span id="llmKeyStatusBadge" class="llm-badge-unconfigured">NO KEY SET</span>
+          </div>
+          <div class="input-with-action">
+            <input type="password" id="llmApiKeyInput" class="cyber-input" placeholder="Enter API Key" autocomplete="off" />
+            <button id="btnToggleKeyVisibility" type="button" class="btn-input-peek" title="Toggle visibility">👁️</button>
+          </div>
+        </div>
+        <div class="grid-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+          <div class="form-group">
+            <label for="llmModelInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main); margin-bottom:4px; display:block;">MODEL NAME:</label>
+            <input type="text" id="llmModelInput" class="cyber-input" placeholder="e.g. gemini-2.0-flash" />
+          </div>
+          <div class="form-group">
+            <label for="llmBaseUrlInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main); margin-bottom:4px; display:block;">ENDPOINT / BASE URL:</label>
+            <input type="text" id="llmBaseUrlInput" class="cyber-input" placeholder="https://..." />
+          </div>
+        </div>
+        <div id="llmTestResultBox" class="llm-test-box hidden" style="margin-top:10px;">
+          <div id="llmTestStatusText" class="test-status-line"></div>
+          <div id="llmTestReplyText" class="test-reply-line mono" style="font-size:11px;"></div>
+        </div>
+      </div>
+      <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; border-top:1px solid rgba(255,255,255,0.08);">
+        <button id="btnTestLlmConnection" class="cyber-btn test-btn" type="button">
+          <span>⚡ Test Real AI Connection</span>
+        </button>
+        <div style="display:flex; gap:8px;">
+          <button id="btnCancelLlmModal" class="cyber-btn text-btn" type="button">Cancel</button>
+          <button id="btnSaveLlmConfig" class="cyber-btn primary-btn" type="button">
+            <span>✓ Save &amp; Activate Real AI</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

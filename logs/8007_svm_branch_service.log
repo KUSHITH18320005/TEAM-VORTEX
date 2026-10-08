@@ -1,0 +1,6 @@
+INFO:     Started server process [23804]
+INFO:     Waiting for application startup.
+2026-09-05 14:46:38,978 [INFO] mad_ps.svm_service: Initializing SVM Engine and running kernel competition...
+2026-09-05 14:46:41,938 [INFO] mad_ps.svm_service: SVM Engine initialized successfully. Winning kernels: Web=linear, Net=rbf
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8007 (Press CTRL+C to quit)

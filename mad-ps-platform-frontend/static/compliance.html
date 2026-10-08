@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise DBMS Compliance & Audit Explorer — MAD-PS SENTINEL™</title>
+  <meta name="description" content="Persistent Database Tables, Multi-Tenant Audit Forensics, and Cryptographic Telemetry Verification." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/landing.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-theme cyber-theme console-page">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="cyber-grid-canvas"></div>
+
+  <!-- Left Quick-Launch Console Sidebar -->
+  <aside class="left-app-rail" aria-label="Console Navigation">
+    <a href="/" class="rail-item" title="Public Homepage">
+      <span class="rail-icon">🏠</span>
+      <span class="rail-label">Home Website</span>
+    </a>
+    <a href="/scan" class="rail-item" title="ML Model Detection & Live Scanner">
+      <span class="rail-icon">🔬</span>
+      <span class="rail-label">ML Detection</span>
+    </a>
+    <a href="/council" class="rail-item" title="Browser Council & Debate Chamber">
+      <span class="rail-icon">🏛️</span>
+      <span class="rail-label">Browser Council</span>
+    </a>
+    <a href="/dashboard" class="rail-item" title="Live SOC Monitoring Cockpit">
+      <span class="rail-icon">⚡</span>
+      <span class="rail-label">Live Monitoring</span>
+    </a>
+    <a href="/scan#risk" class="rail-item" title="AI Risk Engine & Forensic Analysis">
+      <span class="rail-icon">🧠</span>
+      <span class="rail-label">AI Risk Engine</span>
+    </a>
+    <a href="/apps" class="rail-item" title="Developer SDK & Apps">
+      <span class="rail-icon">📱</span>
+      <span class="rail-label">Developer Apps</span>
+    </a>
+    <a href="/compliance" class="rail-item active" title="Enterprise DBMS Compliance">
+      <span class="rail-icon">🗄️</span>
+      <span class="rail-label">DBMS Compliance</span>
+    </a>
+  </aside>
+
+  <!-- Top Enterprise Navigation Bar -->
+  <header class="enterprise-navbar navbar">
+    <div class="nav-container">
+      <div class="nav-brand-section">
+        <a href="/" class="brand-logo" style="text-decoration:none;">
+          <div class="shield-logo-pulse">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="brand-text" style="font-weight:800; font-size:17px; color:#fff; letter-spacing:-0.3px;">MAD<span class="brand-accent" style="color:var(--accent-cyan);">-PS SENTINEL</span></span>
+          <span class="enterprise-badge" style="font-size:9px; font-weight:800; padding:2px 6px; border-radius:4px; background:rgba(0,242,254,0.12); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); margin-left:6px;">DBMS COMPLIANCE</span>
+        </a>
+      </div>
+
+      <!-- Live Operations Status Strip -->
+      <div class="nav-metrics-strip">
+        <div class="metric-pill" id="meshStatusPill">
+          <span class="pulse-indicator online"></span>
+          <span class="pill-label">DBMS STORAGE:</span>
+          <span class="pill-val" id="globalMeshStatus">ENCRYPTED AT REST</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-actions">
+        <button id="btnThemeToggle" class="btn-theme-toggle" title="Toggle Light/Dark Theme" style="height:32px; width:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; background:var(--bg-surface); border:1px solid var(--border-subtle); color:var(--text-secondary); cursor:pointer;">
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light" style="display:none;">☀️</span>
+        </button>
+
+        <button id="btnOpenLlmSettings" class="btn-llm-trigger" title="Configure Real AI Models (Gemini, OpenAI, Claude, Groq)">
+          <span class="pulse-dot" id="llmStatusDot"></span>
+          <span class="llm-btn-text" id="llmStatusText">Real AI Engine</span>
+          <span class="llm-gear-icon">⚙️</span>
+        </button>
+
+        <button id="btnToggleMaddy" class="btn-maddy-trigger" title="Open MADDY AI Assistant">
+          <span class="sparkle-icon">✨</span>
+          <span class="maddy-btn-text">MADDY AI ASSISTANT</span>
+        </button>
+
+        <a href="/" class="btn btn-outline-nav">← Back to Overview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Console Layout Container -->
+  <main class="console-main-content">
+    <div class="console-header-bar">
+      <div>
+        <div class="section-tag">AUDIT EXPLORER &amp; COMPLIANCE</div>
+        <h1 class="console-page-title">Enterprise DBMS Audit Explorer &amp; Forensics</h1>
+        <p class="console-page-subtitle">Real-time database records, audit trails, tenant isolation logs, and multi-schema telemetry verification.</p>
+      </div>
+      <div class="console-header-actions">
+        <a href="/dashboard" class="cyber-btn secondary">&larr; Live Monitoring</a>
+        <a href="/scan" class="cyber-btn secondary">Live Scanner &rarr;</a>
+      </div>
+    </div>
+
+    <div class="panel glass-panel">
+      <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div class="panel-title-group">
+          <span class="panel-icon">🗄️</span>
+          <h2>Persistent Database Tables</h2>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <select id="dbmsTableSelect" class="cyber-select">
+            <option value="incident_reports">incident_reports (Council Syntheses)</option>
+            <option value="traffic_inspections">traffic_inspections (Live Ingest / Probes)</option>
+            <option value="monitored_applications">monitored_applications (Onboarded Targets)</option>
+            <option value="organizations">organizations (Multi-Tenant Accounts)</option>
+            <option value="api_keys">api_keys (Active Live Keys)</option>
+            <option value="contact_requests">contact_requests (Enterprise Inquiries)</option>
+            <option value="usage_records">usage_records (Metered Telemetry)</option>
+          </select>
+          <button id="btnRefreshDbms" class="cyber-btn primary">Refresh Records</button>
+        </div>
+      </div>
+
+      <div class="table-container" style="margin-top: 1rem; overflow-x: auto; max-height: 520px;">
+        <table class="data-table" id="dbmsRecordsTable" style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr id="dbmsTableHeaders" style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); font-size: 12px;">
+              <th style="padding: 12px 14px;">RECORD ID</th>
+              <th style="padding: 12px 14px;">ORG ID</th>
+              <th style="padding: 12px 14px;">TIMESTAMP</th>
+              <th style="padding: 12px 14px;">DETAILS</th>
+            </tr>
+          </thead>
+          <tbody id="dbmsTableBody">
+            <tr><td colspan="4" style="padding: 24px; text-align: center; color: var(--text-dim);">Loading DBMS records...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- MADDY Conversational Assistant Slide-Out Drawer -->
+  <aside id="maddyDrawer" class="maddy-drawer glass-panel closed">
+    <div class="maddy-header">
+      <div class="maddy-title-group">
+        <div class="maddy-avatar-wrap">
+          <span class="maddy-pulse-ring"></span>
+          <span class="maddy-avatar">✨</span>
+        </div>
+        <div>
+          <h3 class="maddy-name">MADDY AI ASSISTANT</h3>
+          <span class="maddy-status" id="maddyOnlineStatus">CONNECTED • JARVIS VOICE READY</span>
+        </div>
+      </div>
+      <div class="maddy-header-controls">
+        <button id="btnToggleVoiceMute" class="btn-icon-control" title="Toggle Voice Output (TTS)">🔊</button>
+        <button id="btnCloseMaddy" class="btn-icon-control" title="Close Assistant">✕</button>
+      </div>
+    </div>
+
+    <div class="maddy-messages-container" id="maddyMessagesList">
+      <div class="maddy-msg assistant-msg">
+        <div class="msg-avatar">✨</div>
+        <div class="msg-bubble">
+          <p>Greetings, Auditor. I am <strong>MADDY</strong>, your Compliance and Forensics Assistant.</p>
+          <p>You can ask questions regarding database audit trails, query schema integrity, or verify tenant isolation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="maddy-quick-chips" id="maddyQuickChips">
+      <button class="chip-btn" data-query="Explain how MAD-PS guarantees tenant data isolation">🔒 Tenant Isolation Proof</button>
+      <button class="chip-btn" data-query="How many total records are stored in the database?">📊 Total DB Records</button>
+      <button class="chip-btn" data-query="Show me the latest incident report record">📋 Latest Incident Record</button>
+    </div>
+
+    <div class="maddy-footer">
+      <form id="maddyChatForm" class="maddy-input-form" onsubmit="event.preventDefault();">
+        <button type="button" id="btnMaddyMic" class="btn-maddy-mic" title="Click to Speak (Speech Recognition)">
+          <svg class="mic-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <input type="text" id="maddyChatInput" class="cyber-input" placeholder="Ask MADDY or speak to JARVIS..." autocomplete="off" />
+        <button type="submit" id="btnSendMaddy" class="btn-send-maddy" title="Send Directive">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13"/>
+            <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Real AI Engine Modal -->
+  <div id="llmSettingsModal" class="modal-backdrop hidden">
+    <div class="modal-dialog glass-panel llm-modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" style="color:var(--accent-cyan); font-size:1.4rem;">⚡</span>
+          <div>
+            <h3 style="margin:0; font-size:1.1rem; color:#fff;">Real AI Engine &amp; Provider Hub</h3>
+            <p style="margin:0; font-size:0.75rem; color:var(--text-muted);">Configure Live LLMs for MADDY Assistant &amp; Council Debaters</p>
+          </div>
+        </div>
+        <button id="btnCloseLlmModal" class="btn-icon-close">✕</button>
+      </div>
+      <div class="modal-body" style="padding:1.2rem 1.4rem;">
+        <div class="llm-section-label" style="font-size:12px; font-weight:700; color:var(--text-muted); margin-bottom:8px;">Select Real LLM Provider:</div>
+        <div class="llm-provider-grid" id="llmProviderGrid"></div>
+        <div class="form-group" style="margin-top:1.1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <label for="llmApiKeyInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main);">API KEY:</label>
+            <span id="llmKeyStatusBadge" class="llm-badge-unconfigured">NO KEY SET</span>
+          </div>
+          <div class="input-with-action">
+            <input type="password" id="llmApiKeyInput" class="cyber-input" placeholder="Enter API Key" autocomplete="off" />
+            <button id="btnToggleKeyVisibility" type="button" class="btn-input-peek" title="Toggle visibility">👁️</button>
+          </div>
+        </div>
+        <div class="grid-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+          <div class="form-group">
+            <label for="llmModelInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main); margin-bottom:4px; display:block;">MODEL NAME:</label>
+            <input type="text" id="llmModelInput" class="cyber-input" placeholder="e.g. gemini-2.0-flash" />
+          </div>
+          <div class="form-group">
+            <label for="llmBaseUrlInput" style="font-size:0.8rem; font-weight:700; color:var(--text-main); margin-bottom:4px; display:block;">ENDPOINT / BASE URL:</label>
+            <input type="text" id="llmBaseUrlInput" class="cyber-input" placeholder="https://..." />
+          </div>
+        </div>
+        <div id="llmTestResultBox" class="llm-test-box hidden" style="margin-top:10px;">
+          <div id="llmTestStatusText" class="test-status-line"></div>
+          <div id="llmTestReplyText" class="test-reply-line mono" style="font-size:11px;"></div>
+        </div>
+      </div>
+      <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; border-top:1px solid rgba(255,255,255,0.08);">
+        <button id="btnTestLlmConnection" class="cyber-btn test-btn" type="button">
+          <span>⚡ Test Real AI Connection</span>
+        </button>
+        <div style="display:flex; gap:8px;">
+          <button id="btnCancelLlmModal" class="cyber-btn text-btn" type="button">Cancel</button>
+          <button id="btnSaveLlmConfig" class="cyber-btn primary-btn" type="button">
+            <span>✓ Save &amp; Activate Real AI</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

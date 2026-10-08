@@ -1,0 +1,14 @@
+{
+  "service": "Internal Core Banking Gateway (Demo Decoy)",
+  "environment": "ISOLATED_INTRANET",
+  "status": "RESTRICTED_INTERNAL_ACCESS_ONLY",
+  "message": "⚠️ DEMO DECOY INTERNAL ADMIN SERVICE — This internal endpoint should never be reachable from public interfaces.",
+  "internalHost": "127.0.0.1:3006",
+  "subnet": "10.0.4.0/24",
+  "vaultKeyHash": "sha256:d3c09f8e12a4b56c87e90f1234567890abcdef1234567890abcdef1234567890",
+  "internalAdminStats": {
+    "connectedNodes": 4,
+    "unencryptedIntranetChannels": true,
+    "firewallBypassStatus": "SSRF_VULNERABILITY_LEAK"
+  }
+}

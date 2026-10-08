@@ -1,0 +1,9 @@
+2026-09-05 14:15:49,798 [INFO] mad_ps_explanation.llm.factory: Configured simulated multi-provider council (Anthropic, OpenAI, Gemini).
+2026-09-05 14:15:52,334 [INFO] mad_ps.database: Shared Product Database schema initialized at data\mad_ps_product.db
+INFO:     Started server process [22232]
+INFO:     Waiting for application startup.
+2026-09-05 14:15:55,045 [INFO] mad_ps_explanation.streaming: [EventBus] NATS unavailable (No module named 'nats'), using in-memory bus
+2026-09-05 14:15:55,050 [INFO] mad_ps_explanation.api: MAD-PS Explanation Service started. Council Engine and Broadcaster initialized.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51863 - "GET /api/v1/mesh/status HTTP/1.1" 200 OK

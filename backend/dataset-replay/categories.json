@@ -1,0 +1,168 @@
+{
+  "attacks": [
+    {
+      "id": 1,
+      "category": "port-scanning-recon",
+      "layer": "network",
+      "dataset": "CICIDS2017",
+      "fallback_dataset": "NSL-KDD",
+      "labels": ["PortScan", "Probe"],
+      "explanation": "An attacker systematically probes a range of ports on a target host to discover which services are running and potentially exploitable. Usually the first step before any real attack, since it maps out what's actually reachable.",
+      "features": ["Destination Port", "Flow Duration", "Total Fwd Packets", "Total Backward Packets", "Fwd Packet Length Max", "Bwd Packet Length Max", "Flow Bytes/s", "Flow Packets/s", "SYN Flag Count"]
+    },
+    {
+      "id": 2,
+      "category": "network-service-enumeration",
+      "layer": "network",
+      "dataset": "NSL-KDD",
+      "labels": ["Probe", "ipsweep", "nmap", "portsweep", "satan"],
+      "explanation": "A step beyond port scanning — once open ports are found, the attacker queries each service to identify its exact software and version, looking for known vulnerabilities specific to that version.",
+      "features": ["duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes", "count", "srv_count", "same_srv_rate", "diff_srv_rate"]
+    },
+    {
+      "id": 3,
+      "category": "dos",
+      "layer": "network",
+      "dataset": "CICIDS2017",
+      "labels": ["DoS Hulk", "DoS GoldenEye", "DoS Slowloris", "DoS Slowhttptest"],
+      "explanation": "Overwhelming a single service with traffic or malformed requests from one source until it can't respond to legitimate users — exploiting resource limits (connections, CPU, memory) rather than a code flaw.",
+      "features": ["Flow Duration", "Total Fwd Packets", "Flow IAT Mean", "Flow IAT Max", "Fwd Header Length", "Bwd Packets/s", "Active Mean", "Idle Mean"]
+    },
+    {
+      "id": 4,
+      "category": "ddos",
+      "layer": "network",
+      "dataset": "CICIDS2017",
+      "labels": ["DDoS"],
+      "explanation": "The same idea as DoS, but the flood comes from many sources simultaneously (often a botnet, see Attack 10), making it far harder to block by simply banning one IP.",
+      "features": ["Flow Duration", "Total Fwd Packets", "Total Backward Packets", "Flow Bytes/s", "Flow Packets/s", "Fwd Packets/s", "Packet Length Mean", "ACK Flag Count"]
+    },
+    {
+      "id": 5,
+      "category": "dns-spoofing",
+      "layer": "network",
+      "dataset": "CIC-IoT2023",
+      "labels": ["DNS_Spoofing"],
+      "explanation": "Corrupting a DNS resolver's cache (or intercepting a DNS query) so that a legitimate domain name resolves to an attacker-controlled IP address instead of the real one — silently redirecting users who typed the correct address.",
+      "features": ["flow_duration", "Header_Length", "Protocol Type", "Duration", "Rate", "Srate", "Drate", "ack_count", "syn_count", "DNS_query_type"]
+    },
+    {
+      "id": 6,
+      "category": "mitm",
+      "layer": "network",
+      "dataset": "CIC-IoT2023",
+      "labels": ["MITM-ArpSpoofing"],
+      "explanation": "An attacker positions themselves between two communicating parties (often via ARP spoofing on a local network) and can read, and sometimes alter, traffic that both sides believe is private and direct.",
+      "features": ["flow_duration", "Header_Length", "Protocol Type", "ARP_opcode", "ARP_hw_type", "Rate", "Srate", "Drate", "IAT", "Magnitue"]
+    },
+    {
+      "id": 7,
+      "category": "ransomware-behavioral",
+      "layer": "malware-behavioral",
+      "dataset": "CIC-MalMem2022",
+      "labels": ["Ransomware", "Ransomware-Pysa", "Ransomware-Ako", "Ransomware-Maze"],
+      "explanation": "Malware that encrypts a victim's files and demands payment for the decryption key. Detected not by its code signature but by behavior — a burst of rapid file-read-then-overwrite operations across many files in a short time, a pattern legitimate software rarely produces.",
+      "features": ["pslist.nproc", "pslist.avg_threads", "handles.nhandles", "handles.nfile", "handles.nmutant", "ldrmodules.not_in_load", "malfind.ninjections", "malfind.commitCharge"]
+    },
+    {
+      "id": 8,
+      "category": "trojan-behavioral",
+      "layer": "malware-behavioral",
+      "dataset": "CIC-MalMem2022",
+      "labels": ["Trojan", "Trojan-Emotet", "Trojan-Trickbot", "Trojan-Zeus"],
+      "explanation": "Malware disguised as legitimate software that, once run, performs hidden malicious actions (opening backdoors, stealing data, downloading further payloads) — detected by the mismatch between what the program claims to do and what it actually does.",
+      "features": ["pslist.nproc", "handles.nhandles", "handles.nkey", "handles.nsection", "dlllist.ndlls", "malfind.ninjections", "malfind.protection", "svcscan.nservices"]
+    },
+    {
+      "id": 9,
+      "category": "spyware-behavioral",
+      "layer": "malware-behavioral",
+      "dataset": "CIC-MalMem2022",
+      "labels": ["Spyware", "Spyware-180solutions", "Spyware-CWS", "Spyware-Gator"],
+      "explanation": "Software that covertly monitors and exfiltrates user activity — keystrokes, screenshots, browsing history — detected by unusual, persistent outbound data transfer patterns from a host that shouldn't be sending that volume of data anywhere.",
+      "features": ["pslist.nproc", "handles.nhandles", "handles.nfile", "handles.nthread", "callbacks.ncallbacks", "malfind.ninjections", "psxview.not_in_pslist"]
+    },
+    {
+      "id": 10,
+      "category": "botnet-c2",
+      "layer": "malware-behavioral",
+      "dataset": "CICIDS2017",
+      "fallback_dataset": "CIC-IoT2023",
+      "labels": ["Bot", "Mirai-greeth_flood", "Mirai-udpplain", "Mirai-greip_flood"],
+      "explanation": "A compromised device periodically \"checks in\" with an attacker-controlled server to receive instructions — detected by regular, low-volume beaconing traffic to a small set of external destinations, distinct from normal user browsing patterns.",
+      "features": ["Flow Duration", "Total Fwd Packets", "Total Backward Packets", "Flow IAT Mean", "Flow IAT Std", "Fwd IAT Mean", "Bwd IAT Mean", "Destination Port"]
+    },
+    {
+      "id": 11,
+      "category": "compromised-iot",
+      "layer": "iot",
+      "dataset": "CIC-IoT2023",
+      "labels": ["Mirai-greeth_flood", "DDoS-UDP_Flood", "Recon-OSScan", "Recon-PortScan"],
+      "explanation": "An edge device (like your ESP32 nodes) that's been compromised starts behaving outside its normal profile — unexpected outbound connections, unusual traffic volume, or communication with addresses it has no legitimate reason to contact.",
+      "features": ["device_id", "node_type", "firmware_version", "flow_duration", "Header_Length", "Protocol Type", "Rate", "Srate", "Drate", "anomaly_score"]
+    },
+    {
+      "id": 12,
+      "category": "polymorphic-malware",
+      "layer": "malware-behavioral",
+      "dataset": "CIC-MalMem2022",
+      "labels": ["Obfuscated-Malware", "Ransomware-Obfuscated", "Trojan-Obfuscated"],
+      "explanation": "Malware that rewrites its own code (polymorphic) or restructures its logic entirely (metamorphic) on each infection, so its file signature changes every time — designed specifically to evade signature-based antivirus. Only behavioral detection can catch it.",
+      "features": ["malfind.ninjections", "malfind.uniqueInjections", "malfind.protection", "ldrmodules.not_in_load", "ldrmodules.not_in_init", "handles.nmutant", "pslist.avg_threads"]
+    },
+    {
+      "id": 13,
+      "category": "apt-stealth-intrusion",
+      "layer": "network",
+      "dataset": "CICIDS2017",
+      "labels": ["Infiltration"],
+      "explanation": "\"Advanced Persistent Threat\" — a patient, multi-stage intrusion (often by a well-resourced attacker) that deliberately moves slowly and blends in with normal traffic to avoid triggering alerts, sometimes remaining undetected in a network for months.",
+      "features": ["Flow Duration", "Total Fwd Packets", "Total Backward Packets", "Flow Bytes/s", "Flow IAT Mean", "Flow IAT Std", "Fwd IAT Total", "Bwd IAT Total", "Subflow Fwd Packets"]
+    },
+    {
+      "id": 14,
+      "category": "encrypted-c2",
+      "layer": "malware-behavioral",
+      "dataset": "CICIDS2017-Derived",
+      "labels": ["Encrypted-C2-Beaconing"],
+      "explanation": "The same beaconing behavior as Attack 10, but the payload itself is encrypted so its content can't be inspected — meaning detection has to rely entirely on traffic pattern (timing, destination, volume) rather than reading what's being sent. No public dataset directly labels encrypted C2 payload content (it's encrypted, that's the point).",
+      "features": ["Flow Duration", "Flow IAT Mean", "Flow IAT Std", "Packet Length Mean", "Packet Length Std", "Entropy", "TLS_SNI", "TLS_CipherSuite"]
+    },
+    {
+      "id": 15,
+      "category": "ai-adaptive",
+      "layer": "research-scenario",
+      "dataset": "CICIDS2017-Adversarial",
+      "labels": ["Adversarial-Perturbation-FGSM-JSMA"],
+      "explanation": "An attacker who knows (or guesses) how a detection model works crafts inputs specifically designed to fool it — small, deliberate perturbations to traffic features that push a malicious sample just across the model's decision boundary into \"looks normal.\"",
+      "features": ["original_feature_vector", "perturbed_feature_vector", "perturbation_epsilon", "target_model", "evasion_successful"]
+    },
+    {
+      "id": 16,
+      "category": "supply-chain-compromise",
+      "layer": "research-scenario",
+      "dataset": "Composite-Scenario",
+      "labels": ["Supply-Chain-Dependency-Poisoning"],
+      "explanation": "An attacker compromises a trusted third-party component (a library, dependency, or vendor update) that the target then installs willingly — the malicious code arrives disguised as a routine, trusted update rather than a direct intrusion.",
+      "features": ["campaign_id", "stage", "component_name", "infected_package", "c2_server", "dropped_payload_type"]
+    },
+    {
+      "id": 17,
+      "category": "double-extortion",
+      "layer": "research-scenario",
+      "dataset": "Composite-Scenario",
+      "labels": ["Double-Extortion-Ransomware-Exfil"],
+      "explanation": "A composite modern ransomware pattern: the attacker exfiltrates sensitive data before encrypting it, then demands payment twice — once for the decryption key, once to not leak the stolen data publicly.",
+      "features": ["campaign_id", "stage", "exfiltrated_records_count", "encryption_key_id", "ransom_demand_btc", "leak_site_url"]
+    },
+    {
+      "id": 18,
+      "category": "zero-day-eval",
+      "layer": "research-scenario",
+      "dataset": "Holdout-Evaluation",
+      "labels": ["Novel-Unseen-Attack-Vector"],
+      "explanation": "Not an attack technique itself, but a way of testing a detection model: hold one attack category entirely out of training, then see whether the model still flags it as anomalous when it appears — simulating an attack type the system has genuinely never seen before.",
+      "features": ["holdout_target_category", "novelty_score", "isolation_forest_anomaly_score", "reconstruction_error"]
+    }
+  ]
+}
